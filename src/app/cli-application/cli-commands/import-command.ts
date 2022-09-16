@@ -2,23 +2,29 @@ import {ICliCommand} from './i-cli-command.js';
 import {Command} from './types.js';
 import TsvFileReader from '../../../common/tsv-file-reader.js';
 import chalk from 'chalk';
+import {createRentalOffer, getErrorMessage} from '../../../utils/common.js';
 
 export default class ImportCommand implements ICliCommand {
   public readonly name = Command.IMPORT;
 
-  public execute(fileName: string): void {
-    const fileReader = new TsvFileReader(fileName.trim());
+  private onLine(line: string) {
+    const offer = createRentalOffer(line);
+    console.log(chalk.bgBlack.green(JSON.stringify(offer, null, 4)));
+  }
+
+  private onComplete(count: number) {
+    console.log(chalk.bgBlack.green(`Импортированно ${count} строк`));
+  }
+
+  public async execute(filename: string): Promise<void> {
+    const fileReader = new TsvFileReader(filename.trim());
+    fileReader.on('line', this.onLine);
+    fileReader.on('end', this.onComplete);
 
     try {
-      fileReader.read();
-      console.log(chalk.bgBlack.green(JSON.stringify(fileReader.toArray(), null, 4)));
-    } catch (err) {
-
-      if (!(err instanceof Error)) {
-        throw err;
-      }
-
-      console.log(chalk.bgBlack.red(` Не удалось импортировать данные из файла по причине: «${err.message}» `));
+      await fileReader.read();
+    } catch(err) {
+      console.log(chalk.bgBlack.red(`не удалось прочесть файл: ${getErrorMessage(err)}`));
     }
   }
 }

@@ -1,0 +1,17 @@
+{
+  "api": {
+    "titles": ["Уютная квартира", "Шикарные апартаменты", "Отдельная комната", "Вилла на берегу моря", "Роскошный коттедж в лесу", "Большой дом", "Хостел"],
+    "descriptions": ["Эксклюзивное предложение. Завтра цена будет другая", "То, что Вы ищете, пока свободно", "Все подробности по телефону. Звонить с 11ч до 21ч", "Агентствам не беспокоить, сдам сам", "Будем рады принять гостей, объект освободится через 3 дня"],
+    "cities": ["Paris", "Cologne", "Brussels", "Amsterdam", "Hamburg", "'Dusseldorf"],
+    "previewPhotoUrls": ["https://previewPhoto1.jpg", "previewPhoto2.jpg", "previewPhoto3.jpg", "previewPhoto4.jpg", "previewPhoto5.jpg", "previewPhoto6.jpg", "previewPhoto7.jpg", "previewPhoto8.jpg"],
+    "photosUrls": ["https://offerPhoto1.jpg", "https://offerPhoto2.jpg", "https://offerPhoto3.jpg", "https://offerPhoto4.jpg", "https://offerPhoto5.jpg", "https://offerPhoto6.jpg", "https://offerPhoto7.jpg", "https://offerPhoto8.jpg", "https://offerPhoto9.jpg", "https://offerPhoto10.jpg", "https://offerPhoto11.jpg", "https://offerPhoto12.jpg"],
+    "isPremiumValues": [true, false],
+    "offerTypes": ["apartment", "house", "room", "hotel"],
+    "authorNames": ["Джонни Бунгало", "Егор Летов", "Пётр Первый", "Эллеонора Плюшкина", "Семён Слепаков", "Джимми Хендрикс", "Войтех Дворжак"],
+    "emails": ["user@mail.ru", "owner@mail.ru", "rental@mail.ru"],
+    "avatars": ["https://avatar1.jpg", "https://avatar2.jpg", "https://avatar3.jpg", "https://avatar4.jpg"],
+    "passwords": ["sixSities123", "12345", "11111"],
+    "userTypes": ["обычный", "pro"],
+    "coordinates": [[48.85661, 2.351499], [50.938361, 6.959974], [50.846557, 4.351697], [52.370216, 4.895168], [53.550341, 10.000654], [51.225402, 6.776314]]
+  }
+}

@@ -17,15 +17,15 @@ export enum UserType {
   PRO = 'pro',
 }
 
-// const PARIS_COORDINATES: Readonly<Array <number>> = [48.85661, 2.351499];
-// const COLOGNE_COORDINATES: Readonly<Array <number>> = [50.938361, 6.959974];
-// const BRUSSELS_COORDINATES: Readonly<Array <number>> = [50.846557, 4.351697];
-// const AMSTERDAM_COORDINATES: Readonly<Array <number>> = [52.370216, 4.895168];
-// const HAMBURG_COORDINATES: Readonly<Array <number>> = [53.550341, 10.000654];
-// const DUSSELDORF_COORDINATES: Readonly<Array <number>> = [51.225402, 6.776314];
+export type Coordinate = [number, number];
+// const PARIS_COORDINATES: Readonly<Coordinate> = [48.85661, 2.351499];
+// const COLOGNE_COORDINATES: Readonly<Coordinate> = [50.938361, 6.959974];
+// const BRUSSELS_COORDINATES: Readonly<Coordinate> = [50.846557, 4.351697];
+// const AMSTERDAM_COORDINATES: Readonly<Coordinate> = [52.370216, 4.895168];
+// const HAMBURG_COORDINATES: Readonly<Coordinate> = [53.550341, 10.000654];
+// const DUSSELDORF_COORDINATES: Readonly<Coordinate> = [51.225402, 6.776314];
 //
-//
-// const defaultAvatarImageUrl = ''; // TODO: url
+// const defaultAvatarImageUrl = 'https://default.avatar.jpg'; // TODO: url
 
 interface Author {
   name: string;
@@ -48,9 +48,9 @@ export interface IRentalOffer {
   photosUrls: string[]; // 6
   isPremium: boolean;
   rating: number; // от 1 до 5, в т.ч. float
-  offerType: OfferType; // 1 - 8
-  roomsAmount: number; // 1 - 10
-  guestsLimit: number;
+  offerType: OfferType;
+  roomsAmount: number; // 1 - 8
+  guestsLimit: number; // 1 - 10
   price: number; // 100 - 100 000
   author: Author;
   commentsAmount: number;

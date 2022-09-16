@@ -1,48 +1,35 @@
 import {IFileReader} from './i-file-reader.js';
-import {readFileSync} from 'fs';
-import {City, IRentalOffer, OfferType, UserType} from '../i-rental-offer.js';
+import EventEmitter from 'events';
+import { createReadStream } from 'fs';
 
-export default class TsvFileReader implements IFileReader {
-  private rawData = '';
-
-  constructor(public fileName: string) {}
-
-  public read(): void {
-    this.rawData = readFileSync(this.fileName, { encoding: 'utf8' });
+export default class TsvFileReader extends EventEmitter implements IFileReader {
+  constructor(public fileName: string) {
+    super();
   }
 
-  public toArray(): IRentalOffer[] {
-    if (!this.rawData) {
-      return [];
+  public async read(): Promise<void> {
+    const stream = createReadStream(this.fileName, {
+      highWaterMark: 16384, // 16KB
+      encoding: 'utf-8',
+    });
+
+    let lineRead = '';
+    let endLinePosition = -1;
+    let importedRowCount = 0;
+
+    for await (const chunk of stream) {
+      lineRead += chunk.toString();
+
+      while ((endLinePosition = lineRead.indexOf('\n')) >= 0) {
+        const completeRow = lineRead.slice(0, endLinePosition + 1);
+        lineRead = lineRead.slice(++endLinePosition);
+        importedRowCount++;
+
+        this.emit('line', completeRow);
+      }
     }
 
-    return this.rawData
-      .split('\n')
-      .filter((row) => row.trim() !== '')
-      // TODO Разобраться, почему табы не находятся через '\t'. Возможно настройки редактора (например, подставляет 2 пробела)
-      .map((line) => line.split('  '))
-      .map(([title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, name, email, avatarUrl, password, userType, commentsAmount, coordinates]) => ({
-        title,
-        description,
-        publicationDate: new Date(publicationDate),
-        city: city as City,
-        previewPhotoUrl,
-        photosUrls: photosUrls.split(';'),
-        isPremium: Boolean(isPremium),
-        rating: Number(rating),
-        offerType: offerType as OfferType,
-        roomsAmount: Number.parseInt(roomsAmount, 10),
-        guestsLimit: Number.parseInt(guestsLimit, 10),
-        price: Number.parseInt(price, 10),
-        author: {
-          name,
-          email,
-          avatarUrl,
-          password,
-          userType: userType as UserType,
-        },
-        commentsAmount: Number.parseInt(commentsAmount, 10),
-        coordinates: coordinates.split(';').map((unit) => Number(unit)) as [number, number],
-      }));
+    this.emit('end', importedRowCount);
   }
 }
+
