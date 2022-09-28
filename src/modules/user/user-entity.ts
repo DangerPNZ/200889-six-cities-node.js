@@ -3,9 +3,9 @@ import {IAuthor, UserType} from '../../i-rental-offer.js';
 import {
   EMAIL_MATCH_REGEX,
   // MAX_PASSWORD_LENGTH,
-  MAX_USER_NAME_LENGTH,
+  // MAX_USER_NAME_LENGTH,
   // MIN_PASSWORD_LENGTH,
-  MIN_USER_NAME_LENGTH
+  // MIN_USER_NAME_LENGTH
 } from '../../utils/constants.js';
 import {createSHA256} from '../../utils/common.js';
 
@@ -32,14 +32,10 @@ export class UserEntity extends defaultClasses.TimeStamps implements Omit<IAutho
     this.userType = data.userType;
   }
 
-  @prop({required: true,
-  /** Павел, будешь смотреть, отпиши мне плиз, надо-ли по-факту добавлять валидацию minlength 1,
-  * если она вторит required
-  * склоняюсь к тому, что нужно оставить, потому что при финальной проверке зачастую
-  * механически проверяют. А попробовать с первой попытки защитить на хороший балл - чисто
-  * спортивный интерес */
-    minlength: [MIN_USER_NAME_LENGTH, `Min length for name is ${MIN_USER_NAME_LENGTH}`],
-    maxlength: [MAX_USER_NAME_LENGTH, `Max length for name is ${MAX_USER_NAME_LENGTH}`],
+  @prop({
+    required: true,
+    // minlength: [MIN_USER_NAME_LENGTH, `Min length for name is ${MIN_USER_NAME_LENGTH}`],
+    // maxlength: [MAX_USER_NAME_LENGTH, `Max length for name is ${MAX_USER_NAME_LENGTH}`],
   })
   public name!: string;
 
