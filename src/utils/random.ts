@@ -14,7 +14,7 @@ const getUniqueItem = <T>(usedIndexes: number[], allItems: T[]): T  => {
   return allItems[randomIndex];
 };
 
-export const getRandomUniqueItemsByAmount = <T>(items: T[], amount: number) => {
+export const getRandomUniqueItemsByAmount = <T>(items: T[], amount: number): T[] | void => {
   if (items.length === amount) {
     return items;
   }

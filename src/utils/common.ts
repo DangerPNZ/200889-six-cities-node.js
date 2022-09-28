@@ -1,8 +1,9 @@
-import {City, IRentalOffer, OfferType, UserType} from '../i-rental-offer.js';
+import crypto from 'crypto';
+import {City, Facility, IRentalOffer, OfferType, UserType} from '../i-rental-offer.js';
 
 export const createRentalOffer = (row: string): IRentalOffer => {
   const units = row.replace('\n', '').split('\t');
-  const [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, name, email, avatarUrl, password, userType, commentsAmount, coordinates] = units;
+  const [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, name, email, avatarUrl, password, userType, commentsAmount, coordinates] = units;
 
   return {
     title,
@@ -17,6 +18,7 @@ export const createRentalOffer = (row: string): IRentalOffer => {
     roomsAmount: Number(roomsAmount),
     guestsLimit: Number(guestsLimit),
     price: Number(price),
+    facilities: facilities.split(';') as Facility[],
     author: {
       name,
       email,
@@ -31,3 +33,8 @@ export const createRentalOffer = (row: string): IRentalOffer => {
 
 export const getErrorMessage = (error: unknown): string =>
   error instanceof Error ? error.message : '';
+
+export const createSHA256 = (line: string, salt: string): string => {
+  const shaHasher = crypto.createHmac('sha256', salt);
+  return shaHasher.update(line).digest('hex');
+};

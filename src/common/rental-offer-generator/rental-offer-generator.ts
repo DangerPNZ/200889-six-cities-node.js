@@ -5,11 +5,18 @@ import {
   getRandomUniqueItemsByAmount,
 } from '../../utils/random.js';
 import dayjs from 'dayjs';
+import {
+  CITIES_AMOUNT, MAX_FACILITIES_AMOUNT,
+  MAX_GUESTS_LIMIT, MAX_PRICE,
+  MAX_RATING,
+  MAX_ROOMS_AMOUNT, MIN_FACILITIES_AMOUNT,
+  MIN_GUESTS_LIMIT, MIN_PRICE,
+  MIN_RATING,
+  MIN_ROOMS_AMOUNT, PUBLICATION_PHOTOS_AMOUNT
+} from '../../utils/constants.js';
 
 const FIRST_WEEK_DAY = 1;
 const LAST_WEEK_DAY = 7;
-const CITIES_AMOUNT = 6;
-const PUBLICATION_PHOTOS_AMOUNT = 6;
 
 export class RentalOfferGenerator implements IRentalOfferGenerator{
   constructor(private readonly mockServerData: IMockServerData) {}
@@ -24,11 +31,12 @@ export class RentalOfferGenerator implements IRentalOfferGenerator{
     const previewPhotoUrl = getRandomItem<string>(this.mockServerData.previewPhotoUrls);
     const photosUrls = getRandomUniqueItemsByAmount<string[]>(this.mockServerData.photosUrls, PUBLICATION_PHOTOS_AMOUNT);
     const isPremium = getRandomItem<boolean>(this.mockServerData.isPremiumValues);
-    const rating = generateRandomNumber(1, 5, 1);
+    const rating = generateRandomNumber(MIN_RATING, MAX_RATING, 1);
     const offerType = getRandomItem<string>(this.mockServerData.offerTypes);
-    const roomsAmount = generateRandomNumber(1, 8);
-    const guestsLimit = generateRandomNumber(1, 10);
-    const price = generateRandomNumber(100, 100000);
+    const roomsAmount = generateRandomNumber(MIN_ROOMS_AMOUNT, MAX_ROOMS_AMOUNT);
+    const guestsLimit = generateRandomNumber(MIN_GUESTS_LIMIT, MAX_GUESTS_LIMIT);
+    const price = generateRandomNumber(MIN_PRICE, MAX_PRICE);
+    const facilities = getRandomUniqueItemsByAmount<string[]>(this.mockServerData.facilities, generateRandomNumber(MIN_FACILITIES_AMOUNT, MAX_FACILITIES_AMOUNT));
     const authorName = getRandomItem<string>(this.mockServerData.authorNames);
     const emails = getRandomItem<string>(this.mockServerData.emails);
     const avatarUrl = getRandomItem<string>(this.mockServerData.avatars);
@@ -37,7 +45,7 @@ export class RentalOfferGenerator implements IRentalOfferGenerator{
     const commentsAmount = generateRandomNumber(0, 50);
     const coordinates: [number, number] = this.mockServerData.coordinates[randomIndexForCity];
 
-    return [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, authorName, emails, avatarUrl, password, userType, commentsAmount, coordinates].join('\t');
+    return [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, authorName, emails, avatarUrl, password, userType, commentsAmount, coordinates].join('\t');
   }
 
 }

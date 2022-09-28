@@ -7,6 +7,7 @@
     "photosUrls": ["https://offerPhoto1.jpg", "https://offerPhoto2.jpg", "https://offerPhoto3.jpg", "https://offerPhoto4.jpg", "https://offerPhoto5.jpg", "https://offerPhoto6.jpg", "https://offerPhoto7.jpg", "https://offerPhoto8.jpg", "https://offerPhoto9.jpg", "https://offerPhoto10.jpg", "https://offerPhoto11.jpg", "https://offerPhoto12.jpg"],
     "isPremiumValues": [true, false],
     "offerTypes": ["apartment", "house", "room", "hotel"],
+    "facilities": ["Breakfast", "Air conditioning", "Laptop friendly workspace", "Baby seat", "Washer", "Towels", "Fridge"],
     "authorNames": ["Джонни Бунгало", "Егор Летов", "Пётр Первый", "Эллеонора Плюшкина", "Семён Слепаков", "Джимми Хендрикс", "Войтех Дворжак"],
     "emails": ["user@mail.ru", "owner@mail.ru", "rental@mail.ru"],
     "avatars": ["https://avatar1.jpg", "https://avatar2.jpg", "https://avatar3.jpg", "https://avatar4.jpg"],
