@@ -30,3 +30,6 @@ export const MIN_FACILITIES_AMOUNT = 1;
 export const MAX_FACILITIES_AMOUNT = 7;
 
 export const EMAIL_MATCH_REGEX = /^([\w-\\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+export const DEFAULT_OFFERS_LIMIT = 60;
+export const DEFAULT_COMMENTS_LIMIT = 50;

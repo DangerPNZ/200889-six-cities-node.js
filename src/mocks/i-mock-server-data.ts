@@ -1,4 +1,4 @@
-import {City, Coordinate, Facility, OfferType, UserType} from '../i-rental-offer.js';
+import {City, Coordinate, Facility, OfferType, UserType} from '../i-offer.js';
 
 export interface IMockServerData {
   titles: string[],

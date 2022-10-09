@@ -1,4 +1,4 @@
-import {Coordinate} from '../i-rental-offer.js';
+import {Coordinate} from '../i-offer.js';
 
 export const PARIS_COORDINATES: Readonly<Coordinate> = [48.85661, 2.351499];
 export const COLOGNE_COORDINATES: Readonly<Coordinate> = [50.938361, 6.959974];

@@ -1,11 +1,7 @@
 import typegoose, {getModelForClass, defaultClasses} from '@typegoose/typegoose';
-import {IAuthor, UserType} from '../../i-rental-offer.js';
+import {IAuthor, UserType} from '../../i-offer.js';
 import {
   EMAIL_MATCH_REGEX,
-  // MAX_PASSWORD_LENGTH,
-  // MAX_USER_NAME_LENGTH,
-  // MIN_PASSWORD_LENGTH,
-  // MIN_USER_NAME_LENGTH
 } from '../../utils/constants.js';
 import {createSHA256} from '../../utils/common.js';
 
@@ -20,8 +16,7 @@ export interface UserEntity extends defaultClasses.Base {}
   }
 })
 
-// TODO: Убрать Omit ?...
-export class UserEntity extends defaultClasses.TimeStamps implements Omit<IAuthor, 'password'> {
+export class UserEntity extends defaultClasses.TimeStamps implements Omit<IAuthor, 'password'>{
   constructor(data: IAuthor) {
     super();
 
@@ -34,8 +29,6 @@ export class UserEntity extends defaultClasses.TimeStamps implements Omit<IAutho
 
   @prop({
     required: true,
-    // minlength: [MIN_USER_NAME_LENGTH, `Min length for name is ${MIN_USER_NAME_LENGTH}`],
-    // maxlength: [MAX_USER_NAME_LENGTH, `Max length for name is ${MAX_USER_NAME_LENGTH}`],
   })
   public name!: string;
 
@@ -58,8 +51,6 @@ export class UserEntity extends defaultClasses.TimeStamps implements Omit<IAutho
 
   @prop({
     required: true,
-    // minlength: [MIN_PASSWORD_LENGTH, `Min length for password is ${MIN_PASSWORD_LENGTH}`],
-    // maxlength: [MAX_PASSWORD_LENGTH, `Max length for password is ${MAX_PASSWORD_LENGTH}`],
   })
   private password!: string;
 

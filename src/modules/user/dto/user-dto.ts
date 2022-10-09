@@ -1,6 +1,6 @@
-import {UserType} from '../../../i-rental-offer.js';
+import {UserType} from '../../../i-offer.js';
 
-export default class CreateUserDto {
+export class CreateUserDto {
   public name!: string;
   public email!: string;
   public avatarUrl?: string;

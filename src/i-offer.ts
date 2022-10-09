@@ -37,7 +37,14 @@ export interface IAuthor {
   userType: UserType;
 }
 
-export interface IRentalOffer {
+export interface IComment {
+  text: string;
+  publicationDate: Date;
+  rating: number;
+  author: IAuthor;
+}
+
+export interface IOffer {
   title: string;
   description: string;
   publicationDate: Date;

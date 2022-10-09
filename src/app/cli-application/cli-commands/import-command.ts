@@ -4,17 +4,17 @@ import TsvFileReader from '../../../common/tsv-file-reader.js';
 import chalk from 'chalk';
 import {createRentalOffer, getErrorMessage} from '../../../utils/common.js';
 import {IUserService} from '../../../modules/user/i-user-service.js';
-import {IRentalOfferService} from '../../../modules/rental-offer/i-rental-offer-service.js';
+import {IOfferService} from '../../../modules/offer/i-offer-service.js';
 import {IDataBase} from '../../../common/database-client/i-database.js';
 import {ILogger} from '../../../common/logger/i-logger.js';
 import ConsoleLoggerService from '../../../common/logger/console-logger-service.js';
-import RentalOfferService from '../../../modules/rental-offer/rental-offer-service.js';
-import {RentalOfferModel} from '../../../modules/rental-offer/rental-offer-entity.js';
+import OfferService from '../../../modules/offer/offer-service.js';
+import {OfferModel} from '../../../modules/offer/offer-entity.js';
 import {UserModel} from '../../../modules/user/user-entity.js';
 import UserService from '../../../modules/user/user-service.js';
 import DataBaseService from '../../../common/database-client/data-base-service.js';
-import {IRentalOffer} from '../../../i-rental-offer.js';
 import {getURI} from '../../../utils/data-base.js';
+import {IOffer} from '../../../i-offer.js';
 
 const DEFAULT_DB_PORT = 27017;
 const DEFAULT_USER_PASSWORD = '123456';
@@ -22,7 +22,7 @@ const DEFAULT_USER_PASSWORD = '123456';
 export default class ImportCommand implements ICliCommand {
   public readonly name = Command.IMPORT;
   private userService!: IUserService;
-  private rentalOfferService!: IRentalOfferService;
+  private rentalOfferService!: IOfferService;
   private dataBaseService!: IDataBase;
   private readonly logger: ILogger;
   private salt!: string;
@@ -32,12 +32,12 @@ export default class ImportCommand implements ICliCommand {
     this.onComplete = this.onComplete.bind(this);
 
     this.logger = new ConsoleLoggerService();
-    this.rentalOfferService = new RentalOfferService(this.logger, RentalOfferModel);
+    this.rentalOfferService = new OfferService(this.logger, OfferModel);
     this.userService = new UserService(this.logger, UserModel);
     this.dataBaseService = new DataBaseService(this.logger);
   }
 
-  private async saveOffer(rentalOffer: IRentalOffer) {
+  private async saveOffer(rentalOffer: IOffer) {
     const author = await this.userService.findOrCreate({
       ...rentalOffer.author,
       password: DEFAULT_USER_PASSWORD
@@ -45,8 +45,7 @@ export default class ImportCommand implements ICliCommand {
 
     await this.rentalOfferService.create({
       ...rentalOffer,
-      author: author as any, // TODO: Разобраться с типом
-      userId: author.id,
+      author: author.id,
     });
   }
 

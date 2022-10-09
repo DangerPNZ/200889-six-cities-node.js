@@ -1,6 +1,6 @@
 import {DocumentType, types} from '@typegoose/typegoose';
 import {IUserService} from './i-user-service.js';
-import CreateUserDto from './dto/create-user-dto.js';
+import {CreateUserDto} from './dto/user-dto.js';
 import {UserEntity} from './user-entity.js';
 import {inject, injectable} from 'inversify';
 import {Component} from '../../types/component-types.js';

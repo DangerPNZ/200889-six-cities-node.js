@@ -1,7 +1,7 @@
 import crypto from 'crypto';
-import {City, Facility, IRentalOffer, OfferType, UserType} from '../i-rental-offer.js';
+import {City, Facility, IOffer, OfferType, UserType} from '../i-offer.js';
 
-export const createRentalOffer = (row: string): IRentalOffer => {
+export const createRentalOffer = (row: string): IOffer => {
   const units = row.replace('\n', '').split('\t');
   const [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, name, email, avatarUrl, password, userType, commentsAmount, coordinates] = units;
 
