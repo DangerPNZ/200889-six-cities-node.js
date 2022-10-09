@@ -1,0 +1,389 @@
+openapi: 3.1.0
+info:
+  title: API сервер для демо-проекта «Куплю. Продам».
+  description: |-
+    * Список ресурсов и маршрутов сервера «Six Cities».
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 2.0.0
+
+tags:
+  - name: offers
+    description: Действия с предложениями по аренде.
+  - name: comments
+    description: Действия с комментариями.
+  - name: users
+    description: Действия с пользователем.
+
+paths:
+  /offers:
+    post:
+      tags:
+        - offers
+      summary: Добавление предложения по аренде.
+      description: Добавляет новое предложение по аренде.
+
+        requestBody:
+          description: Данные для создания предложения по аренде.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offer'
+            required: true
+            responses:
+              "201":
+                description: Созданное предложение по аренде.
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/offer'
+              "400":
+                description: Передан не верный или не валидный набор данных для создания предложения по аренде.
+              "401":
+                description: Пользователь не авторизован.
+    get:
+      tags:
+        - offers
+        summary: Получение предложений по аренде.
+        description: Возвращает имеющиеся предложения по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 60)
+
+        requestBody:
+          description: Предложения по аренде.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offersList'
+          required: true
+          responses:
+            "201":
+              description: Массив предложений по аренде.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/offersList'
+
+  /offers/{offerId}:
+    get:
+      tags:
+        - offers
+        summary: Получение детальной информации предложения по аренде.
+        description: Возвращает детальную информацию предложения по аренде.
+
+        requestBody:
+          description: Детальная информация предложения по аренде.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offer'
+          required: true
+          responses:
+            "200":
+              description: Найденное предложене по аренде.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/offer'
+
+    patch:
+      tags:
+        - offers
+        summary: Редактирование предложения по аренде.
+        description: Позволяет редактировать конкретное предложение по аренде.
+
+        requestBody:
+          description: Данные для редактирования предложения по аренде.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offer'
+            required: true
+            responses:
+              "200":
+                description: Отредактированное предложение по аренде.
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/offer'
+              "400":
+                description: Передан не верный или не валидный набор данных для редактирования предложения по аренде.
+              "401":
+                description: Пользователь не авторизован.
+              "403":
+                description: Пользователь не является автором предложения.
+
+    delete:
+      tags:
+        - offers
+        summary: Удаление предложения по аренде.
+        description: Позволяет удалить конкретное предложение по аренде.
+
+        requestBody:
+          description: id предложения для удаления предложения по аренде.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offerId'
+            required: true
+            responses:
+              "200":
+                description: Предложение по аренде удалено.
+              "400":
+                description: Передан не верный id для удаления предложения по аренде.
+              "401":
+                description: Пользователь не авторизован.
+              "403":
+                description: Пользователь не является автором предложения.
+
+  /comments/{offerId}:
+    get:
+      tags:
+        - comments
+        summary: Получение комментариев предложения по аренде.
+        description: Возвращает комментарии предложения по аренде.
+
+        requestBody:
+          description: id предложения для получения списка комментариев для предложения.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offerId'
+            required: true
+            responses:
+              "200":
+                description: Список комментариев для предложения по арендe.
+
+    post:
+      tags:
+        - comments
+        summary: Добавление комментария в предложение по аренде.
+        description: Добавляет комментарий в предложение по аренде.
+
+        requestBody:
+          description: Данные для создания комментария к предложению по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 50)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comment'
+            required: true
+            responses:
+              "200":
+                description: Комментарий добавлен.
+              "400":
+                description: Передан не полный или не валидный набор данных для создания комментария к предложению по аренде.
+              "401":
+                description: Пользователь не авторизован.
+
+  /users/login:
+    get:
+      tags:
+        - users
+      summary: Проверка состояния пользователя
+      description: Возвращает информацию по авторизованному пользователю
+      requestBody:
+        description: Информация по авторизованному пользователю.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        required: true
+
+        responses:
+          "200":
+            description: Объект пользователя.
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/user'
+          "401":
+            description: Пользователь не авторизован.
+          "403":
+            description: Пользователь не найден.
+    post:
+      tags:
+        - users
+      summary: Авторизация пользователя
+      description: Авторизует пользователя на основе логина и пароля
+      requestBody:
+        description: Возвращает токен для авторизации пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authData'
+        required: true
+        responses:
+          "200":
+            description: Пользователь найден. Токен авторизации.
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/userToken'
+          "401":
+            description: Пользователь не найден. Некорректный логин или email.
+
+  /users/register:
+    post:
+      tags:
+        - users
+      summary: Регистрация пользователя
+      description: Регистрирует нового пользователя.
+
+      requestBody:
+        description: Информация для создания нового пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        required: true
+
+      responses:
+        "201":
+          description: Пользователь зарегистрирован. Объект пользователя.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+        "409":
+          description: Пользователь с таким email уже существует.
+
+
+components:
+  schemas:
+    user:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Pavel Simonenko
+        email:
+          type: string
+          example: simonenko@yandex.ru
+        avatarUrl:
+          type: string
+          example: https://www.photos.com/avatar.jpg
+        password:
+          type: string
+          example: 234435456dssrw
+        userType:
+          enum:
+            - обычный
+            - pro
+
+    comment:
+      type: array
+      items:
+        type: object
+        properties:
+          offerId:
+            type: string
+            example:
+          text:
+            type: string
+            example:
+          publicationDate:
+            type: string
+            example:
+          rating:
+            type: string
+            example:
+          author:
+            type: string
+            example:
+              $ref: '#/components/schemas/user'
+
+    offer:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Домик в лесу
+        description:
+          type: string
+          example: Уютрое место для кратковременного или длительного проживания
+        publicationDate:
+          type: string
+          example: 2022-04-06T08:45:40.283Z
+        city:
+          enum:
+            - Paris
+            - Cologne
+            - Brussels
+            - Amsterdam
+            - Hamburg
+            - Dusseldorf
+        previewPhotoUrl:
+          type: string
+          example: https://www.photos.com/preview.jpg
+        photosUrls:
+          type: array
+          items:
+            type: string
+            example: https://www.photos.com/photo.jpg
+        isPremium:
+          type: boolean
+          example: true
+        offerType:
+          enum:
+            - apartment
+            - house
+            - room
+            - hotel
+        roomsAmount:
+          type: number
+          example: 6
+        guestsLimit:
+          type: number
+          example: 6
+        price:
+          type: number
+          example: 55000
+        facilities:
+          type: array
+          items:
+            enum:
+              - Breakfast
+              - Air conditioning
+              - Laptop friendly workspace
+              - Baby seat
+              - Washer
+              - Towels
+              - Fridge
+        author:
+          type: object
+          example:
+            $ref: '#/components/schemas/user'
+        coordinates:
+          type: array
+          items:
+            type: number
+            example: 45.764576
+
+
+
+    offersList:
+      type: array
+      items:
+        type: object
+        example:
+          $ref: '#/components/schemas/offer'
+
+    commentsList:
+      type: array
+      items:
+        type: object
+        example:
+          $ref: '#/components/schemas/comment'
+
+    userToken:
+      type: string
+      example: 2334#@cdf456
+
+    authData:
+      type: object
+      properties:
+        login:
+          type: string
+          example: ivanov@mail.ru
+        password:
+          type: string
+          example: 32344235fgrAd
