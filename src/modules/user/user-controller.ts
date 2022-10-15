@@ -50,7 +50,7 @@ export default class UserController extends Controller {
     const existsUser = await this.userService.findByEmail(body.email);
     if (!existsUser) {
       throw new HttpError(
-        StatusCodes.UNAUTHORIZED,
+        StatusCodes.CONFLICT,
         `User with email ${body.email} not found.`,
         'UserController',
       );

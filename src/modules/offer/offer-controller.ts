@@ -30,6 +30,11 @@ export default class OfferController extends Controller {
     const size = request.query?.size;
     const limit = size ? Number(size) : DEFAULT_OFFERS_LIMIT;
     const offers = await this.offerService.find(limit);
+
+    if (!offers) {
+      return this.noContent(response, null);
+    }
+
     const offersResponse = fillDTO(OfferResponse, offers);
 
     this.ok(response, offersResponse);
