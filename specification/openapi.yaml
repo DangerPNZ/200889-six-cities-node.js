@@ -24,155 +24,152 @@ paths:
       summary: Добавление предложения по аренде.
       description: Добавляет новое предложение по аренде.
 
-        requestBody:
-          description: Данные для создания предложения по аренде.
+      requestBody:
+        description: Данные для создания предложения по аренде.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offer'
+        required: true
+
+      responses:
+        "201":
+          description: Созданное предложение по аренде.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/offer'
-            required: true
-            responses:
-              "201":
-                description: Созданное предложение по аренде.
-                content:
-                  application/json:
-                    schema:
-                      $ref: '#/components/schemas/offer'
-              "400":
-                description: Передан не верный или не валидный набор данных для создания предложения по аренде.
-              "401":
-                description: Пользователь не авторизован.
+        "400":
+          description: Передан не верный или не валидный набор данных для создания предложения по аренде.
+        "401":
+          description: Пользователь не авторизован.
     get:
       tags:
         - offers
-        summary: Получение предложений по аренде.
-        description: Возвращает имеющиеся предложения по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 60)
+      summary: Получение предложений по аренде.
+      description: Возвращает имеющиеся предложения по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 60)
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: Лимит возвращаемых элементов коллекции.
 
-        requestBody:
-          description: Предложения по аренде.
+      responses:
+        "201":
+          description: Массив предложений по аренде.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/offersList'
-          required: true
-          responses:
-            "201":
-              description: Массив предложений по аренде.
-              content:
-                application/json:
-                  schema:
-                    $ref: '#/components/schemas/offersList'
+        "204":
+          description: Нет предложений.
 
   /offers/{offerId}:
     get:
       tags:
         - offers
-        summary: Получение детальной информации предложения по аренде.
-        description: Возвращает детальную информацию предложения по аренде.
+      summary: Получение детальной информации предложения по аренде.
+      description: Возвращает детальную информацию предложения по аренде.
 
-        requestBody:
-          description: Детальная информация предложения по аренде.
+      responses:
+        "200":
+          description: Найденное предложение по аренде.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/offer'
-          required: true
-          responses:
-            "200":
-              description: Найденное предложене по аренде.
-              content:
-                application/json:
-                  schema:
-                    $ref: '#/components/schemas/offer'
+        "404":
+          description: Запрашиваемое предложение не найдено.
 
     patch:
       tags:
         - offers
-        summary: Редактирование предложения по аренде.
-        description: Позволяет редактировать конкретное предложение по аренде.
+      summary: Редактирование предложения по аренде.
+      description: Позволяет редактировать конкретное предложение по аренде.
 
-        requestBody:
-          description: Данные для редактирования предложения по аренде.
+      requestBody:
+        description: Данные для редактирования предложения по аренде.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offer'
+        required: true
+
+      responses:
+        "200":
+          description: Отредактированное предложение по аренде.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/offer'
-            required: true
-            responses:
-              "200":
-                description: Отредактированное предложение по аренде.
-                content:
-                  application/json:
-                    schema:
-                      $ref: '#/components/schemas/offer'
-              "400":
-                description: Передан не верный или не валидный набор данных для редактирования предложения по аренде.
-              "401":
-                description: Пользователь не авторизован.
-              "403":
-                description: Пользователь не является автором предложения.
+        "400":
+          description: Передан не верный или не валидный набор данных для редактирования предложения по аренде.
+        "401":
+          description: Пользователь не авторизован.
+        "403":
+          description: Пользователь не является автором предложения.
+        "404":
+          description: Запрашиваемое предложение не найдено.
 
     delete:
       tags:
         - offers
-        summary: Удаление предложения по аренде.
-        description: Позволяет удалить конкретное предложение по аренде.
+      summary: Удаление предложения по аренде.
+      description: Позволяет удалить конкретное предложение по аренде.
 
-        requestBody:
-          description: id предложения для удаления предложения по аренде.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/offerId'
-            required: true
-            responses:
-              "200":
-                description: Предложение по аренде удалено.
-              "400":
-                description: Передан не верный id для удаления предложения по аренде.
-              "401":
-                description: Пользователь не авторизован.
-              "403":
-                description: Пользователь не является автором предложения.
+      responses:
+        "204":
+          description: Предложение по аренде удалено.
+        "400":
+          description: Передан не верный id для удаления предложения по аренде.
+        "401":
+          description: Пользователь не авторизован.
+        "403":
+          description: Пользователь не является автором предложения.
+        "404":
+          description: Запрашиваемое предложение не найдено.
 
   /comments/{offerId}:
     get:
       tags:
         - comments
-        summary: Получение комментариев предложения по аренде.
-        description: Возвращает комментарии предложения по аренде.
+      summary: Получение комментариев предложения по аренде.
+      description: Возвращает комментарии предложения по аренде.
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: Лимит возвращаемых элементов коллекции.
 
-        requestBody:
-          description: id предложения для получения списка комментариев для предложения.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/offerId'
-            required: true
-            responses:
-              "200":
-                description: Список комментариев для предложения по арендe.
+      responses:
+        "200":
+          description: Список комментариев для предложения по аренде.
+        "204":
+          description: Комментарии отсутствуют.
 
     post:
       tags:
         - comments
-        summary: Добавление комментария в предложение по аренде.
-        description: Добавляет комментарий в предложение по аренде.
+      summary: Добавление комментария в предложение по аренде.
+      description: Добавляет комментарий в предложение по аренде.
 
-        requestBody:
-          description: Данные для создания комментария к предложению по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 50)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/comment'
-            required: true
-            responses:
-              "200":
-                description: Комментарий добавлен.
-              "400":
-                description: Передан не полный или не валидный набор данных для создания комментария к предложению по аренде.
-              "401":
-                description: Пользователь не авторизован.
+      requestBody:
+        description: Данные для создания комментария к предложению по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 50)
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/comment'
+        required: true
+
+      responses:
+        "200":
+          description: Комментарий добавлен.
+        "400":
+          description: Передан не полный или не валидный набор данных для создания комментария к предложению по аренде.
+        "401":
+          description: Пользователь не авторизован.
 
   /users/login:
     get:
@@ -188,17 +185,18 @@ paths:
               $ref: '#/components/schemas/user'
         required: true
 
-        responses:
-          "200":
-            description: Объект пользователя.
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/user'
-          "401":
-            description: Пользователь не авторизован.
-          "403":
-            description: Пользователь не найден.
+      responses:
+        "200":
+          description: Объект пользователя.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+        "401":
+          description: Пользователь не авторизован.
+        "403":
+          description: Пользователь не найден.
+
     post:
       tags:
         - users
@@ -211,17 +209,18 @@ paths:
             schema:
               $ref: '#/components/schemas/authData'
         required: true
-        responses:
-          "200":
-            description: Пользователь найден. Токен авторизации.
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/userToken'
-          "401":
-            description: Пользователь не найден. Некорректный логин или email.
 
-  /users/register:
+      responses:
+        "200":
+          description: Пользователь найден. Токен авторизации.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userToken'
+        "401":
+          description: Пользователь не найден. Некорректный логин или email.
+
+  /users:
     post:
       tags:
         - users
@@ -243,9 +242,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/user'
+        "400":
+          description: Неполный или не валидный набор данных.
         "409":
           description: Пользователь с таким email уже существует.
-
 
 components:
   schemas:
@@ -254,7 +254,7 @@ components:
       properties:
         name:
           type: string
-          example: Pavel Simonenko
+          example: Pavel Ivanov
         email:
           type: string
           example: simonenko@yandex.ru
@@ -263,7 +263,7 @@ components:
           example: https://www.photos.com/avatar.jpg
         password:
           type: string
-          example: 234435456dssrw
+          example: 234435456password
         userType:
           enum:
             - обычный
@@ -274,9 +274,6 @@ components:
       items:
         type: object
         properties:
-          offerId:
-            type: string
-            example:
           text:
             type: string
             example:
@@ -299,7 +296,7 @@ components:
           example: Домик в лесу
         description:
           type: string
-          example: Уютрое место для кратковременного или длительного проживания
+          example: Уютное место для кратковременного или длительного проживания
         publicationDate:
           type: string
           example: 2022-04-06T08:45:40.283Z
@@ -357,8 +354,6 @@ components:
           items:
             type: number
             example: 45.764576
-
-
 
     offersList:
       type: array
