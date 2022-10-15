@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import {inject, injectable} from 'inversify';
 import {Component} from '../../types/component-types.js';
 import {ILogger} from '../logger/i-logger.js';
-import {IDataBase} from './i-database.js';
+import {IDataBase} from './i-data-base.js';
 
 @injectable()
 export default class DataBaseService implements IDataBase {

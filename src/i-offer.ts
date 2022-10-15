@@ -1,32 +1,32 @@
 export enum City {
-  PARIS = 'Paris',
-  COLOGNE = 'Cologne',
-  BRUSSELS = 'Brussels',
-  AMSTERDAM = 'Amsterdam',
-  HAMBURG = 'Hamburg',
-  DUSSELDORF = 'Dusseldorf',
+  Paris = 'Paris',
+  Cologne = 'Cologne',
+  Brussels = 'Brussels',
+  Amsterdam = 'Amsterdam',
+  Hamburg = 'Hamburg',
+  Dusseldorf = 'Dusseldorf',
 }
 export enum OfferType {
-  APARTMENT = 'apartment',
-  HOUSE = 'house',
-  ROOM = 'room',
-  HOTEL = 'hotel',
+  Apartment = 'apartment',
+  House = 'house',
+  Room = 'room',
+  Hotel = 'hotel',
 }
 export enum UserType {
-  ORDINARY = 'обычный',
-  PRO = 'pro',
+  Ordinary = 'обычный',
+  Pro = 'pro',
 }
 
 export type Coordinate = [number, number];
 
 export enum Facility {
-  BREAKFAST = 'Breakfast',
-  AIR_CONDITIONING = 'Air conditioning',
-  LAPTOP_FRIENDLY_WORKSPACE = 'Laptop friendly workspace',
-  BABY_SEAT = 'Baby seat',
-  WASHER = 'Washer',
-  TOWELS = 'Towels',
-  FRIDGE = 'Fridge'
+  Breakfast = 'Breakfast',
+  AirConditioning = 'Air conditioning',
+  LaptopFriendlyWorkspace = 'Laptop friendly workspace',
+  BabySeat = 'Baby seat',
+  Washer = 'Washer',
+  Towels = 'Towels',
+  Fridge = 'Fridge'
 }
 
 export interface IAuthor {

@@ -4,7 +4,7 @@ import {readFileSync} from 'fs';
 import chalk from 'chalk';
 
 export default class VersionCommand implements ICliCommand {
-  public readonly name = Command.VERSION;
+  public readonly name = Command.Version;
 
   private readVersion(): string {
     const contentJSONFile = readFileSync('./package.json', { encoding: 'utf8' });

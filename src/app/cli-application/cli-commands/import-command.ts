@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import {createRentalOffer, getErrorMessage} from '../../../utils/common.js';
 import {IUserService} from '../../../modules/user/i-user-service.js';
 import {IOfferService} from '../../../modules/offer/i-offer-service.js';
-import {IDataBase} from '../../../common/database-client/i-database.js';
+import {IDataBase} from '../../../common/database-client/i-data-base.js';
 import {ILogger} from '../../../common/logger/i-logger.js';
 import ConsoleLoggerService from '../../../common/logger/console-logger-service.js';
 import OfferService from '../../../modules/offer/offer-service.js';
@@ -20,7 +20,7 @@ const DEFAULT_DB_PORT = 27017;
 const DEFAULT_USER_PASSWORD = '123456';
 
 export default class ImportCommand implements ICliCommand {
-  public readonly name = Command.IMPORT;
+  public readonly name = Command.Import;
   private userService!: IUserService;
   private rentalOfferService!: IOfferService;
   private dataBaseService!: IDataBase;

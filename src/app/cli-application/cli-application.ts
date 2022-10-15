@@ -6,7 +6,7 @@ type ParsedCommand = {
 }
 
 export default class CliApplication {
-  private readonly defaultCommand = Command.HELP;
+  private readonly defaultCommand = Command.Help;
   private commands: {[commandName: string]: ICliCommand} = {};
 
   private parseCommand(cliArguments: string[]): ParsedCommand {

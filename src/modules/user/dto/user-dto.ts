@@ -7,3 +7,8 @@ export class CreateUserDto {
   public password!: string;
   public userType!: UserType;
 }
+
+export class LoginUserDto {
+  public email!: string;
+  public password!: string;
+}

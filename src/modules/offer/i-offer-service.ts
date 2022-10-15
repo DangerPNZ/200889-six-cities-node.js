@@ -6,8 +6,8 @@ export interface IOfferService {
   create(dto: CreateOfferDto): Promise<DocumentType<OfferEntity>>;
   updateById(offerId: string, dto: UpdateOfferDto): Promise<DocumentType<OfferEntity> | null>;
   deleteById(offerId: string): Promise<DocumentType<OfferEntity> | null>;
-  find(): Promise<DocumentType<OfferEntity>[]>;
+  find(limit: number): Promise<DocumentType<OfferEntity>[]>;
   getOffer(offerId: string): Promise<DocumentType<OfferEntity> | null>
 
-  setAvgRateAndCommentsCount(): Promise<void>;
+  setAvgRateAndCommentsCount(offerId: string): Promise<void>;
 }

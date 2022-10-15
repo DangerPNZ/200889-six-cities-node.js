@@ -1,7 +1,7 @@
 export enum Command {
-  HELP = '--help',
-  VERSION = '--version',
-  IMPORT = '--import',
-  GENERATE = '--generate'
+  Help = '--help',
+  Version = '--version',
+  Import = '--import',
+  Generate = '--generate'
 }
 

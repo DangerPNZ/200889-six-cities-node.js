@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import {City, Facility, IOffer, OfferType, UserType} from '../i-offer.js';
+import {plainToInstance, ClassConstructor} from 'class-transformer';
 
 export const createRentalOffer = (row: string): IOffer => {
   const units = row.replace('\n', '').split('\t');
@@ -38,3 +39,12 @@ export const createSHA256 = (line: string, salt: string): string => {
   const shaHasher = crypto.createHmac('sha256', salt);
   return shaHasher.update(line).digest('hex');
 };
+
+export const fillDTO = <T, V>(someDto: ClassConstructor<T>, plainObject: V) =>
+  plainToInstance(someDto, plainObject, {excludeExtraneousValues: true});
+
+export const createErrorObject = (message: string) => ({
+  error: message,
+});
+
+export const formatRatingValue = (rating: number) => Number.isInteger(rating) ? rating : rating.toFixed(1);

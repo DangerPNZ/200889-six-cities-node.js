@@ -6,7 +6,8 @@ import {OfferEntity} from './offer-entity.js';
 import {types, DocumentType} from '@typegoose/typegoose';
 import {CreateOfferDto, UpdateOfferDto} from './dto/offer-dto.js';
 import {SortType} from '../../utils/sort-type.js';
-import {DEFAULT_OFFERS_LIMIT} from '../../utils/constants.js';
+import {Types} from 'mongoose';
+import {formatRatingValue} from '../../utils/common.js';
 
 @injectable()
 export default class OfferService implements IOfferService {
@@ -34,17 +35,21 @@ export default class OfferService implements IOfferService {
       .exec();
   }
 
-  public async find(limit: number = DEFAULT_OFFERS_LIMIT): Promise<DocumentType<OfferEntity>[]> {
-    return this.offerModel.find().limit(limit).sort({createdAt: SortType.DOWN}).populate(['author']);
+  public async find(limit: number): Promise<DocumentType<OfferEntity>[]> {
+    return this.offerModel.find().limit(limit).sort({createdAt: SortType.Down}).populate(['author']);
   }
 
   public async getOffer(offerId: string): Promise<DocumentType<OfferEntity> | null> {
     return this.offerModel.findById(offerId).populate(['author']).exec();
   }
 
-  // TODO: Оптимизировать для работы с конкретным оффером
-  public async setAvgRateAndCommentsCount(): Promise<void> {
+  public async setAvgRateAndCommentsCount(offerId: string): Promise<void> {
     const offers = await this.offerModel.aggregate([
+      {
+        $match: {
+          _id: new Types.ObjectId(offerId),
+        }
+      },
       {
         $lookup: {
           from: 'Comments',
@@ -65,8 +70,7 @@ export default class OfferService implements IOfferService {
       }
     ]).exec();
 
-    for (const offer of offers) {
-      await this.offerModel.findOneAndUpdate({_id: offer._id}, {rating: offer.ratingAvg, commentsCount: offer.commentsCount});
-    }
+    const offer = offers[0];
+    await this.offerModel.findOneAndUpdate({_id: offer._id}, {rating: formatRatingValue(offer.ratingAvg), commentsCount: offer.commentsCount});
   }
 }
