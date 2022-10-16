@@ -9,6 +9,8 @@ import {fillDTO} from '../../utils/common.js';
 import OfferResponse from './response/offer-response.js';
 import {CreateOfferDto} from './dto/offer-dto.js';
 import {DEFAULT_OFFERS_LIMIT} from '../../utils/constants.js';
+import HttpError from '../../common/errors/http-error.js';
+import {StatusCodes} from 'http-status-codes';
 
 @injectable()
 export default class OfferController extends Controller {
@@ -32,7 +34,7 @@ export default class OfferController extends Controller {
     const offers = await this.offerService.find(limit);
 
     if (!offers) {
-      return this.noContent(response, null);
+      return this.noContent(response, []);
     }
 
     const offersResponse = fillDTO(OfferResponse, offers);
@@ -45,7 +47,11 @@ export default class OfferController extends Controller {
     const updatedOffer = await this.offerService.updateById(offerId, request.body);
 
     if (!updatedOffer) {
-      return this.noContent(response, null);
+      throw new HttpError(
+        StatusCodes.NOT_FOUND,
+        `Offer with id ${offerId} not found.`,
+        'OfferController'
+      );
     }
 
     this.ok(response, fillDTO(OfferResponse, updatedOffer));
@@ -56,7 +62,11 @@ export default class OfferController extends Controller {
     const offer = await this.offerService.getOffer(offerId);
 
     if (!offer) {
-      return this.noContent(response, null);
+      throw new HttpError(
+        StatusCodes.NOT_FOUND,
+        `Offer with id ${offerId} not found.`,
+        'OfferController'
+      );
     }
 
     this.ok(response, fillDTO(OfferResponse, offer));
@@ -76,7 +86,11 @@ export default class OfferController extends Controller {
     const deletedOffer = await this.offerService.deleteById(offerId);
 
     if (!deletedOffer) {
-      return this.noContent(response, null);
+      throw new HttpError(
+        StatusCodes.NOT_FOUND,
+        `Offer with id ${offerId} not found.`,
+        'OfferController'
+      );
     }
 
     this.ok(response, fillDTO(OfferResponse, deletedOffer));

@@ -30,7 +30,7 @@ export default class CommentController extends Controller {
     const comments = await this.commentService.findByOfferId(offerId, limit);
 
     if (!comments) {
-      return this.noContent(response, null);
+      return this.noContent(response, []);
     }
 
     this.ok(response, fillDTO(CommentResponse, comments));
