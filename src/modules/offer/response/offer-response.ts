@@ -24,6 +24,9 @@ export default class OfferResponse {
   public isPremium!: boolean;
 
   @Expose()
+  public rating?: number;
+
+  @Expose()
   public offerType!: string;
 
   @Expose()
@@ -41,6 +44,9 @@ export default class OfferResponse {
   @Expose()
   @Type(() => UserResponse)
   public author!: UserResponse;
+
+  @Expose()
+  public commentsCount?: number;
 
   @Expose()
   public coordinates!: [number, number];
