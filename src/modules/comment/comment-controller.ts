@@ -25,8 +25,8 @@ export default class CommentController extends Controller {
 
   public async read(request: Request, response: Response): Promise<void> {
     const offerId = request.params.offerId;
-    const size = request.query?.size;
-    const limit = size ? Number(size) : DEFAULT_COMMENTS_LIMIT;
+    const limitParam = request.query?.limit;
+    const limit = limitParam ? Number(limitParam) : DEFAULT_COMMENTS_LIMIT;
     const comments = await this.commentService.findByOfferId(offerId, limit);
 
     if (!comments) {

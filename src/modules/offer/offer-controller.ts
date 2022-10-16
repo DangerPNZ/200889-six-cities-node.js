@@ -29,8 +29,8 @@ export default class OfferController extends Controller {
   }
 
   public async index(request: Request, response: Response): Promise<void> {
-    const size = request.query?.size;
-    const limit = size ? Number(size) : DEFAULT_OFFERS_LIMIT;
+    const limitParam = request.query?.limit;
+    const limit = limitParam ? Number(limitParam) : DEFAULT_OFFERS_LIMIT;
     const offers = await this.offerService.find(limit);
 
     if (!offers) {
