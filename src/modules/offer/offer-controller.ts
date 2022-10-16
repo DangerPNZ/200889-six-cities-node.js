@@ -93,6 +93,6 @@ export default class OfferController extends Controller {
       );
     }
 
-    this.ok(response, fillDTO(OfferResponse, deletedOffer));
+    this.noContent(response, fillDTO(OfferResponse, deletedOffer));
   }
 }
