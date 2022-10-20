@@ -2,7 +2,7 @@ import {ILogger} from '../common/logger/i-logger.js';
 import {IConfig} from '../common/config/i-config.js';
 import {inject, injectable} from 'inversify';
 import {Component} from '../types/component-types.js';
-import {IDataBase} from '../common/database-client/i-data-base.js';
+import {IDataBase} from '../common/data-base-client/i-data-base.js';
 import {getURI} from '../utils/data-base.js';
 import express, {Express} from 'express';
 import {IController} from '../common/controller/i-controller.js';

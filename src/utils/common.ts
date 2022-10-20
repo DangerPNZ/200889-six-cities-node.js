@@ -1,6 +1,7 @@
 import crypto from 'crypto';
-import {City, Facility, IOffer, OfferType, UserType} from '../i-offer.js';
 import {plainToInstance, ClassConstructor} from 'class-transformer';
+import {City, Facility, IOffer, OfferType, RATING_NUM_AFTER_DIGIT} from '../modules/offer/offer-contracts.js';
+import {UserType} from '../modules/user/user-contracts.js';
 
 export const createRentalOffer = (row: string): IOffer => {
   const units = row.replace('\n', '').split('\t');
@@ -47,4 +48,4 @@ export const createErrorObject = (message: string) => ({
   error: message,
 });
 
-export const formatRatingValue = (rating: number) => Number.isInteger(rating) ? rating : rating.toFixed(1);
+export const formatRatingValue = (rating: number) => Number.isInteger(rating) ? rating : rating.toFixed(RATING_NUM_AFTER_DIGIT);

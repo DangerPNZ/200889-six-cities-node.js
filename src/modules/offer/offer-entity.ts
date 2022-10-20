@@ -1,6 +1,6 @@
 import typegoose, {defaultClasses, getModelForClass, Ref, Severity} from '@typegoose/typegoose';
-import {City, Coordinate, Facility, IOffer, OfferType} from '../../i-offer.js';
 import {UserEntity} from '../user/user-entity.js';
+import {City, Coordinates, Facility, IOfferEntity, OfferType} from './offer-contracts.js';
 
 const {prop, modelOptions} = typegoose;
 
@@ -12,13 +12,12 @@ export interface OfferEntity extends defaultClasses.Base {}
   }
 })
 
-export class OfferEntity extends defaultClasses.TimeStamps implements Omit<IOffer, 'author' | 'commentsAmount' | 'rating'> {
-  constructor(data: IOffer) {
+export class OfferEntity extends defaultClasses.TimeStamps implements IOfferEntity {
+  constructor(data: IOfferEntity) {
     super();
 
     this.title = data.title;
     this.description = data.description;
-    this.publicationDate = data.publicationDate;
     this.city = data.city;
     this.previewPhotoUrl = data.previewPhotoUrl;
     this.photosUrls = data.photosUrls;
@@ -40,11 +39,6 @@ export class OfferEntity extends defaultClasses.TimeStamps implements Omit<IOffe
     required: true,
   })
   public description!: string;
-
-  @prop({
-    required: true,
-  })
-  public publicationDate!: Date;
 
   @prop({
     required: true,
@@ -104,7 +98,7 @@ export class OfferEntity extends defaultClasses.TimeStamps implements Omit<IOffe
     required: true,
     allowMixed: Severity.ALLOW,
   })
-  public coordinates!: Coordinate;
+  public coordinates!: Coordinates;
 
   @prop({
     required: false,

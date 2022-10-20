@@ -5,12 +5,14 @@ import {ILogger} from '../../common/logger/i-logger.js';
 import {Request, Response} from 'express';
 import {HttpMethod} from '../../types/http-method.js';
 import {IUserService} from './i-user-service.js';
-import {CreateUserDto, LoginUserDto} from './dto/user-dto.js';
+import {CreateUserDto} from './dto/user-dto.js';
+// import {CreateUserDto, LoginUserDto} from './dto/user-dto.js';
 import {StatusCodes} from 'http-status-codes';
 import UserResponse from './response/user-response.js';
 import {fillDTO} from '../../utils/common.js';
 import HttpError from '../../common/errors/http-error.js';
 import {IConfig} from '../../common/config/i-config.js';
+import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middleware.js';
 
 @injectable()
 export default class UserController extends Controller {
@@ -23,7 +25,7 @@ export default class UserController extends Controller {
 
     this.logger.info('Register routes for OfferController…');
     // this.addRoute({path: '/', method: HttpMethod.Get, handler: this.index});
-    this.addRoute({path: '/', method: HttpMethod.Post, handler: this.create});
+    this.addRoute({path: '/', method: HttpMethod.Post, handler: this.create, middlewares: [new ValidateDtoMiddleware(CreateUserDto)]});
   }
 
   public async create({body}: Request<Record<string, unknown>, Record<string, unknown>, CreateUserDto>, response: Response): Promise<void> {
@@ -43,22 +45,22 @@ export default class UserController extends Controller {
   }
 
   // TODO: Вход в закрытую часть приложения (тут заглушка). Проверка состояния пользователя. - Реализовываются в другом разделе курса
-  public async login(
-    {body}: Request<Record<string, unknown>, Record<string, unknown>, LoginUserDto>,
-    _response: Response,
-  ): Promise<void> {
-    const existsUser = await this.userService.findByEmail(body.email);
-    if (!existsUser) {
-      throw new HttpError(
-        StatusCodes.CONFLICT,
-        `User with email ${body.email} not found.`,
-        'UserController',
-      );
-    }
-    throw new HttpError(
-      StatusCodes.NOT_IMPLEMENTED,
-      'Not implemented',
-      'UserController',
-    );
-  }
+  // public async login(
+  //   {body}: Request<Record<string, unknown>, Record<string, unknown>, LoginUserDto>,
+  //   _response: Response,
+  // ): Promise<void> {
+  //   const existsUser = await this.userService.findByEmail(body.email);
+  //   if (!existsUser) {
+  //     throw new HttpError(
+  //       StatusCodes.CONFLICT,
+  //       `User with email ${body.email} not found.`,
+  //       'UserController',
+  //     );
+  //   }
+  //   throw new HttpError(
+  //     StatusCodes.NOT_IMPLEMENTED,
+  //     'Not implemented',
+  //     'UserController',
+  //   );
+  // }
 }

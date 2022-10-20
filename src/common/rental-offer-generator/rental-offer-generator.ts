@@ -1,22 +1,20 @@
 import {IRentalOfferGenerator} from './i-rental-offer-generator.js';
 import {IMockServerData} from '../../mocks/i-mock-server-data.js';
-import {
-  generateRandomNumber, getRandomItem,
-  getRandomUniqueItemsByAmount,
-} from '../../utils/random.js';
+import {generateRandomNumber, getRandomItem, getRandomUniqueItemsByAmount} from '../../utils/random.js';
 import dayjs from 'dayjs';
-import {
-  CITIES_AMOUNT, MAX_FACILITIES_AMOUNT,
-  MAX_GUESTS_LIMIT, MAX_PRICE,
-  MAX_RATING,
-  MAX_ROOMS_AMOUNT, MIN_FACILITIES_AMOUNT,
-  MIN_GUESTS_LIMIT, MIN_PRICE,
-  MIN_RATING,
-  MIN_ROOMS_AMOUNT, PUBLICATION_PHOTOS_AMOUNT
-} from '../../utils/constants.js';
+import {Coordinates, OfferValidation, RATING_NUM_AFTER_DIGIT} from '../../modules/offer/offer-contracts.js';
+import {CommentValidation} from '../../modules/comment/comment-contracts.js';
 
-const FIRST_WEEK_DAY = 1;
-const LAST_WEEK_DAY = 7;
+const CITIES_AMOUNT = 6;
+
+enum WeekDayNumber {
+  First = 1,
+  Last = 7
+}
+enum CommentCountValue {
+  Min = 1,
+  Max = 50,
+}
 
 export class RentalOfferGenerator implements IRentalOfferGenerator{
   constructor(private readonly mockServerData: IMockServerData) {}
@@ -26,26 +24,25 @@ export class RentalOfferGenerator implements IRentalOfferGenerator{
 
     const title = getRandomItem<string>(this.mockServerData.titles);
     const description = getRandomItem<string>(this.mockServerData.descriptions);
-    const publicationDate = dayjs().subtract(generateRandomNumber(FIRST_WEEK_DAY, LAST_WEEK_DAY), 'day').toISOString();
+    const publicationDate = dayjs().subtract(generateRandomNumber(WeekDayNumber.First, WeekDayNumber.Last), 'day').toISOString();
     const city = <string>this.mockServerData.cities[randomIndexForCity];
     const previewPhotoUrl = getRandomItem<string>(this.mockServerData.previewPhotoUrls);
-    const photosUrls = getRandomUniqueItemsByAmount<string[]>(this.mockServerData.photosUrls, PUBLICATION_PHOTOS_AMOUNT);
+    const photosUrls = getRandomUniqueItemsByAmount<string[]>(this.mockServerData.photosUrls, OfferValidation.PublicationPhotosAmount);
     const isPremium = getRandomItem<boolean>(this.mockServerData.isPremiumValues);
-    const rating = generateRandomNumber(MIN_RATING, MAX_RATING, 1);
+    const rating = generateRandomNumber(CommentValidation.Rating.Min, CommentValidation.Rating.Max, generateRandomNumber(0, RATING_NUM_AFTER_DIGIT));
     const offerType = getRandomItem<string>(this.mockServerData.offerTypes);
-    const roomsAmount = generateRandomNumber(MIN_ROOMS_AMOUNT, MAX_ROOMS_AMOUNT);
-    const guestsLimit = generateRandomNumber(MIN_GUESTS_LIMIT, MAX_GUESTS_LIMIT);
-    const price = generateRandomNumber(MIN_PRICE, MAX_PRICE);
-    const facilities = getRandomUniqueItemsByAmount<string[]>(this.mockServerData.facilities, generateRandomNumber(MIN_FACILITIES_AMOUNT, MAX_FACILITIES_AMOUNT));
+    const roomsAmount = generateRandomNumber(OfferValidation.RoomsAmount.Min, OfferValidation.RoomsAmount.Max);
+    const guestsLimit = generateRandomNumber(OfferValidation.GuestLimit.Min, OfferValidation.GuestLimit.Max);
+    const price = generateRandomNumber(OfferValidation.Price.Min, OfferValidation.Price.Max);
+    const facilities = getRandomUniqueItemsByAmount<string[]>(this.mockServerData.facilities, generateRandomNumber(OfferValidation.FacilitiesAmount.Min, OfferValidation.FacilitiesAmount.Max));
     const authorName = getRandomItem<string>(this.mockServerData.authorNames);
     const emails = getRandomItem<string>(this.mockServerData.emails);
     const avatarUrl = getRandomItem<string>(this.mockServerData.avatars);
     const password = getRandomItem<string>(this.mockServerData.passwords);
     const userType = getRandomItem<string>(this.mockServerData.userTypes);
-    const commentsAmount = generateRandomNumber(0, 50);
-    const coordinates: [number, number] = this.mockServerData.coordinates[randomIndexForCity];
+    const commentsCount = generateRandomNumber(CommentCountValue.Min, CommentCountValue.Max);
+    const coordinates: Coordinates = this.mockServerData.coordinates[randomIndexForCity];
 
-    return [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, authorName, emails, avatarUrl, password, userType, commentsAmount, coordinates].join('\t');
+    return [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, authorName, emails, avatarUrl, password, userType, commentsCount, coordinates].join('\t');
   }
-
 }

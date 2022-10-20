@@ -27,6 +27,11 @@ export default class CommentService implements ICommentService {
     return this.commentModel.find({offerId}).limit(limit).sort({createdAt: SortType.Down}).populate('author');
   }
 
+  public async checkHasRelatedOffer(offerId: string): Promise<boolean> {
+    const offer = await this.offerService.getOffer(offerId);
+    return Boolean(offer);
+  }
+
   // TODO: Написать вопрос Игорю, как решать вопрос с автоматическим удалением комментариев
   //  после уданения оффера (требование ТЗ), учитывая что по ТЗ явно прописано,
   //  что функциональность удаления комментариев не предусмотренна

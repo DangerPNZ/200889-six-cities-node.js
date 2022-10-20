@@ -6,9 +6,9 @@ POST http://localhost:4000/users HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Test User",
-  "email": "testuser@mail.ru",
-  "password": "123456qwerty",
+  "name": "Стив Джобс",
+  "email": "jobs@gmail.ru",
+  "password": "12345qwerty",
   "userType": "pro"
 }
 ###
@@ -22,9 +22,8 @@ POST http://localhost:4000/offers HTTP/1.1
 Content-Type: application/json
 
 {
-  "title": "Новое предложение",
+  "title": "Предложение 2",
   "description": "Новое предложение, созданное запросом из queries.http",
-  "publicationDate": "2022-09-14T10:41:43.974Z",
   "city": "Paris",
   "previewPhotoUrl": "preview-photo.jpg",
   "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
@@ -34,7 +33,7 @@ Content-Type: application/json
   "guestsLimit": 5,
   "price": 10500,
   "facilities": ["Laptop friendly workspace"],
-  "author": "6342eb54978a4d0f1ca76fe3",
+  "author": "634c3e71fee938d8134e93f0",
   "coordinates": [48.85661, 2.351499]
 }
 ###
@@ -47,11 +46,11 @@ GET http://localhost:4000/offers?limit=1 HTTP/1.1
 Content-Type: application/json
 ###
 ## Получить данные по конкретному предложению
-GET http://localhost:4000/offers/6342eb54978a4d0f1ca76fea HTTP/1.1
+GET http://localhost:4000/offers/634c4181b990d516a1e14522 HTTP/1.1
 Content-Type: application/json
 ###
 ## Обновить данные по конкретному предложению
-PATCH http://localhost:4000/offers/6348f23cef5bbe986157c5e5 HTTP/1.1
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -70,21 +69,20 @@ Content-Type: application/json
 # Комментарии
 
 ## Создание комментария
-POST http://localhost:4000/comments/6342eb54978a4d0f1ca76fea HTTP/1.1
+POST http://localhost:4000/comments/634c4181b990d516a1e14522 HTTP/1.1
 Content-Type: application/json
 
 {
-  "text":  "Новый комментарий к предложению",
-  "publicationDate": "2022-10-14T10:41:43.974Z",
-  "rating": 4,
-  "author": "6348f8fcef5bbe986157c5ed"
+  "text":  "Комментарий к предложению 2",
+  "rating": 3,
+  "author": "634c4173fee938d8134e93fa"
 }
 ###
 ## Получить комментарии (дефолтное ограничение выборки)
-GET http://localhost:4000/comments/6342eb54978a4d0f1ca76fea HTTP/1.1
+GET http://localhost:4000/comments/634c4181b990d516a1e14522 HTTP/1.1
 Content-Type: application/json
 ###
 ## Получить комментарии (пользовательское ограничение выборки)
-GET http://localhost:4000/comments/6342eb54978a4d0f1ca76fea?limit=1 HTTP/1.1
+GET http://localhost:4000/comments/634c4181b990d516a1e14522?limit=1 HTTP/1.1
 Content-Type: application/json
 ###

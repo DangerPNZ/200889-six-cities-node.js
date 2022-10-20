@@ -8,8 +8,8 @@ export default class OfferResponse {
   @Expose()
   public description!: string;
 
-  @Expose()
-  public publicationDate!: Date;
+  @Expose({name: 'createdAt'})
+  public publicationDate!: string;
 
   @Expose()
   public city!: string;

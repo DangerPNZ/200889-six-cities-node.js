@@ -1,7 +1,7 @@
 import typegoose, {defaultClasses, getModelForClass, Ref} from '@typegoose/typegoose';
-import {IComment} from '../../i-offer.js';
 import {UserEntity} from '../user/user-entity.js';
 import {OfferEntity} from '../offer/offer-entity.js';
+import {ICommentEntity} from './comment-contracts.js';
 
 const {prop, modelOptions} = typegoose;
 
@@ -13,12 +13,11 @@ export interface CommentEntity extends defaultClasses.Base {}
   }
 })
 
-export class CommentEntity extends defaultClasses.TimeStamps implements Omit<IComment, 'author'> {
-  constructor(data: IComment) {
+export class CommentEntity extends defaultClasses.TimeStamps implements ICommentEntity {
+  constructor(data: ICommentEntity) {
     super();
 
     this.text = data.text;
-    this.publicationDate = data.publicationDate;
     this.rating = data.rating;
   }
 
@@ -33,11 +32,6 @@ export class CommentEntity extends defaultClasses.TimeStamps implements Omit<ICo
     trim: true,
   })
   public text!: string;
-
-  @prop({
-    required: true,
-  })
-  public publicationDate!: Date;
 
   @prop({
     required: true,

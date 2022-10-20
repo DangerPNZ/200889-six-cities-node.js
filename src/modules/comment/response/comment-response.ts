@@ -5,8 +5,8 @@ export default class CommentResponse {
   @Expose()
   public text!: string;
 
-  @Expose()
-  public publicationDate!: Date;
+  @Expose({name: 'createdAt'})
+  public publicationDate!: string;
 
   @Expose()
   public rating!: number;

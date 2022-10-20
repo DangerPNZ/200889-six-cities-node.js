@@ -7,10 +7,12 @@ import {HttpMethod} from '../../types/http-method.js';
 import {IOfferService} from './i-offer-service.js';
 import {fillDTO} from '../../utils/common.js';
 import OfferResponse from './response/offer-response.js';
-import {CreateOfferDto} from './dto/offer-dto.js';
-import {DEFAULT_OFFERS_LIMIT} from '../../utils/constants.js';
+import {CreateOfferDto, UpdateOfferDto} from './dto/offer-dto.js';
 import HttpError from '../../common/errors/http-error.js';
 import {StatusCodes} from 'http-status-codes';
+import {ValidateObjectIdMiddleware} from '../../common/middlewares/validate-object-id-middleware.js';
+import {DEFAULT_OFFERS_LIMIT} from './offer-contracts.js';
+import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middleware.js';
 
 @injectable()
 export default class OfferController extends Controller {
@@ -22,10 +24,10 @@ export default class OfferController extends Controller {
 
     this.logger.info('Register routes for OfferController…');
     this.addRoute({path: '/', method: HttpMethod.Get, handler: this.index});
-    this.addRoute({path: '/', method: HttpMethod.Post, handler: this.create});
-    this.addRoute({path: '/:offerId', method: HttpMethod.Get, handler: this.read});
-    this.addRoute({path: '/:offerId', method: HttpMethod.Patch, handler: this.update});
-    this.addRoute({path: '/:offerId', method: HttpMethod.Delete, handler: this.delete});
+    this.addRoute({path: '/', method: HttpMethod.Post, handler: this.create, middlewares: [new ValidateDtoMiddleware(CreateOfferDto)]});
+    this.addRoute({path: '/:offerId', method: HttpMethod.Get, handler: this.read, middlewares: [new ValidateObjectIdMiddleware('offerId')]});
+    this.addRoute({path: '/:offerId', method: HttpMethod.Patch, handler: this.update, middlewares: [new ValidateObjectIdMiddleware('offerId'), new ValidateDtoMiddleware(UpdateOfferDto)]});
+    this.addRoute({path: '/:offerId', method: HttpMethod.Delete, handler: this.delete, middlewares: [new ValidateObjectIdMiddleware('offerId')]});
   }
 
   public async index(request: Request, response: Response): Promise<void> {
@@ -44,7 +46,7 @@ export default class OfferController extends Controller {
 
   public async update(request: Request, response: Response): Promise<void> {
     const offerId = request.params.offerId;
-    const updatedOffer = await this.offerService.updateById(offerId, request.body);
+    const updatedOffer = await this.offerService.updateById(offerId, request.body as UpdateOfferDto);
 
     if (!updatedOffer) {
       throw new HttpError(

@@ -1,4 +1,5 @@
-import {City, Coordinate, Facility, OfferType, UserType} from '../i-offer.js';
+import {City, Coordinates, Facility, OfferType} from '../modules/offer/offer-contracts.js';
+import {UserType} from '../modules/user/user-contracts.js';
 
 export interface IMockServerData {
   titles: string[],
@@ -14,5 +15,5 @@ export interface IMockServerData {
   avatars: string[],
   passwords: string[],
   userTypes: UserType[],
-  coordinates: Coordinate[],
+  coordinates: Coordinates[],
 }
