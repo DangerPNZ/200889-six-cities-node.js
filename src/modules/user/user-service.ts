@@ -32,4 +32,9 @@ export default class UserService implements IUserService {
     }
     return this.create(dto, salt);
   }
+
+  public async exists(userId: string): Promise<boolean> {
+    const user = await this.userModel.findById(userId);
+    return Boolean(user);
+  }
 }

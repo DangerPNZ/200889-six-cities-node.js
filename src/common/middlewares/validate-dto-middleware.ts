@@ -3,7 +3,7 @@ import {ClassConstructor} from 'class-transformer/types/interfaces/class-constru
 import {validate} from 'class-validator';
 import {StatusCodes} from 'http-status-codes';
 import {plainToInstance} from 'class-transformer';
-import {IMiddleware} from './i-middleware.js';
+import {IMiddleware} from './types/i-middleware.js';
 
 export class ValidateDtoMiddleware implements IMiddleware {
   constructor(private dto: ClassConstructor<object>) {}

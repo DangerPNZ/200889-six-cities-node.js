@@ -8,11 +8,10 @@ import {ICommentService} from './i-comment-service.js';
 import {fillDTO} from '../../utils/common.js';
 import CommentResponse from './response/comment-response.js';
 import {DataCommentDto} from './dto/comment-dto.js';
-import HttpError from '../../common/errors/http-error.js';
-import {StatusCodes} from 'http-status-codes';
 import {ValidateObjectIdMiddleware} from '../../common/middlewares/validate-object-id-middleware.js';
 import {DEFAULT_COMMENTS_LIMIT} from './comment-contracts.js';
 import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middleware.js';
+import {DocumentExistsMiddleware} from '../../common/middlewares/document-exists-middleware.js';
 
 @injectable()
 export default class CommentController extends Controller {
@@ -23,8 +22,22 @@ export default class CommentController extends Controller {
     super(logger);
 
     this.logger.info('Register routes for OfferController…');
-    this.addRoute({path: '/:offerId', method: HttpMethod.Get, handler: this.read, middlewares: [new ValidateObjectIdMiddleware('offerId')]});
-    this.addRoute({path: '/:offerId', method: HttpMethod.Post, handler: this.create, middlewares: [new ValidateObjectIdMiddleware('offerId'), new ValidateDtoMiddleware(DataCommentDto)]});
+    this.addRoute({
+      path: '/:offerId',
+      method: HttpMethod.Get,
+      handler: this.read,
+      middlewares: [new ValidateObjectIdMiddleware('offerId')],
+    });
+    this.addRoute({
+      path: '/:offerId',
+      method: HttpMethod.Post,
+      handler: this.create,
+      middlewares: [
+        new ValidateObjectIdMiddleware('offerId'),
+        new ValidateDtoMiddleware(DataCommentDto),
+        new DocumentExistsMiddleware(this.commentService, 'Comment', 'offerId')
+      ],
+    });
   }
 
   public async read(request: Request, response: Response): Promise<void> {
@@ -42,16 +55,6 @@ export default class CommentController extends Controller {
 
   public async create(request: Request, response: Response): Promise<void> {
     const offerId = request.params.offerId;
-    const isHasOffer = await this.commentService.checkHasRelatedOffer(offerId);
-
-    if (!isHasOffer) {
-      throw new HttpError(
-        StatusCodes.NOT_FOUND,
-        `Offer with id ${offerId} is not found.`,
-        'CommentController'
-      );
-    }
-
     const body: DataCommentDto = request.body;
     const comment = await this.commentService.create({
       offerId,

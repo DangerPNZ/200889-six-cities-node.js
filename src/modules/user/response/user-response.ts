@@ -8,7 +8,7 @@ export default class UserResponse {
   public email!: string;
 
   @Expose()
-  public avatarUrl?: string;
+  public avatar!: string;
 
   @Expose()
   public userType!: string;

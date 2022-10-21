@@ -5,7 +5,7 @@ import {UserType} from '../modules/user/user-contracts.js';
 
 export const createRentalOffer = (row: string): IOffer => {
   const units = row.replace('\n', '').split('\t');
-  const [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, name, email, avatarUrl, password, userType, commentsAmount, coordinates] = units;
+  const [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, name, email, avatar, password, userType, commentsAmount, coordinates] = units;
 
   return {
     title,
@@ -24,7 +24,7 @@ export const createRentalOffer = (row: string): IOffer => {
     author: {
       name,
       email,
-      avatarUrl,
+      avatar,
       password,
       userType: userType as UserType,
     },

@@ -1,6 +1,6 @@
 import {HttpMethod} from './http-method.js';
 import {Request, Response, NextFunction} from 'express';
-import {IMiddleware} from '../common/middlewares/i-middleware.js';
+import {IMiddleware} from '../common/middlewares/types/i-middleware.js';
 
 export interface IRoute {
   path: string;

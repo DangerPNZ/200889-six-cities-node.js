@@ -43,6 +43,11 @@ export default class OfferService implements IOfferService {
     return this.offerModel.findById(offerId).populate(['author']).exec();
   }
 
+  public async exists(offerId: string): Promise<boolean> {
+    const offer = await this.offerModel.findById(offerId);
+    return Boolean(offer);
+  }
+
   public async setAvgRateAndCommentsCount(offerId: string): Promise<void> {
     const offers = await this.offerModel.aggregate([
       {
@@ -71,6 +76,9 @@ export default class OfferService implements IOfferService {
     ]).exec();
 
     const offer = offers[0];
-    await this.offerModel.findOneAndUpdate({_id: offer._id}, {rating: formatRatingValue(offer.ratingAvg), commentsCount: offer.commentsCount});
+    await this.offerModel.findOneAndUpdate(
+      {_id: offer._id},
+      {rating: formatRatingValue(offer.ratingAvg), commentsCount: offer.commentsCount}
+    );
   }
 }

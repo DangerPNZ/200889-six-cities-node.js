@@ -13,6 +13,9 @@ import {fillDTO} from '../../utils/common.js';
 import HttpError from '../../common/errors/http-error.js';
 import {IConfig} from '../../common/config/i-config.js';
 import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middleware.js';
+import {ValidateObjectIdMiddleware} from '../../common/middlewares/validate-object-id-middleware.js';
+import {UploadFileMiddleware} from '../../common/middlewares/upload-file-middleware.js';
+import {DocumentExistsMiddleware} from '../../common/middlewares/document-exists-middleware.js';
 
 @injectable()
 export default class UserController extends Controller {
@@ -24,12 +27,31 @@ export default class UserController extends Controller {
     super(logger);
 
     this.logger.info('Register routes for OfferController…');
-    // this.addRoute({path: '/', method: HttpMethod.Get, handler: this.index});
-    this.addRoute({path: '/', method: HttpMethod.Post, handler: this.create, middlewares: [new ValidateDtoMiddleware(CreateUserDto)]});
+    // this.addRoute({path: '/', method: HttpMethod.Get, handler: this.index,});
+    this.addRoute({
+      path: '/',
+      method: HttpMethod.Post,
+      handler: this.create,
+      middlewares: [new ValidateDtoMiddleware(CreateUserDto)],
+    });
+    this.addRoute({
+      path: '/:userId/avatar',
+      method: HttpMethod.Post,
+      handler: this.uploadAvatar,
+      middlewares: [
+        new ValidateObjectIdMiddleware('userId'),
+        new DocumentExistsMiddleware(this.userService, 'User', 'userId'),
+        new UploadFileMiddleware(this.configService.get('UPLOAD_DIRECTORY'), 'avatar'),
+      ]
+    });
   }
 
-  public async create({body}: Request<Record<string, unknown>, Record<string, unknown>, CreateUserDto>, response: Response): Promise<void> {
+  public async create(
+    {body}: Request<Record<string, unknown>, Record<string, unknown>, CreateUserDto>,
+    response: Response
+  ): Promise<void> {
     const existUser = await this.userService.findByEmail(body.email);
+
     if (existUser) {
       throw new HttpError(
         StatusCodes.CONFLICT,
@@ -37,11 +59,19 @@ export default class UserController extends Controller {
         'UserController'
       );
     }
+
     const newUser = await this.userService.create(body, this.configService.get('SALT'));
+
     this.created(
       response,
       fillDTO(UserResponse, newUser)
     );
+  }
+
+  public async uploadAvatar(request: Request, response: Response) {
+    this.created(response, {
+      filepath: request.file?.path
+    });
   }
 
   // TODO: Вход в закрытую часть приложения (тут заглушка). Проверка состояния пользователя. - Реализовываются в другом разделе курса
