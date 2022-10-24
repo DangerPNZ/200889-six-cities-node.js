@@ -2,6 +2,9 @@ import crypto from 'crypto';
 import {plainToInstance, ClassConstructor} from 'class-transformer';
 import {City, Facility, IOffer, OfferType, RATING_NUM_AFTER_DIGIT} from '../modules/offer/offer-contracts.js';
 import {UserType} from '../modules/user/user-contracts.js';
+import * as jose from 'jose';
+
+const JWT_EXPIRATION_TIME = '2d';
 
 export const createRentalOffer = (row: string): IOffer => {
   const units = row.replace('\n', '').split('\t');
@@ -49,3 +52,10 @@ export const createErrorObject = (message: string) => ({
 });
 
 export const formatRatingValue = (rating: number) => Number.isInteger(rating) ? rating : rating.toFixed(RATING_NUM_AFTER_DIGIT);
+
+export const createJWT = async (algorithm: string, jwtSecret: string, payload: object): Promise<string> =>
+  new jose.SignJWT({...payload})
+    .setProtectedHeader({ alg: algorithm})
+    .setIssuedAt()
+    .setExpirationTime(JWT_EXPIRATION_TIME)
+    .sign(crypto.createSecretKey(jwtSecret, 'utf-8'));

@@ -7,11 +7,12 @@ import {HttpMethod} from '../../types/http-method.js';
 import {ICommentService} from './i-comment-service.js';
 import {fillDTO} from '../../utils/common.js';
 import CommentResponse from './response/comment-response.js';
-import {DataCommentDto} from './dto/comment-dto.js';
+import {CreateCommentDto, DataCommentDto} from './dto/comment-dto.js';
 import {ValidateObjectIdMiddleware} from '../../common/middlewares/validate-object-id-middleware.js';
 import {DEFAULT_COMMENTS_LIMIT} from './comment-contracts.js';
 import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middleware.js';
 import {DocumentExistsMiddleware} from '../../common/middlewares/document-exists-middleware.js';
+import {PrivateRouteMiddleware} from '../../common/middlewares/private-routes-middleware.js';
 
 @injectable()
 export default class CommentController extends Controller {
@@ -33,6 +34,7 @@ export default class CommentController extends Controller {
       method: HttpMethod.Post,
       handler: this.create,
       middlewares: [
+        new PrivateRouteMiddleware(),
         new ValidateObjectIdMiddleware('offerId'),
         new ValidateDtoMiddleware(DataCommentDto),
         new DocumentExistsMiddleware(this.commentService, 'Comment', 'offerId')
@@ -53,12 +55,13 @@ export default class CommentController extends Controller {
     this.ok(response, fillDTO(CommentResponse, comments));
   }
 
-  public async create(request: Request, response: Response): Promise<void> {
+  public async create(request: Request<{ offerId: string }, object, CreateCommentDto>, response: Response): Promise<void> {
     const offerId = request.params.offerId;
-    const body: DataCommentDto = request.body;
+
     const comment = await this.commentService.create({
+      ...request.body,
+      author: request.user.id,
       offerId,
-      ...body,
     });
 
     this.created(

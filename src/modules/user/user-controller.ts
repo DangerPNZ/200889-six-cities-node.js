@@ -5,17 +5,19 @@ import {ILogger} from '../../common/logger/i-logger.js';
 import {Request, Response} from 'express';
 import {HttpMethod} from '../../types/http-method.js';
 import {IUserService} from './i-user-service.js';
-import {CreateUserDto} from './dto/user-dto.js';
+import {CreateUserDto, LoginUserDto} from './dto/user-dto.js';
 // import {CreateUserDto, LoginUserDto} from './dto/user-dto.js';
 import {StatusCodes} from 'http-status-codes';
 import UserResponse from './response/user-response.js';
-import {fillDTO} from '../../utils/common.js';
+import {fillDTO, createJWT} from '../../utils/common.js';
 import HttpError from '../../common/errors/http-error.js';
 import {IConfig} from '../../common/config/i-config.js';
 import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middleware.js';
 import {ValidateObjectIdMiddleware} from '../../common/middlewares/validate-object-id-middleware.js';
 import {UploadFileMiddleware} from '../../common/middlewares/upload-file-middleware.js';
 import {DocumentExistsMiddleware} from '../../common/middlewares/document-exists-middleware.js';
+import {JWT_ALGORITHM} from './user-contracts.js';
+import LoggedUserResponse from './response/logged-user-response.js';
 
 @injectable()
 export default class UserController extends Controller {
@@ -27,7 +29,12 @@ export default class UserController extends Controller {
     super(logger);
 
     this.logger.info('Register routes for OfferController…');
-    // this.addRoute({path: '/', method: HttpMethod.Get, handler: this.index,});
+    this.addRoute({
+      path: '/login',
+      method: HttpMethod.Get,
+      handler: this.checkAuthenticate
+    });
+    this.addRoute({path: '/login', method: HttpMethod.Post, handler: this.login, middlewares: [new ValidateDtoMiddleware(LoginUserDto)],});
     this.addRoute({
       path: '/',
       method: HttpMethod.Post,
@@ -74,23 +81,36 @@ export default class UserController extends Controller {
     });
   }
 
-  // TODO: Вход в закрытую часть приложения (тут заглушка). Проверка состояния пользователя. - Реализовываются в другом разделе курса
-  // public async login(
-  //   {body}: Request<Record<string, unknown>, Record<string, unknown>, LoginUserDto>,
-  //   _response: Response,
-  // ): Promise<void> {
-  //   const existsUser = await this.userService.findByEmail(body.email);
-  //   if (!existsUser) {
-  //     throw new HttpError(
-  //       StatusCodes.CONFLICT,
-  //       `User with email ${body.email} not found.`,
-  //       'UserController',
-  //     );
-  //   }
-  //   throw new HttpError(
-  //     StatusCodes.NOT_IMPLEMENTED,
-  //     'Not implemented',
-  //     'UserController',
-  //   );
-  // }
+  public async checkAuthenticate(request: Request, response: Response) {
+    const user = await this.userService.findByEmail(request.user.email);
+
+    // Можно добавить проверку, что `findByEmail` действительно
+    // находит пользователя в базе. Если пользователи не удаляются,
+    // проверки можно избежать.
+
+    this.ok(response, fillDTO(LoggedUserResponse, user));
+  }
+
+  public async login(
+    {body}: Request<Record<string, unknown>, Record<string, unknown>, LoginUserDto>,
+    response: Response,
+  ): Promise<void> {
+    const user = await this.userService.verifyUser(body, this.configService.get('SALT'));
+
+    if (!user) {
+      throw new HttpError(
+        StatusCodes.UNAUTHORIZED,
+        'Unauthorized',
+        'UserController',
+      );
+    }
+
+    const token = await createJWT(
+      JWT_ALGORITHM,
+      this.configService.get('JWT_SECRET'),
+      { email: user.email, id: user._id}
+    );
+
+    this.ok(response, fillDTO(LoggedUserResponse, {email: user.email, token}));
+  }
 }

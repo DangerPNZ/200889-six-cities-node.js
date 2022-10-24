@@ -1,3 +1,5 @@
+export const JWT_ALGORITHM = 'HS256';
+
 export const EMAIL_MATCH_REGEX = /^([\w-\\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
 export const UserValidation = {

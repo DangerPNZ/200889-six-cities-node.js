@@ -1,0 +1,727 @@
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134825.200.json
+
+###
+
+PATCH http://localhost:4000/offers/6351883df5c05366d908e20d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134818.403.json
+
+###
+
+PATCH http://localhost:4000/offers/6351883df5c05366d908e20d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134816.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134724.200.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134459.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134410.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134346.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134246.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134115.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134002.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T134000.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad162e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T133904.403.json
+
+###
+
+PATCH http://localhost:4000/offers/63566930d86a679638ad161e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T133104.404.json
+
+###
+
+POST http://localhost:4000/offers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Предложение 3",
+  "description": "Новое предложение, созданное запросом из queries.http, 3",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "author": "634c3e71fee938d8134e93f0",
+  "coordinates": [48.85661, 2.351499]
+}
+
+<> 2022-10-24T133008.201.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14530
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132812.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14530
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132810.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14530
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132806.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14530
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132805.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14530
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок 3",
+  "description": "Обновлённое описание 3",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132752.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14570
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132601.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14570
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132600.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132550.403.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132549.403.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14530
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132524.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132513.403.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e60522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132456.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e60522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132454.404.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132438.403.json
+
+###
+
+GET http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+
+<> 2022-10-24T132320.200.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T132307.403.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-24T131838.403.json
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "jobs@gmail.ru",
+  "password": "12345qwerty"
+}
+
+<> 2022-10-24T131701.200.json
+
+###
+
+DELETE http://localhost:4000/offers/6349007ad7b3a77e3b9b3289
+Content-Type: application/json
+
+<> 2022-10-22T064925.401.json
+
+###
+
+DELETE http://localhost:4000/offers/6349007ad7b3a77e3b9b3289
+Content-Type: application/json
+
+<> 2022-10-22T064924.401.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-22T064857.401.json
+
+###
+
+PATCH http://localhost:4000/offers/634c4181b990d516a1e14522
+Content-Type: application/json
+
+{
+  "title": "Новый заголовок",
+  "description": "Обновлённое описание",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-22T064855.401.json
+
+###
+
+POST http://localhost:4000/offers
+Content-Type: application/json
+
+{
+  "title": "Предложение 2",
+  "description": "Новое предложение, созданное запросом из queries.http",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "author": "634c3e71fee938d8134e93f0",
+  "coordinates": [48.85661, 2.351499]
+}
+
+<> 2022-10-22T064817.401.json
+
+###
+
+GET http://localhost:4000/users/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjQwNjQwNCwiZXhwIjoxNjY2NTc5MjA0fQ.yk0ZmpU5hrlDBi5l868vxAxwx-xTKA344JpTx4XCdVQ
+
+<> 2022-10-22T064731.200.json
+
+###
+
+POST http://localhost:4000/comments/634c4181b990d516a1e14522
+Content-Type: application/json
+
+{
+  "text":  "Комментарий к предложению 2",
+  "rating": 3
+}
+
+<> 2022-10-22T061603.401.json
+
+###
+
+POST http://localhost:4000/comments/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjQwNjQwNCwiZXhwIjoxNjY2NTc5MjA0fQ.yk0ZmpU5hrlDBi5l868vxAxwx-xTKA344JpTx4XCdV
+
+{
+  "text":  "Комментарий к предложению 2",
+  "rating": 3
+}
+
+<> 2022-10-22T055318.401.json
+
+###
+
+POST http://localhost:4000/comments/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjQwNjQwNCwiZXhwIjoxNjY2NTc5MjA0fQ.yk0ZmpU5hrlDBi5l868vxAxwx-xTKA344JpTx4XCdV
+
+{
+  "text":  "Комментарий к предложению 2",
+  "rating": 3
+}
+
+<> 2022-10-22T055316.401.json
+
+###
+
+POST http://localhost:4000/comments/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjQwNjQwNCwiZXhwIjoxNjY2NTc5MjA0fQ.yk0ZmpU5hrlDBi5l868vxAxwx-xTKA344JpTx4XCdVQ
+
+{
+  "text":  "Комментарий к предложению 2",
+  "rating": 3
+}
+
+<> 2022-10-22T054911.201.json
+
+###
+
+POST http://localhost:4000/comments/634c4181b990d516a1e14522
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjQwNjQwNCwiZXhwIjoxNjY2NTc5MjA0fQ.yk0ZmpU5hrlDBi5l868vxAxwx-xTKA344JpTx4XCdVQ
+
+{
+  "text":  "Комментарий к предложению 2",
+  "rating": 3
+}
+
+<> 2022-10-22T054134.500.json
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "jobs@gmail.ru",
+  "password": "12345qwerty"
+}
+
+<> 2022-10-22T054004.200.json
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "jobs@gmail.ru",
+  "password": "12345qwerty"
+}
+
+<> 2022-10-22T040747.200.json
+
+###
+
+POST http://localhost:4000/users/634c3ea5fee938d8134e93f3/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-21T073050.201.json
+
+###
+
+POST http://localhost:4000/users/634c3ea5fee938d8134e93f3/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="/Users/Anton/Desktop/author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-21T062056.500.json
+
+###
+
+POST http://localhost:4000/users/634c3ea5fee938d8134e93f3/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="screen.png"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/Mark_Twain_by_AF_Bradley.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+
+
+POST http://localhost:4000/offers HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Предложение 2",
+  "description": "Новое предложение, созданное запросом из queries.http",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "author": "634c3e71fee938d8134e93f0",
+  "coordinates": [48.85661, 2.351499]
+}
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-21T034453.404.json
+
+###
+
+POST http://localhost:4000/comments/634c4181b990d516a1e14599
+Content-Type: application/json
+
+{
+  "text":  "Комментарий к предложению 2",
+  "rating": 3,
+  "author": "634c4173fee938d8134e93fa"
+}
+
+<> 2022-10-21T004539.404.json
+
+###
+
+POST http://localhost:4000/comments/634c4181b990d516a1e14599
+Content-Type: application/json
+
+{
+  "text":  "Комментарий к предложению 2",
+  "rating": 3,
+  "author": "634c4173fee938d8134e93fa"
+}
+
+<> 2022-10-21T004537.404.json
+
+###
+

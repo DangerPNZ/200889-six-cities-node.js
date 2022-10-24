@@ -5,7 +5,6 @@ import {
   Max,
   IsEnum,
   IsInt,
-  IsMongoId,
   IsBoolean,
   IsString,
   IsArray,
@@ -119,7 +118,6 @@ export class CreateOfferDto {
   @ArrayUnique({message: 'facilities must consist of unique values'})
   public facilities!: Facility[];
 
-  @IsMongoId({message: 'author field must be valid an id'})
   public author!: string;
 
   @IsArray({message: 'coordinates must be an array'})

@@ -39,7 +39,7 @@ export default class OfferService implements IOfferService {
     return this.offerModel.find().limit(limit).sort({createdAt: SortType.Down}).populate(['author']);
   }
 
-  public async getOffer(offerId: string): Promise<DocumentType<OfferEntity> | null> {
+  public async get(offerId: string): Promise<DocumentType<OfferEntity> | null> {
     return this.offerModel.findById(offerId).populate(['author']).exec();
   }
 

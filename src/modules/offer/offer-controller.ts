@@ -12,6 +12,8 @@ import {ValidateObjectIdMiddleware} from '../../common/middlewares/validate-obje
 import {DEFAULT_OFFERS_LIMIT} from './offer-contracts.js';
 import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middleware.js';
 import {DocumentExistsMiddleware} from '../../common/middlewares/document-exists-middleware.js';
+import {PrivateRouteMiddleware} from '../../common/middlewares/private-routes-middleware.js';
+import {VerifyAuthorMiddleware} from '../../common/middlewares/verify-author-middleware.js';
 
 @injectable()
 export default class OfferController extends Controller {
@@ -27,7 +29,10 @@ export default class OfferController extends Controller {
       path: '/',
       method: HttpMethod.Post,
       handler: this.create,
-      middlewares: [new ValidateDtoMiddleware(CreateOfferDto)],
+      middlewares: [
+        new PrivateRouteMiddleware(),
+        new ValidateDtoMiddleware(CreateOfferDto)
+      ],
     });
     this.addRoute({
       path: '/:offerId',
@@ -43,9 +48,10 @@ export default class OfferController extends Controller {
       method: HttpMethod.Patch,
       handler: this.update,
       middlewares: [
+        new PrivateRouteMiddleware(),
         new ValidateObjectIdMiddleware('offerId'),
         new ValidateDtoMiddleware(UpdateOfferDto),
-        new DocumentExistsMiddleware(this.offerService, 'Offer', 'offerId')
+        new VerifyAuthorMiddleware(this.offerService, 'Offer', 'offerId', 'author')
       ],
     });
     this.addRoute({
@@ -53,8 +59,9 @@ export default class OfferController extends Controller {
       method: HttpMethod.Delete,
       handler: this.delete,
       middlewares: [
+        new PrivateRouteMiddleware(),
         new ValidateObjectIdMiddleware('offerId'),
-        new DocumentExistsMiddleware(this.offerService, 'Offer', 'offerId')
+        new VerifyAuthorMiddleware(this.offerService, 'Offer', 'offerId', 'author')
       ],
     });
   }
@@ -75,6 +82,7 @@ export default class OfferController extends Controller {
 
   public async update(request: Request, response: Response): Promise<void> {
     const offerId = request.params.offerId;
+
     const updatedOffer = await this.offerService.updateById(offerId, request.body as UpdateOfferDto);
 
     this.ok(response, fillDTO(OfferResponse, updatedOffer));
@@ -82,16 +90,16 @@ export default class OfferController extends Controller {
 
   public async read(request: Request, response: Response): Promise<void> {
     const offerId = request.params.offerId;
-    const offer = await this.offerService.getOffer(offerId);
+    const offer = await this.offerService.get(offerId);
 
     this.ok(response, fillDTO(OfferResponse, offer));
   }
 
   public async create(
-    {body}: Request<Record<string, unknown>, Record<string, unknown>, CreateOfferDto>,
+    {body, user}: Request<Record<string, unknown>, Record<string, unknown>, CreateOfferDto>,
     response: Response
   ): Promise<void> {
-    const offer = await this.offerService.create(body);
+    const offer = await this.offerService.create({...body, author: user.id});
 
     this.created(
       response,

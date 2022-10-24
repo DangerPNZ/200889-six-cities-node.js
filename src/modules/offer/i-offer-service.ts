@@ -8,7 +8,7 @@ export interface IOfferService extends IDocumentsExists {
   updateById(offerId: string, dto: UpdateOfferDto): Promise<DocumentType<OfferEntity> | null>;
   deleteById(offerId: string): Promise<DocumentType<OfferEntity> | null>;
   find(limit: number): Promise<DocumentType<OfferEntity>[]>;
-  getOffer(offerId: string): Promise<DocumentType<OfferEntity> | null>
+  get(offerId: string): Promise<DocumentType<OfferEntity> | null>;
 
   setAvgRateAndCommentsCount(offerId: string): Promise<void>;
 }

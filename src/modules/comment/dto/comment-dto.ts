@@ -24,7 +24,6 @@ export class DataCommentDto {
   )
   public rating!: number;
 
-  @IsMongoId({message: 'author field must be valid an id'})
   public author!: string;
 }
 
