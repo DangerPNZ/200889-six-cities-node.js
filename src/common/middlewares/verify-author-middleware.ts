@@ -10,12 +10,12 @@ export class VerifyAuthorMiddleware <
   constructor(
     private readonly service: T,
     private readonly entityName: string,
-    private readonly documentId: string,
+    private readonly documentIdName: string,
     private readonly authorParam: K
   ) {}
 
   public async execute({params, user}: Request, _response: Response, next: NextFunction): Promise<void> {
-    const documentId = params[this.documentId];
+    const documentId = params[this.documentIdName];
     const document = await this.service.get(documentId);
 
     if (document) {
@@ -25,7 +25,7 @@ export class VerifyAuthorMiddleware <
       if(String(documentAuthorId) !== String(authorId)) {
         throw new HttpError(
           StatusCodes.FORBIDDEN,
-          `${this.entityName} with ${this.documentId} belongs to another user. Access is denied`,
+          `${this.entityName} with ${this.documentIdName} belongs to another user. Access is denied`,
           'VerifyAuthorMiddleware'
         );
       }
