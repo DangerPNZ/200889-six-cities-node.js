@@ -13,14 +13,16 @@ import {DEFAULT_COMMENTS_LIMIT} from './comment-contracts.js';
 import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middleware.js';
 import {DocumentExistsMiddleware} from '../../common/middlewares/document-exists-middleware.js';
 import {PrivateRouteMiddleware} from '../../common/middlewares/private-routes-middleware.js';
+import {IConfig} from '../../common/config/i-config.js';
 
 @injectable()
 export default class CommentController extends Controller {
   constructor(
     @inject(Component.ILogger) logger: ILogger,
+    @inject(Component.IConfig) configService: IConfig,
     @inject(Component.ICommentService) private readonly commentService: ICommentService
   ) {
-    super(logger);
+    super(logger, configService);
 
     this.logger.info('Register routes for OfferController…');
     this.addRoute({

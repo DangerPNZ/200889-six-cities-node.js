@@ -8,6 +8,9 @@ import express, {Express} from 'express';
 import {IController} from '../common/controller/i-controller.js';
 import {IExceptionFilter} from '../common/errors/i-exception-filter.js';
 import {AuthenticateMiddleware} from '../common/middlewares/authentificate-middleware.js';
+import {STATIC_DIRECTORY, UPLOAD_DIRECTORY} from './constants.js';
+import {getFullServerPath} from '../utils/common.js';
+import cors from 'cors';
 
 @injectable()
 export default class Application {
@@ -34,11 +37,16 @@ export default class Application {
   public initMiddleware() {
     this.expressApp.use(express.json());
     this.expressApp.use(
+      '/static',
+      express.static(STATIC_DIRECTORY)
+    );
+    this.expressApp.use(
       '/upload',
-      express.static(this.config.get('UPLOAD_DIRECTORY'))
+      express.static(UPLOAD_DIRECTORY)
     );
     const authenticateMiddleware = new AuthenticateMiddleware(this.config.get('JWT_SECRET'));
     this.expressApp.use(authenticateMiddleware.execute.bind(authenticateMiddleware));
+    this.expressApp.use(cors());
   }
 
   public initExceptionFilters() {
@@ -63,6 +71,6 @@ export default class Application {
     this.initRoutes();
     this.initExceptionFilters();
     this.expressApp.listen(this.config.get('PORT'));
-    this.logger.info(`Server started on http://localhost:${this.config.get('PORT')}`);
+    this.logger.info(`Server started on ${getFullServerPath(this.config.get('HOST'), this.config.get('PORT'))}`);
   }
 }

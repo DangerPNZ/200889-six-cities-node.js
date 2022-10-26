@@ -2,7 +2,6 @@ import typegoose, {getModelForClass, defaultClasses} from '@typegoose/typegoose'
 import {createSHA256} from '../../utils/common.js';
 import {EMAIL_MATCH_REGEX, IAuthor, IUserEntity, UserType} from './user-contracts.js';
 
-const defaultAvatarURL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2h6UWR0YH-vKjKSIL4dteZRo3hbpQ1W7EDw&usqp=CAU';
 const {prop, modelOptions} = typegoose;
 
 export interface UserEntity extends defaultClasses.Base {}
@@ -37,9 +36,9 @@ export class UserEntity extends defaultClasses.TimeStamps implements IUserEntity
   public email!: string;
 
   @prop({
-    default: defaultAvatarURL,
+    required: true,
   })
-  public avatar?: string;
+  public avatar!: string;
 
   @prop({
     required: true,

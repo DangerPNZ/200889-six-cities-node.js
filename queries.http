@@ -7,27 +7,29 @@ Content-Type: application/json
 
 {
   "name": "Стив Джобс",
-  "email": "jobs@gmail.ru",
-  "password": "12345qwerty",
+  "email": "jobs@mail.ru",
+  "password": "1234567890",
   "userType": "pro"
 }
 ###
+
 ## Авторизация пользователя
 POST http://localhost:4000/users/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "jobs@gmail.ru",
-  "password": "12345qwerty"
+  "email": "jobs@mail.ru",
+  "password": "1234567890"
 }
 ###
+
 ## Проверка токена пользователя
 GET http://localhost:4000/users/login HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjQwNjQwNCwiZXhwIjoxNjY2NTc5MjA0fQ.yk0ZmpU5hrlDBi5l868vxAxwx-xTKA344JpTx4XCdVQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
 ###
-## Добавить аватар пользователя
 
-POST http://localhost:4000/users/634c3ea5fee938d8134e93f3/avatar HTTP/1.1
+## Добавить аватар пользователя
+POST http://localhost:4000/users/63592cfc3e12f6e6a9a781f7/avatar HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -45,11 +47,11 @@ Content-Type: image/png
 ## Создать предложение
 POST http://localhost:4000/offers HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
 
 {
-  "title": "Предложение 3",
-  "description": "Новое предложение, созданное запросом из queries.http, 3",
+  "title": "Особняк в городе",
+  "description": "Большой особняк с бассейном",
   "city": "Paris",
   "previewPhotoUrl": "preview-photo.jpg",
   "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
@@ -59,38 +61,42 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZ
   "guestsLimit": 5,
   "price": 10500,
   "facilities": ["Laptop friendly workspace"],
-  "author": "634c3e71fee938d8134e93f0",
   "coordinates": [48.85661, 2.351499]
 }
 ###
+
 ## Получить список предложений (дефолтное ограничение выборки)
 GET http://localhost:4000/offers/ HTTP/1.1
 Content-Type: application/json
 ###
+
 ## Получить список предложений (пользовательское ограничение выборки)
 GET http://localhost:4000/offers?limit=1 HTTP/1.1
 Content-Type: application/json
 ###
+
 ## Получить данные по конкретному предложению
-GET http://localhost:4000/offers/634c4181b990d516a1e14522 HTTP/1.1
+GET http://localhost:4000/offers/63592ebfba44efaf854cf70b HTTP/1.1
 Content-Type: application/json
 ###
+
 ## Обновить данные по конкретному предложению
-PATCH http://localhost:4000/offers/63566930d86a679638ad162e HTTP/1.1
+PATCH http://localhost:4000/offers/63592ebfba44efaf854cf70b HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
 
 {
-  "title": "Новый заголовок 3",
-  "description": "Обновлённое описание 3",
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
   "roomsAmount": 6,
   "guestsLimit": 8
 }
 ###
+
 ## Удалить предложение
-DELETE http://localhost:4000/offers/6349007ad7b3a77e3b9b3289 HTTP/1.1
+DELETE http://localhost:4000/offers/63592fbbc0d57db3480895ff HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjQwNjQwNCwiZXhwIjoxNjY2NTc5MjA0fQ.yk0ZmpU5hrlDBi5l868vxAxwx-xTKA344JpTx4XCdVQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
 ###
 
 
@@ -98,19 +104,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZ
 
 
 ## Создание комментария
-POST http://localhost:4000/comments/634c4181b990d516a1e14522 HTTP/1.1
+POST http://localhost:4000/comments/63592ebfba44efaf854cf70b HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjQwNjQwNCwiZXhwIjoxNjY2NTc5MjA0fQ.yk0ZmpU5hrlDBi5l868vxAxwx-xTKA344JpTx4XCdVQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
 
 {
-  "text":  "Комментарий к предложению 2",
-  "rating": 3
+  "text":  "Понравилось, вернусь",
+  "rating": 1
 }
 ###
+
 ## Получить комментарии (дефолтное ограничение выборки)
-GET http://localhost:4000/comments/634c4181b990d516a1e14522 HTTP/1.1
+GET http://localhost:4000/comments/63592ebfba44efaf854cf70b HTTP/1.1
 Content-Type: application/json
 ###
+
 ## Получить комментарии (пользовательское ограничение выборки)
 GET http://localhost:4000/comments/634c4181b990d516a1e14522?limit=1 HTTP/1.1
 Content-Type: application/json

@@ -14,14 +14,16 @@ import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middl
 import {DocumentExistsMiddleware} from '../../common/middlewares/document-exists-middleware.js';
 import {PrivateRouteMiddleware} from '../../common/middlewares/private-routes-middleware.js';
 import {VerifyAuthorMiddleware} from '../../common/middlewares/verify-author-middleware.js';
+import {IConfig} from '../../common/config/i-config.js';
 
 @injectable()
 export default class OfferController extends Controller {
   constructor(
     @inject(Component.ILogger) logger: ILogger,
+    @inject(Component.IConfig) configService: IConfig,
     @inject(Component.IOfferService) private readonly offerService: IOfferService,
   ) {
-    super(logger);
+    super(logger, configService);
 
     this.logger.info('Register routes for OfferController…');
     this.addRoute({path: '/', method: HttpMethod.Get, handler: this.index,});
@@ -80,10 +82,13 @@ export default class OfferController extends Controller {
     this.ok(response, offersResponse);
   }
 
-  public async update(request: Request, response: Response): Promise<void> {
-    const offerId = request.params.offerId;
+  public async update(
+    {body, params}: Request<{ offerId: string }, Record<string, unknown>, UpdateOfferDto>,
+    response: Response
+  ): Promise<void> {
+    const offerId = params.offerId;
 
-    const updatedOffer = await this.offerService.updateById(offerId, request.body as UpdateOfferDto);
+    const updatedOffer = await this.offerService.updateById(offerId, body);
 
     this.ok(response, fillDTO(OfferResponse, updatedOffer));
   }
@@ -99,11 +104,10 @@ export default class OfferController extends Controller {
     {body, user}: Request<Record<string, unknown>, Record<string, unknown>, CreateOfferDto>,
     response: Response
   ): Promise<void> {
-    const offer = await this.offerService.create({...body, author: user.id});
+    const createdOffer = await this.offerService.create({...body, author: user.id});
+    const newOffer = await this.offerService.get(createdOffer.id);
 
-    this.created(
-      response,
-      fillDTO(OfferResponse, offer)
+    this.created(response, fillDTO(OfferResponse, newOffer)
     );
   }
 

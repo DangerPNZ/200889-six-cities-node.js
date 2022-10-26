@@ -1,9 +1,9 @@
 import { registerDecorator, ValidationOptions, ValidationArguments } from 'class-validator';
 import {City, CityCoordinatesValue} from './offer-contracts.js';
-import {CreateOfferDto} from './dto/offer-dto.js';
+import {CreateOfferDto, UpdateOfferDto} from './dto/offer-dto.js';
 
 export function IsIncorrectCoordinates(property: string, validationOptions?: ValidationOptions) {
-  return function (object: CreateOfferDto, propertyName: string) {
+  return function (object: CreateOfferDto | UpdateOfferDto, propertyName: string) {
     registerDecorator({
       name: 'IsIncorrectCoordinates',
       target: object.constructor,

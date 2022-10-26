@@ -6,6 +6,7 @@ import {IDocumentsExists} from '../../common/middlewares/types/i-documents-exist
 export interface IUserService extends IDocumentsExists {
   verifyUser(dto: LoginUserDto, salt: string): Promise<DocumentType<UserEntity> | null>
   create(dto: CreateUserDto, salt: string): Promise<DocumentType<UserEntity>>;
+  updateById(userId: string, avatar: string): Promise<DocumentType<UserEntity> | null>
   findByEmail(email: string): Promise<DocumentType<UserEntity> | null>;
   findOrCreate(dto: CreateUserDto, salt: string): Promise<DocumentType<UserEntity>>;
 }

@@ -21,7 +21,7 @@ export enum UserType {
 export interface IAuthor {
   name: string;
   email: string;
-  avatar?: string;
+  avatar: string;
   password: string;
   userType: UserType;
 }

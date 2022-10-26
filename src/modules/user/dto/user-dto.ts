@@ -32,9 +32,6 @@ export class CreateUserDto extends LoginUserDto {
     {message: `userType value must be ${UserType.Ordinary} or ${UserType.Pro}`}
   )
   public userType!: UserType;
-}
 
-// export class UserDto extends CreateUserDto {
-//   @IsString({message: 'avatar value must be string'})
-//   public avatar?: string;
-// }
+  public avatar!: string;
+}
