@@ -1,5 +1,5 @@
 import {ICliCommand} from './i-cli-command.js';
-import {Command} from './types.js';
+import {Command} from './contracts.js';
 import chalk from 'chalk';
 
 export default class HelpCommand implements ICliCommand {

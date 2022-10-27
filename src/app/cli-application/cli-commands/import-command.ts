@@ -1,8 +1,8 @@
 import {ICliCommand} from './i-cli-command.js';
-import {Command} from './types.js';
+import {Command, IGenerateOfferData} from './contracts.js';
 import TsvFileReader from '../../../common/tsv-file-reader.js';
 import chalk from 'chalk';
-import {createRentalOffer, getErrorMessage} from '../../../utils/common.js';
+import {createOffer, getErrorMessage} from '../../../utils/common.js';
 import {IUserService} from '../../../modules/user/i-user-service.js';
 import {IOfferService} from '../../../modules/offer/i-offer-service.js';
 import {IDataBase} from '../../../common/data-base-client/i-data-base.js';
@@ -14,15 +14,13 @@ import {UserModel} from '../../../modules/user/user-entity.js';
 import UserService from '../../../modules/user/user-service.js';
 import DataBaseService from '../../../common/data-base-client/data-base-service.js';
 import {getURI} from '../../../utils/data-base.js';
-import {IOffer} from '../../../modules/offer/offer-contracts.js';
 
 const DEFAULT_DB_PORT = 27017;
-const DEFAULT_USER_PASSWORD = '123456';
 
 export default class ImportCommand implements ICliCommand {
   public readonly name = Command.Import;
   private userService!: IUserService;
-  private rentalOfferService!: IOfferService;
+  private offerService!: IOfferService;
   private dataBaseService!: IDataBase;
   private readonly logger: ILogger;
   private salt!: string;
@@ -32,31 +30,28 @@ export default class ImportCommand implements ICliCommand {
     this.onComplete = this.onComplete.bind(this);
 
     this.logger = new ConsoleLoggerService();
-    this.rentalOfferService = new OfferService(this.logger, OfferModel);
+    this.offerService = new OfferService(this.logger, OfferModel);
     this.userService = new UserService(this.logger, UserModel);
     this.dataBaseService = new DataBaseService(this.logger);
   }
 
-  private async saveOffer(rentalOffer: IOffer) {
-    const author = await this.userService.findOrCreate({
-      ...rentalOffer.author,
-      password: DEFAULT_USER_PASSWORD
-    }, this.salt);
+  private async saveOffer(data: IGenerateOfferData) {
+    const author = await this.userService.findOrCreate(data.user, this.salt);
 
-    await this.rentalOfferService.create({
-      ...rentalOffer,
+    await this.offerService.create({
+      ...data.offer,
       author: author.id,
     });
   }
 
   private async onLine(line: string, resolve: () => void) {
-    const rentalOffer = createRentalOffer(line);
-    await this.saveOffer(rentalOffer);
+    const offer = createOffer(line);
+    await this.saveOffer(offer);
     resolve();
   }
 
   private onComplete(count: number) {
-    console.log(chalk.bgBlack.green(`Импортированно ${count} строк`));
+    console.log(chalk.bgBlack.green(`Импортировано ${count} строк`));
     this.dataBaseService.disconnect();
   }
 
@@ -73,7 +68,7 @@ export default class ImportCommand implements ICliCommand {
     try {
       await fileReader.read();
     } catch(err) {
-      console.log(chalk.bgBlack.red(`не удалось прочесть файл: ${getErrorMessage(err)}`));
+      console.log(chalk.bgBlack.red(`Не удалось прочесть файл: ${getErrorMessage(err)}`));
     }
   }
 }

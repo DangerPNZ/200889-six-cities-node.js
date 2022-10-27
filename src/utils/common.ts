@@ -1,43 +1,61 @@
 import crypto from 'crypto';
 import {plainToInstance, ClassConstructor} from 'class-transformer';
-import {City, Facility, IOffer, OfferType, RATING_NUM_AFTER_DIGIT} from '../modules/offer/offer-contracts.js';
-import {UserType} from '../modules/user/user-contracts.js';
+import {City, Facility, OfferType, RATING_NUM_AFTER_DIGIT} from '../modules/offer/offer-contracts.js';
 import * as jose from 'jose';
 import {ValidationError} from 'class-validator';
 import {IValidationErrorField} from '../types/i-validation-error-field.js';
 import {ServiceError} from '../types/service-error.js';
 import {UnknownObject} from '../types/unknown-object.js';
 import {DEFAULT_STATIC_IMAGES} from '../app/constants.js';
+import {IGenerateOfferData} from '../app/cli-application/cli-commands/contracts.js';
+import {UserType} from '../modules/user/user-contracts.js';
 
 const JWT_EXPIRATION_TIME = '2d';
 
-export const createRentalOffer = (row: string): IOffer => {
+export const createOffer = (row: string): IGenerateOfferData => {
   const units = row.replace('\n', '').split('\t');
-  const [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, name, email, avatar, password, userType, commentsAmount, coordinates] = units;
-
-  return {
+  const [
     title,
     description,
-    publicationDate: new Date(publicationDate),
-    city: city as City,
+    city,
     previewPhotoUrl,
-    photosUrls: photosUrls.split(';'),
-    isPremium: Boolean(isPremium),
-    rating: Number(rating),
-    offerType: offerType as OfferType,
-    roomsAmount: Number(roomsAmount),
-    guestsLimit: Number(guestsLimit),
-    price: Number(price),
-    facilities: facilities.split(';') as Facility[],
-    author: {
-      name,
-      email,
-      avatar,
-      password,
-      userType: userType as UserType,
+    photosUrls,
+    isPremium,
+    offerType,
+    roomsAmount,
+    guestsLimit,
+    price,
+    facilities,
+    coordinates,
+    email,
+    password,
+    name,
+    userType,
+    avatar
+  ] = units;
+
+  return {
+    offer: {
+      title,
+      description,
+      city: city as City,
+      previewPhotoUrl,
+      photosUrls: photosUrls.split(';'),
+      isPremium: Boolean(isPremium),
+      offerType: offerType as OfferType,
+      roomsAmount: Number(roomsAmount),
+      guestsLimit: Number(guestsLimit),
+      price: Number(price),
+      facilities: facilities.split(';') as Facility[],
+      coordinates: coordinates.split(';').map((unit: string) => Number(unit)) as [number, number],
     },
-    commentsAmount: Number(commentsAmount),
-    coordinates: coordinates.split(';').map((unit: string) => Number(unit)) as [number, number],
+    user: {
+      email,
+      password,
+      name,
+      userType: userType as UserType,
+      avatar,
+    },
   };
 };
 

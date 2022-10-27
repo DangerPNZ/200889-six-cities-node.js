@@ -1,9 +1,9 @@
 import {ICliCommand} from './i-cli-command.js';
-import {Command} from './types.js';
+import {Command} from './contracts.js';
 import {IMockServerData} from '../../../mocks/i-mock-server-data.js';
 import got from 'got';
 import chalk from 'chalk';
-import {RentalOfferGenerator} from '../../../common/rental-offer-generator/rental-offer-generator.js';
+import {OfferGenerator} from '../../../common/offer-generator/offer-generator.js';
 import TsvFileWriter from '../../../common/file-writer/tsv-file-writer.js';
 
 export default class GenerateCommand implements ICliCommand {
@@ -20,7 +20,7 @@ export default class GenerateCommand implements ICliCommand {
       return console.log(chalk.bgBlack.red(`  Не удалось получить данные по пути ${url}.  `));
     }
 
-    const rentalOfferStringGenerator = new RentalOfferGenerator(this.initialData);
+    const rentalOfferStringGenerator = new OfferGenerator(this.initialData);
     const tsvFileWriter = new TsvFileWriter(filepath);
 
     for (let i = 0; i < offersCount; i++) {

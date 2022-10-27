@@ -1,5 +1,5 @@
 import {ICliCommand} from './i-cli-command.js';
-import {Command} from './types.js';
+import {Command} from './contracts.js';
 import {readFileSync} from 'fs';
 import chalk from 'chalk';
 

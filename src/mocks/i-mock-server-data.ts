@@ -10,10 +10,8 @@ export interface IMockServerData {
   isPremiumValues: [true, false],
   offerTypes: OfferType[],
   facilities: Facility[][],
-  authorNames: string[],
-  emails: string[],
-  avatars: string[],
-  passwords: string[],
-  userTypes: UserType[],
   coordinates: Coordinates[],
+  emails: string[],
+  names: string[],
+  userTypes: UserType[],
 }

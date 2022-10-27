@@ -1,5 +1,5 @@
 import {ICliCommand} from './cli-commands/i-cli-command.js';
-import {Command} from './cli-commands/types.js';
+import {Command} from './cli-commands/contracts.js';
 
 type ParsedCommand = {
   [key: string]: string[];

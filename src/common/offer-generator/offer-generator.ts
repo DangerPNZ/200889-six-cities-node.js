@@ -1,22 +1,13 @@
-import {IRentalOfferGenerator} from './i-rental-offer-generator.js';
+import {IOfferGenerator} from './i-offer-generator.js';
 import {IMockServerData} from '../../mocks/i-mock-server-data.js';
 import {generateRandomNumber, getRandomItem, getRandomUniqueItemsByAmount} from '../../utils/random.js';
-import dayjs from 'dayjs';
-import {Coordinates, OfferValidation, RATING_NUM_AFTER_DIGIT} from '../../modules/offer/offer-contracts.js';
-import {CommentValidation} from '../../modules/comment/comment-contracts.js';
+import {Coordinates, OfferValidation} from '../../modules/offer/offer-contracts.js';
+import {DEFAULT_AVATAR_IMG_NAME} from '../../app/constants.js';
 
 const CITIES_AMOUNT = 6;
+const DEFAULT_USER_PASSWORD = '1234567890';
 
-enum WeekDayNumber {
-  First = 1,
-  Last = 7
-}
-enum CommentCountValue {
-  Min = 1,
-  Max = 50,
-}
-
-export class RentalOfferGenerator implements IRentalOfferGenerator{
+export class OfferGenerator implements IOfferGenerator {
   constructor(private readonly mockServerData: IMockServerData) {}
 
   public generate(): string {
@@ -24,25 +15,21 @@ export class RentalOfferGenerator implements IRentalOfferGenerator{
 
     const title = getRandomItem<string>(this.mockServerData.titles);
     const description = getRandomItem<string>(this.mockServerData.descriptions);
-    const publicationDate = dayjs().subtract(generateRandomNumber(WeekDayNumber.First, WeekDayNumber.Last), 'day').toISOString();
     const city = <string>this.mockServerData.cities[randomIndexForCity];
     const previewPhotoUrl = getRandomItem<string>(this.mockServerData.previewPhotoUrls);
     const photosUrls = getRandomUniqueItemsByAmount<string[]>(this.mockServerData.photosUrls, OfferValidation.PublicationPhotosAmount);
     const isPremium = getRandomItem<boolean>(this.mockServerData.isPremiumValues);
-    const rating = generateRandomNumber(CommentValidation.Rating.Min, CommentValidation.Rating.Max, generateRandomNumber(0, RATING_NUM_AFTER_DIGIT));
     const offerType = getRandomItem<string>(this.mockServerData.offerTypes);
     const roomsAmount = generateRandomNumber(OfferValidation.RoomsAmount.Min, OfferValidation.RoomsAmount.Max);
     const guestsLimit = generateRandomNumber(OfferValidation.GuestLimit.Min, OfferValidation.GuestLimit.Max);
     const price = generateRandomNumber(OfferValidation.Price.Min, OfferValidation.Price.Max);
     const facilities = getRandomUniqueItemsByAmount<string[]>(this.mockServerData.facilities, generateRandomNumber(OfferValidation.FacilitiesAmount.Min, OfferValidation.FacilitiesAmount.Max));
-    const authorName = getRandomItem<string>(this.mockServerData.authorNames);
-    const emails = getRandomItem<string>(this.mockServerData.emails);
-    const avatarUrl = getRandomItem<string>(this.mockServerData.avatars);
-    const password = getRandomItem<string>(this.mockServerData.passwords);
-    const userType = getRandomItem<string>(this.mockServerData.userTypes);
-    const commentsCount = generateRandomNumber(CommentCountValue.Min, CommentCountValue.Max);
     const coordinates: Coordinates = this.mockServerData.coordinates[randomIndexForCity];
+    const email = getRandomItem<string>(this.mockServerData.emails);
+    const password = DEFAULT_USER_PASSWORD;
+    const name = getRandomItem<string>(this.mockServerData.names);
+    const userType = getRandomItem<string>(this.mockServerData.userTypes);
 
-    return [title, description, publicationDate, city, previewPhotoUrl, photosUrls, isPremium, rating, offerType, roomsAmount, guestsLimit, price, facilities, authorName, emails, avatarUrl, password, userType, commentsCount, coordinates].join('\t');
+    return [title, description, city, previewPhotoUrl, photosUrls, isPremium, offerType, roomsAmount, guestsLimit, price, facilities, coordinates, email, password, name, userType, DEFAULT_AVATAR_IMG_NAME].join('\t');
   }
 }
