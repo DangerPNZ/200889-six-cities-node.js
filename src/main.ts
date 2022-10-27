@@ -33,7 +33,7 @@ applicationContainer.bind<IConfig>(Component.IConfig).to(ConfigService).inSingle
 applicationContainer.bind<IDataBase>(Component.IDataBase).to(DataBaseService).inSingletonScope();
 applicationContainer.bind<types.ModelType<UserEntity>>(Component.UserModel).toConstantValue(UserModel);
 applicationContainer.bind<IUserService>(Component.IUserService).to(UserService).inSingletonScope();
-applicationContainer.bind<IOfferService>(Component.IOfferService).to(OfferService);
+applicationContainer.bind<IOfferService>(Component.IOfferService).to(OfferService).inSingletonScope();
 applicationContainer.bind<types.ModelType<OfferEntity>>(Component.OfferModel).toConstantValue(OfferModel);
 applicationContainer.bind<ICommentService>(Component.ICommentService).to(CommentService).inSingletonScope();
 applicationContainer.bind<types.ModelType<CommentEntity>>(Component.CommentModel).toConstantValue(CommentModel);
