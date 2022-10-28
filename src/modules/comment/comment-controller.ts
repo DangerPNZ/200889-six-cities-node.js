@@ -14,13 +14,15 @@ import {ValidateDtoMiddleware} from '../../common/middlewares/validate-dto-middl
 import {DocumentExistsMiddleware} from '../../common/middlewares/document-exists-middleware.js';
 import {PrivateRouteMiddleware} from '../../common/middlewares/private-routes-middleware.js';
 import {IConfig} from '../../common/config/i-config.js';
+import {IOfferService} from '../offer/i-offer-service.js';
 
 @injectable()
 export default class CommentController extends Controller {
   constructor(
     @inject(Component.ILogger) logger: ILogger,
     @inject(Component.IConfig) configService: IConfig,
-    @inject(Component.ICommentService) private readonly commentService: ICommentService
+    @inject(Component.ICommentService) private readonly commentService: ICommentService,
+    @inject(Component.IOfferService) private readonly offerService: IOfferService,
   ) {
     super(logger, configService);
 
@@ -39,7 +41,7 @@ export default class CommentController extends Controller {
         new PrivateRouteMiddleware(),
         new ValidateObjectIdMiddleware('offerId'),
         new ValidateDtoMiddleware(DataCommentDto),
-        new DocumentExistsMiddleware(this.commentService, 'Comment', 'offerId')
+        new DocumentExistsMiddleware(this.offerService, 'Offer', 'offerId')
       ],
     });
   }
@@ -60,7 +62,7 @@ export default class CommentController extends Controller {
   public async create(request: Request<{ offerId: string }, object, CreateCommentDto>, response: Response): Promise<void> {
     const offerId = request.params.offerId;
 
-    const comment = await this.commentService.create({
+    const comment = await this.offerService.createOfferComment({
       ...request.body,
       author: request.user.id,
       offerId,

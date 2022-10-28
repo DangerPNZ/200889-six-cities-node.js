@@ -1,3 +1,508 @@
+DELETE http://localhost:4000/offers/635b1d9f79a5815dce4cb220
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+###
+
+GET http://localhost:4000/comments/635b1d9f79a5815dce4cb220
+Content-Type: application/json
+
+<> 2022-10-28T031126.200.json
+
+###
+
+POST http://localhost:4000/comments/635b1d9f79a5815dce4cb220
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "text":  "Понравилось, вернусь",
+  "rating": 5
+}
+
+<> 2022-10-28T031111.201.json
+
+###
+
+POST http://localhost:4000/offers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Особняк в городе",
+  "description": "Большой особняк с бассейном",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "coordinates": [48.85661, 2.351499]
+}
+
+<> 2022-10-28T030903.201.json
+
+###
+
+DELETE http://localhost:4000/offers/635b1bf479a5815dce4cb20b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+###
+
+POST http://localhost:4000/comments/635b1bf479a5815dce4cb20b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "text":  "Понравилось, вернусь",
+  "rating": 5
+}
+
+<> 2022-10-28T030713.201.json
+
+###
+
+PATCH http://localhost:4000/offers/635b1bf479a5815dce4cb20b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-28T030650.200.json
+
+###
+
+GET http://localhost:4000/offers/635b1bf479a5815dce4cb20b
+Content-Type: application/json
+
+<> 2022-10-28T030453.200.json
+
+###
+
+POST http://localhost:4000/offers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Особняк в городе",
+  "description": "Большой особняк с бассейном",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "coordinates": [48.85661, 2.351499]
+}
+
+<> 2022-10-28T030156.201.json
+
+###
+
+DELETE http://localhost:4000/offers/635b1bbd0bcd7cf5ccc063ba
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+###
+
+POST http://localhost:4000/offers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Особняк в городе",
+  "description": "Большой особняк с бассейном",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "coordinates": [48.85661, 2.351499]
+}
+
+<> 2022-10-28T030101.201.json
+
+###
+
+DELETE http://localhost:4000/offers/635b1b690bcd7cf5ccc063b2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+<> 2022-10-28T030007.500.html
+
+###
+
+POST http://localhost:4000/offers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Особняк в городе",
+  "description": "Большой особняк с бассейном",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "coordinates": [48.85661, 2.351499]
+}
+
+<> 2022-10-28T025937.201.json
+
+###
+
+DELETE http://localhost:4000/offers/635b19e093e0bd6844bdd215
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+<> 2022-10-28T025911.500.html
+
+###
+
+DELETE http://localhost:4000/offers/635b19e093e0bd6844bdd215
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+<> 2022-10-28T025818.500.html
+
+###
+
+DELETE http://localhost:4000/offers/635b19e093e0bd6844bdd215
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+<> 2022-10-28T025615.500.html
+
+###
+
+POST http://localhost:4000/comments/635b19e093e0bd6844bdd215
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "text":  "Понравилось, вернусь",
+  "rating": 1
+}
+
+<> 2022-10-28T025516.201.json
+
+###
+
+PATCH http://localhost:4000/offers/635b19e093e0bd6844bdd215
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-28T025444.200.json
+
+###
+
+GET http://localhost:4000/offers/635b19e093e0bd6844bdd215
+Content-Type: application/json
+
+<> 2022-10-28T025426.200.json
+
+###
+
+GET http://localhost:4000/offers?limit=1
+Content-Type: application/json
+
+<> 2022-10-28T025406.200.json
+
+###
+
+GET http://localhost:4000/offers/635b1821053d6b8e37d849fa
+Content-Type: application/json
+
+<> 2022-10-28T025401.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635b1821053d6b8e37d849fa
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-28T025357.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635b1821053d6b8e37d849fa
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-28T025346.500.html
+
+###
+
+GET http://localhost:4000/offers?limit=1
+Content-Type: application/json
+
+<> 2022-10-28T025318.200.json
+
+###
+
+GET http://localhost:4000/offers/
+Content-Type: application/json
+
+<> 2022-10-28T025313.200.json
+
+###
+
+POST http://localhost:4000/offers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+{
+  "title": "Особняк в городе",
+  "description": "Большой особняк с бассейном",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "coordinates": [48.85661, 2.351499]
+}
+
+<> 2022-10-28T025304.201.json
+
+###
+
+GET http://localhost:4000/users/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+<> 2022-10-28T025255.200.json
+
+###
+
+GET http://localhost:4000/users/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
+
+<> 2022-10-28T025120.200.json
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "jobs@mail.ru",
+  "password": "1234567890"
+}
+
+<> 2022-10-28T025001.200.json
+
+###
+
+GET http://localhost:4000/offers/635b1821053d6b8e37d849fa
+Content-Type: application/json
+
+<> 2022-10-28T024941.200.json
+
+###
+
+GET http://localhost:4000/offers/
+Content-Type: application/json
+
+<> 2022-10-28T024915.200.json
+
+###
+
+GET http://localhost:4000/offers?limit=1
+Content-Type: application/json
+
+<> 2022-10-28T024747.200.json
+
+###
+
+GET http://localhost:4000/offers/
+Content-Type: application/json
+
+<> 2022-10-28T024735.200.json
+
+###
+
+GET http://localhost:4000/offers/
+Content-Type: application/json
+
+<> 2022-10-28T024730.200.json
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "jobs@mail.ru",
+  "password": "1234567890"
+}
+
+<> 2022-10-28T024643.200.json
+
+###
+
+GET http://localhost:4000/offers/
+Content-Type: application/json
+
+<> 2022-10-28T024546.200.json
+
+###
+
+POST http://localhost:4000/offers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
+
+{
+  "title": "Особняк в городе",
+  "description": "Большой особняк с бассейном",
+  "city": "Paris",
+  "previewPhotoUrl": "preview-photo.jpg",
+  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
+  "isPremium": true,
+  "offerType": "house",
+  "roomsAmount": 5,
+  "guestsLimit": 5,
+  "price": 10500,
+  "facilities": ["Laptop friendly workspace"],
+  "coordinates": [48.85661, 2.351499]
+}
+
+<> 2022-10-28T024537.201.json
+
+###
+
+POST http://localhost:4000/users/635b1765053d6b8e37d849f1/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-28T024514.201.json
+
+###
+
+POST http://localhost:4000/users/63592cfc3e12f6e6a9a781f7/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-28T024447.500.html
+
+###
+
+POST http://localhost:4000/users/63592cfc3e12f6e6a9a781f7/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-28T024359.500.html
+
+###
+
+POST http://localhost:4000/users/63592cfc3e12f6e6a9a781f7/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-28T024339.500.html
+
+###
+
+GET http://localhost:4000/users/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
+
+<> 2022-10-28T024251.200.json
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "jobs@mail.ru",
+  "password": "1234567890"
+}
+
+<> 2022-10-28T024242.200.json
+
+###
+
+POST http://localhost:4000/users
+Content-Type: application/json
+
+{
+  "name": "Стив Джобс",
+  "email": "jobs@mail.ru",
+  "password": "1234567890",
+  "userType": "pro"
+}
+
+<> 2022-10-28T024229.201.json
+
+###
+
 POST http://localhost:4000/comments/63592ebfba44efaf854cf70b
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
@@ -54,765 +559,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkI
 DELETE http://localhost:4000/offers/63592fbbc0d57db3480895ff
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T160147.201.json
-
-###
-
-PATCH http://localhost:4000/offers/63592ebfba44efaf854cf70b
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-{
-  "title": "Дом в лесу",
-  "description": "Уединенная хижина на опушке",
-  "roomsAmount": 6,
-  "guestsLimit": 8
-}
-
-<> 2022-10-26T160124.200.json
-
-###
-
-PATCH http://localhost:4000/offers/63592ebfba44efaf854cf70b
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-{
-  "title": "Дом в лесу",
-  "description": "Уединенная хижина",
-  "roomsAmount": 6,
-  "guestsLimit": 8
-}
-
-<> 2022-10-26T160050.400.json
-
-###
-
-PATCH http://localhost:4000/offers/63592ebfba44efaf854cf70b
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAZ21haWwucnUiLCJpZCI6IjYzNGM0MTczZmVlOTM4ZDgxMzRlOTNmYSIsImlhdCI6MTY2NjYwNjYyMSwiZXhwIjoxNjY2Nzc5NDIxfQ.zED8zSGCeRUAuDr4BCulS7h6u_eomsLmndx29vZ9QPw
-
-{
-  "title": "Дом в лесу",
-  "description": "Обновлённое описание 3",
-  "roomsAmount": 6,
-  "guestsLimit": 8
-}
-
-<> 2022-10-26T155900.401.json
-
-###
-
-GET http://localhost:4000/offers/63592ebfba44efaf854cf70b
-Content-Type: application/json
-
-<> 2022-10-26T155834.200.json
-
-###
-
-GET http://localhost:4000/offers?limit=1
-Content-Type: application/json
-
-<> 2022-10-26T155821.200.json
-
-###
-
-GET http://localhost:4000/offers/
-Content-Type: application/json
-
-<> 2022-10-26T155812.200.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T155735.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T155700.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T155419.201.json
-
-###
-
-GET http://localhost:4000/users/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-<> 2022-10-26T155324.200.json
-
-###
-
-POST http://localhost:4000/users/63592cfc3e12f6e6a9a781f7/avatar
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
-Content-Type: image/png
-
-< /Users/Anton/Desktop/author_1266178750.jpeg
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
-
-<> 2022-10-26T155254.201.json
-
-###
-
-GET http://localhost:4000/users/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-<> 2022-10-26T155200.200.json
-
-###
-
-POST http://localhost:4000/users/login
-Content-Type: application/json
-
-{
-  "email": "jobs@mail.ru",
-  "password": "1234567890"
-}
-
-<> 2022-10-26T155103.200.json
-
-###
-
-POST http://localhost:4000/users
-Content-Type: application/json
-
-{
-  "name": "Стив Джобс",
-  "email": "jobs@mail.ru",
-  "password": "1234567890",
-  "userType": "pro"
-}
-
-<> 2022-10-26T155004.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGRmODc4MGY5OTgxMWMzODNkNzg2IiwiaWF0IjoxNjY2NzY4Nzk0LCJleHAiOjE2NjY5NDE1OTR9.dmDxO0Gn3fKx9uLc947w-dZWRzu6hsx_pVjAvcDZ0u8
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T103242.201.json
-
-###
-
-GET http://localhost:4000/offers/
-Content-Type: application/json
-
-<> 2022-10-26T102327.200.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGRmODc4MGY5OTgxMWMzODNkNzg2IiwiaWF0IjoxNjY2NzY4Nzk0LCJleHAiOjE2NjY5NDE1OTR9.dmDxO0Gn3fKx9uLc947w-dZWRzu6hsx_pVjAvcDZ0u8
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T102301.201.json
-
-###
-
-GET http://localhost:4000/users/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGRmODc4MGY5OTgxMWMzODNkNzg2IiwiaWF0IjoxNjY2NzY4Nzk0LCJleHAiOjE2NjY5NDE1OTR9.dmDxO0Gn3fKx9uLc947w-dZWRzu6hsx_pVjAvcDZ0u8
-
-<> 2022-10-26T102241.200.json
-
-###
-
-POST http://localhost:4000/users/6358df8780f99811c383d786/avatar
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
-Content-Type: image/png
-
-< /Users/Anton/Desktop/author_1266178750.jpeg
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
-
-<> 2022-10-26T102232.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGRmODc4MGY5OTgxMWMzODNkNzg2IiwiaWF0IjoxNjY2NzY4Nzk0LCJleHAiOjE2NjY5NDE1OTR9.dmDxO0Gn3fKx9uLc947w-dZWRzu6hsx_pVjAvcDZ0u8
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T102135.201.json
-
-###
-
-GET http://localhost:4000/users/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGRmODc4MGY5OTgxMWMzODNkNzg2IiwiaWF0IjoxNjY2NzY4Nzk0LCJleHAiOjE2NjY5NDE1OTR9.dmDxO0Gn3fKx9uLc947w-dZWRzu6hsx_pVjAvcDZ0u8
-
-<> 2022-10-26T102101.200.json
-
-###
-
-POST http://localhost:4000/users/login
-Content-Type: application/json
-
-{
-  "email": "jobs@mail.ru",
-  "password": "1234567890"
-}
-
-<> 2022-10-26T101954.200.json
-
-###
-
-POST http://localhost:4000/users
-Content-Type: application/json
-
-{
-  "name": "Стив Джобс",
-  "email": "jobs@mail.ru",
-  "password": "1234567890",
-  "userType": "pro"
-}
-
-<> 2022-10-26T101935.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im10d2VuQG1haWwucnUiLCJpZCI6IjYzNThiOGYxOGY0ZTZmMGE3NmNlZjYzMSIsImlhdCI6MTY2Njc2NzQ1MiwiZXhwIjoxNjY2OTQwMjUyfQ.tx5paeQ3iPnARR4fcBJkp74vpua0ZXiY3qDoweIKXu8
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T101818.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im10d2VuQG1haWwucnUiLCJpZCI6IjYzNThiOGYxOGY0ZTZmMGE3NmNlZjYzMSIsImlhdCI6MTY2Njc2NzQ1MiwiZXhwIjoxNjY2OTQwMjUyfQ.tx5paeQ3iPnARR4fcBJkp74vpua0ZXiY3qDoweIKXu8
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T101653.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im10d2VuQG1haWwucnUiLCJpZCI6IjYzNThiOGYxOGY0ZTZmMGE3NmNlZjYzMSIsImlhdCI6MTY2Njc2NzQ1MiwiZXhwIjoxNjY2OTQwMjUyfQ.tx5paeQ3iPnARR4fcBJkp74vpua0ZXiY3qDoweIKXu8
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T101335.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im10d2VuQG1haWwucnUiLCJpZCI6IjYzNThiOGYxOGY0ZTZmMGE3NmNlZjYzMSIsImlhdCI6MTY2Njc2NzQ1MiwiZXhwIjoxNjY2OTQwMjUyfQ.tx5paeQ3iPnARR4fcBJkp74vpua0ZXiY3qDoweIKXu8
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T101115.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im10d2VuQG1haWwucnUiLCJpZCI6IjYzNThiOGYxOGY0ZTZmMGE3NmNlZjYzMSIsImlhdCI6MTY2Njc2NzQ1MiwiZXhwIjoxNjY2OTQwMjUyfQ.tx5paeQ3iPnARR4fcBJkp74vpua0ZXiY3qDoweIKXu8
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T095930.201.json
-
-###
-
-GET http://localhost:4000/users/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im10d2VuQG1haWwucnUiLCJpZCI6IjYzNThiOGYxOGY0ZTZmMGE3NmNlZjYzMSIsImlhdCI6MTY2Njc2NzQ1MiwiZXhwIjoxNjY2OTQwMjUyfQ.tx5paeQ3iPnARR4fcBJkp74vpua0ZXiY3qDoweIKXu8
-
-<> 2022-10-26T095818.200.json
-
-###
-
-GET http://localhost:4000/users/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im10d2VuQG1haWwucnUiLCJpZCI6IjYzNThiOGYxOGY0ZTZmMGE3NmNlZjYzMSIsImlhdCI6MTY2Njc2NzQ1MiwiZXhwIjoxNjY2OTQwMjUyfQ.tx5paeQ3iPnARR4fcBJkp74vpua0ZXiY3qDoweIKXu8
-
-<> 2022-10-26T095807.200.json
-
-###
-
-POST http://localhost:4000/users/login
-Content-Type: application/json
-
-{
-  "email": "mtwen@mail.ru",
-  "password": "1234567890"
-}
-
-<> 2022-10-26T095732.200.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T091500.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T091352.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T091245.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T085942.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T085554.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T085442.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T085406.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T085226.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T085105.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T084929.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T084637.201.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OGIxNzRkMWI5MzkwY2YxOWY5NzNiIiwiaWF0IjoxNjY2NzU3MDYyLCJleHAiOjE2NjY5Mjk4NjJ9.GpeHIwG7CYNLFaDXgigmqfTB2-g_hWJ28a_hZ3-gpfg
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-26T082958.201.json
 
 ###
 

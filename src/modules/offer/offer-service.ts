@@ -8,12 +8,16 @@ import {CreateOfferDto, UpdateOfferDto} from './dto/offer-dto.js';
 import {SortType} from '../../utils/sort-type.js';
 import {Types} from 'mongoose';
 import {formatRatingValue} from '../../utils/common.js';
+import {CreateCommentDto} from '../comment/dto/comment-dto.js';
+import {CommentEntity} from '../comment/comment-entity.js';
+import {ICommentService} from '../comment/i-comment-service.js';
 
 @injectable()
 export default class OfferService implements IOfferService {
   constructor(
     @inject(Component.ILogger) private readonly logger: ILogger,
-    @inject(Component.OfferModel) private readonly offerModel: types.ModelType<OfferEntity>
+    @inject(Component.OfferModel) private readonly offerModel: types.ModelType<OfferEntity>,
+    @inject(Component.ICommentService) private readonly commentService: ICommentService
   ) {}
 
   public async create(dto: CreateOfferDto): Promise<DocumentType<OfferEntity>> {
@@ -29,10 +33,16 @@ export default class OfferService implements IOfferService {
       .exec();
   }
 
-  public async deleteById(offerId: string): Promise<DocumentType<OfferEntity> | null> {
-    return this.offerModel
-      .findByIdAndDelete(offerId)
-      .exec();
+  public async deleteById(offerId: string): Promise<void> {
+    await this.offerModel.findByIdAndDelete(offerId);
+
+    this.logger.info(`Offer with id ${offerId} was removed.`);
+
+    const deletedCommentsCount = await this.commentService.deleteByOfferId(offerId);
+
+    if (deletedCommentsCount) {
+      this.logger.info(`${deletedCommentsCount} comments was removed.`);
+    }
   }
 
   public async find(limit: number): Promise<DocumentType<OfferEntity>[]> {
@@ -46,6 +56,13 @@ export default class OfferService implements IOfferService {
   public async exists(offerId: string): Promise<boolean> {
     const offer = await this.offerModel.findById(offerId);
     return Boolean(offer);
+  }
+
+  public async createOfferComment(dto: CreateCommentDto): Promise<DocumentType<CommentEntity>> {
+    const comment = await this.commentService.create(dto);
+    this.logger.info('New comment created');
+    await this.setAvgRateAndCommentsCount(dto.offerId);
+    return comment.populate('author');
   }
 
   public async setAvgRateAndCommentsCount(offerId: string): Promise<void> {

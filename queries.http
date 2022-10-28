@@ -25,11 +25,11 @@ Content-Type: application/json
 
 ## Проверка токена пользователя
 GET http://localhost:4000/users/login HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
 ###
 
 ## Добавить аватар пользователя
-POST http://localhost:4000/users/63592cfc3e12f6e6a9a781f7/avatar HTTP/1.1
+POST http://localhost:4000/users/635b1765053d6b8e37d849f1/avatar HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -47,7 +47,7 @@ Content-Type: image/png
 ## Создать предложение
 POST http://localhost:4000/offers HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
 
 {
   "title": "Особняк в городе",
@@ -76,14 +76,14 @@ Content-Type: application/json
 ###
 
 ## Получить данные по конкретному предложению
-GET http://localhost:4000/offers/63592ebfba44efaf854cf70b HTTP/1.1
+GET http://localhost:4000/offers/635b1d9f79a5815dce4cb220 HTTP/1.1
 Content-Type: application/json
 ###
 
 ## Обновить данные по конкретному предложению
-PATCH http://localhost:4000/offers/63592ebfba44efaf854cf70b HTTP/1.1
+PATCH http://localhost:4000/offers/635b1d9f79a5815dce4cb220 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
 
 {
   "title": "Дом в лесу",
@@ -94,9 +94,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkI
 ###
 
 ## Удалить предложение
-DELETE http://localhost:4000/offers/63592fbbc0d57db3480895ff HTTP/1.1
+DELETE http://localhost:4000/offers/635b1d9f79a5815dce4cb220 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
 ###
 
 
@@ -104,18 +104,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkI
 
 
 ## Создание комментария
-POST http://localhost:4000/comments/63592ebfba44efaf854cf70b HTTP/1.1
+POST http://localhost:4000/comments/635b1d9f79a5815dce4cb220 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
 
 {
   "text":  "Понравилось, вернусь",
-  "rating": 1
+  "rating": 5
 }
 ###
 
 ## Получить комментарии (дефолтное ограничение выборки)
-GET http://localhost:4000/comments/63592ebfba44efaf854cf70b HTTP/1.1
+GET http://localhost:4000/comments/635b1d9f79a5815dce4cb220 HTTP/1.1
 Content-Type: application/json
 ###
 

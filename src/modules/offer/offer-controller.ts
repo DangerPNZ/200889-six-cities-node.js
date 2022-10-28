@@ -113,8 +113,8 @@ export default class OfferController extends Controller {
 
   public async delete(request: Request, response: Response): Promise<void> {
     const offerId = request.params.offerId;
-    const deletedOffer = await this.offerService.deleteById(offerId);
+    await this.offerService.deleteById(offerId);
 
-    this.noContent(response, fillDTO(OfferResponse, deletedOffer));
+    this.noContent(response, {});
   }
 }
