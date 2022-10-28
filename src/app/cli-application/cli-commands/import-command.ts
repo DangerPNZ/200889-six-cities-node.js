@@ -10,10 +10,12 @@ import {ILogger} from '../../../common/logger/i-logger.js';
 import ConsoleLoggerService from '../../../common/logger/console-logger-service.js';
 import OfferService from '../../../modules/offer/offer-service.js';
 import {OfferModel} from '../../../modules/offer/offer-entity.js';
+import {CommentModel} from '../../../modules/comment/comment-entity.js';
 import {UserModel} from '../../../modules/user/user-entity.js';
 import UserService from '../../../modules/user/user-service.js';
 import DataBaseService from '../../../common/data-base-client/data-base-service.js';
 import {getURI} from '../../../utils/data-base.js';
+import CommentService from '../../../modules/comment/comment-service.js';
 
 const DEFAULT_DB_PORT = 27017;
 
@@ -30,7 +32,7 @@ export default class ImportCommand implements ICliCommand {
     this.onComplete = this.onComplete.bind(this);
 
     this.logger = new ConsoleLoggerService();
-    this.offerService = new OfferService(this.logger, OfferModel);
+    this.offerService = new OfferService(this.logger, OfferModel, new CommentService(CommentModel));
     this.userService = new UserService(this.logger, UserModel);
     this.dataBaseService = new DataBaseService(this.logger);
   }

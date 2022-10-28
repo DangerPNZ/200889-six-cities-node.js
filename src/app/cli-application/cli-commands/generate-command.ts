@@ -20,11 +20,11 @@ export default class GenerateCommand implements ICliCommand {
       return console.log(chalk.bgBlack.red(`  Не удалось получить данные по пути ${url}.  `));
     }
 
-    const rentalOfferStringGenerator = new OfferGenerator(this.initialData);
+    const offerStringGenerator = new OfferGenerator(this.initialData);
     const tsvFileWriter = new TsvFileWriter(filepath);
 
     for (let i = 0; i < offersCount; i++) {
-      await tsvFileWriter.write(rentalOfferStringGenerator.generate());
+      await tsvFileWriter.write(offerStringGenerator.generate());
     }
 
     console.log(chalk.bgBlack.green(` Файл ${filepath} создан!  `));

@@ -1,10 +1,11 @@
 import {UserType, UserValidation} from '../user-contracts.js';
-import {IsEmail, IsEnum, MaxLength, MinLength} from 'class-validator';
+import {IsEmail, IsEnum, IsString, MaxLength, MinLength} from 'class-validator';
 
 export class LoginUserDto {
   @IsEmail({message: 'email value invalid'})
   public email!: string;
 
+  @IsString({message: 'password value must be string'})
   @MinLength(
     UserValidation.Password.MinLength,
     {message: `Minimum password length must be ${UserValidation.Password.MinLength}`}
@@ -17,6 +18,7 @@ export class LoginUserDto {
 }
 
 export class CreateUserDto extends LoginUserDto {
+  @IsString({message: 'name value must be string'})
   @MinLength(
     UserValidation.Name.MinLength,
     {message: `Minimum name length must be ${UserValidation.Name.MinLength}`}
@@ -32,6 +34,6 @@ export class CreateUserDto extends LoginUserDto {
     {message: `userType value must be ${UserType.Ordinary} or ${UserType.Pro}`}
   )
   public userType!: UserType;
-
-  public avatar!: string;
 }
+
+

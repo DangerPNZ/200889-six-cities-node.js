@@ -2,7 +2,6 @@ import {IOfferGenerator} from './i-offer-generator.js';
 import {IMockServerData} from '../../mocks/i-mock-server-data.js';
 import {generateRandomNumber, getRandomItem, getRandomUniqueItemsByAmount} from '../../utils/random.js';
 import {Coordinates, OfferValidation} from '../../modules/offer/offer-contracts.js';
-import {DEFAULT_AVATAR_IMG_NAME} from '../../app/constants.js';
 
 const CITIES_AMOUNT = 6;
 const DEFAULT_USER_PASSWORD = '1234567890';
@@ -30,6 +29,6 @@ export class OfferGenerator implements IOfferGenerator {
     const name = getRandomItem<string>(this.mockServerData.names);
     const userType = getRandomItem<string>(this.mockServerData.userTypes);
 
-    return [title, description, city, previewPhotoUrl, photosUrls, isPremium, offerType, roomsAmount, guestsLimit, price, facilities, coordinates, email, password, name, userType, DEFAULT_AVATAR_IMG_NAME].join('\t');
+    return [title, description, city, previewPhotoUrl, photosUrls, isPremium, offerType, roomsAmount, guestsLimit, price, facilities, coordinates, email, password, name, userType].join('\t');
   }
 }
