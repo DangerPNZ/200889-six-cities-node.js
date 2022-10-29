@@ -32,7 +32,7 @@ paths:
 
       responses:
         "201":
-          description: Успешно создано.
+          description: Успешно создан.
           content:
             application/json:
               schema:
@@ -40,7 +40,7 @@ paths:
         "400":
           description: Не полный или не валидный набор данных.
         "409":
-          description: Конфликт.
+          description: Конфликт. Уже существует пользователь с таким email.
 
   /users/login:
     get:
@@ -48,6 +48,10 @@ paths:
         - users
       summary: Принимает токен авторизации в заголовке.
       description: Возвращает информацию по авторизованному пользователю.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
 
       responses:
         "200":
@@ -89,7 +93,11 @@ paths:
       tags:
         - users
       summary: Добавление аватарки.
-      description: Изменяет дефолтный аватар на пользовательский (jpg или png). Принимает токен авторизации в заголовке.
+      description: Изменяет дефолтный аватар на пользовательский (jpg или png).
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
 
       responses:
         "200":
@@ -106,6 +114,10 @@ paths:
         - offers
       summary: Добавление предложения по аренде.
       description: Создаёт новое предложение по аренде.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
 
       requestBody:
         description: Данные для создания предложения по аренде.
@@ -126,6 +138,7 @@ paths:
           description: Передан не верный или не валидный набор данных для создания предложения по аренде.
         "401":
           description: Пользователь не авторизован.
+
     get:
       tags:
         - offers
@@ -137,6 +150,7 @@ paths:
           schema:
             type: integer
           description: Лимит возвращаемых элементов коллекции (50 по умолчанию).
+          required: false
 
       responses:
         "200":
@@ -172,6 +186,10 @@ paths:
         - offers
       summary: Редактирование предложения по аренде.
       description: Позволяет редактировать конкретное предложение по аренде.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
 
       requestBody:
         description: Данные для редактирования предложения по аренде.
@@ -202,6 +220,10 @@ paths:
         - offers
       summary: Удаление предложения по аренде.
       description: Позволяет удалить конкретное предложение по аренде.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
 
       responses:
         "204":
@@ -219,12 +241,12 @@ paths:
         - comments
       summary: Получение комментариев предложения по аренде.
       description: Возвращает комментарии предложения по аренде.
-      parameters:
         - in: query
           name: limit
           schema:
             type: integer
           description: Лимит возвращаемых элементов коллекции (60 по умолчанию).
+          required: false
 
       responses:
         "200":
@@ -245,6 +267,10 @@ paths:
         - comments
       summary: Добавление комментария в предложение по аренде.
       description: Добавляет комментарий в предложение по аренде.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
 
       requestBody:
         description: Данные для создания комментария к предложению по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 50)
@@ -322,7 +348,6 @@ components:
           enum:
             - обычный
             - pro
-
 
     offerRequestData:
       type: object
