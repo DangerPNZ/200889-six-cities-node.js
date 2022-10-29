@@ -90,7 +90,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1Iiwia
   "title": "Дом в лесу",
   "description": "Уединенная хижина на опушке",
   "roomsAmount": 6,
-  "guestsLimit": 8
+  "guestsLimit": 8,
+  "city": "Paris"
 }
 ###
 
