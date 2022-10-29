@@ -13,7 +13,8 @@ import {
   ArrayUnique, IsOptional, IsDefined
 } from 'class-validator';
 import {City, Facility, OfferType, OfferValidation} from '../offer-contracts.js';
-import {IsIncorrectCoordinates} from '../is-incorrect-coordinates.js';
+import {IsCorrectCityAndCoordinates, ValidateProp} from '../is-correct-city-and-coordinates.js';
+
 
 export class UpdateOfferDto {
   @IsOptional()
@@ -46,6 +47,11 @@ export class UpdateOfferDto {
     {
       message: `city value must be ${City.Paris}, ${City.Cologne}, ${City.Brussels}, ${City.Amsterdam}, ${City.Hamburg} or ${City.Dusseldorf}`
     }
+  )
+  @IsCorrectCityAndCoordinates(
+    'coordinates',
+    ValidateProp.CityField,
+    {message: 'city has incorrect value for coordinates or not transferred coordinates'}
   )
   public city?: City;
 
@@ -133,7 +139,11 @@ export class UpdateOfferDto {
 
   @IsOptional()
   @IsArray({message: 'coordinates must be an array'})
-  @IsIncorrectCoordinates('city', {message: 'coordinates has incorrect value for city'})
+  @IsCorrectCityAndCoordinates(
+    'city',
+    ValidateProp.CoordinateField,
+    {message: 'coordinates has incorrect value for city or not transferred city'}
+  )
   public coordinates?: [number, number];
 }
 

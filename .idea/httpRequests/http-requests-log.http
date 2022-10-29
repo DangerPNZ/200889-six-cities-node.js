@@ -1,3 +1,207 @@
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "До",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8
+}
+
+<> 2022-10-29T150549.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne",
+  "coordinates": [50.846557, 4.351697]
+}
+
+<> 2022-10-29T150533.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne",
+  "coordinates": [50.938361, 6.959974]
+}
+
+<> 2022-10-29T150407.200.json
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne"
+}
+
+<> 2022-10-29T150353.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne"
+}
+
+<> 2022-10-29T150316.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne"
+}
+
+<> 2022-10-29T150253.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne"
+}
+
+<> 2022-10-29T150234.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne",
+  "coordinates": [50.938361, 6.959974]
+}
+
+<> 2022-10-29T150220.200.json
+
+###
+
+GET http://localhost:4000/users/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+<> 2022-10-29T150056.200.json
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9dc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne",
+  "coordinates": [50.938361, 6.959974]
+}
+
+<> 2022-10-29T150035.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9dc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne",
+  "coordinates": [50.938361, 6.959974]
+}
+
+<> 2022-10-29T145801.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9dc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne",
+  "coordinates": [50.938361, 6.959974]
+}
+
+<> 2022-10-29T145031.500.html
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9dc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Cologne"
+}
+
+<> 2022-10-29T144922.500.html
+
+###
+
 POST http://localhost:4000/comments/635ce49d5497c44a2591f9dc
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
@@ -449,145 +653,6 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
 
 <> 2022-10-28T025911.500.html
-
-###
-
-DELETE http://localhost:4000/offers/635b19e093e0bd6844bdd215
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-<> 2022-10-28T025818.500.html
-
-###
-
-DELETE http://localhost:4000/offers/635b19e093e0bd6844bdd215
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-<> 2022-10-28T025615.500.html
-
-###
-
-POST http://localhost:4000/comments/635b19e093e0bd6844bdd215
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-{
-  "text":  "Понравилось, вернусь",
-  "rating": 1
-}
-
-<> 2022-10-28T025516.201.json
-
-###
-
-PATCH http://localhost:4000/offers/635b19e093e0bd6844bdd215
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-{
-  "title": "Дом в лесу",
-  "description": "Уединенная хижина на опушке",
-  "roomsAmount": 6,
-  "guestsLimit": 8
-}
-
-<> 2022-10-28T025444.200.json
-
-###
-
-GET http://localhost:4000/offers/635b19e093e0bd6844bdd215
-Content-Type: application/json
-
-<> 2022-10-28T025426.200.json
-
-###
-
-GET http://localhost:4000/offers?limit=1
-Content-Type: application/json
-
-<> 2022-10-28T025406.200.json
-
-###
-
-GET http://localhost:4000/offers/635b1821053d6b8e37d849fa
-Content-Type: application/json
-
-<> 2022-10-28T025401.500.html
-
-###
-
-PATCH http://localhost:4000/offers/635b1821053d6b8e37d849fa
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-{
-  "title": "Дом в лесу",
-  "description": "Уединенная хижина на опушке",
-  "roomsAmount": 6,
-  "guestsLimit": 8
-}
-
-<> 2022-10-28T025357.500.html
-
-###
-
-PATCH http://localhost:4000/offers/635b1821053d6b8e37d849fa
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-{
-  "title": "Дом в лесу",
-  "description": "Уединенная хижина на опушке",
-  "roomsAmount": 6,
-  "guestsLimit": 8
-}
-
-<> 2022-10-28T025346.500.html
-
-###
-
-GET http://localhost:4000/offers?limit=1
-Content-Type: application/json
-
-<> 2022-10-28T025318.200.json
-
-###
-
-GET http://localhost:4000/offers/
-Content-Type: application/json
-
-<> 2022-10-28T025313.200.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-28T025304.201.json
-
-###
-
-GET http://localhost:4000/users/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-<> 2022-10-28T025255.200.json
 
 ###
 
