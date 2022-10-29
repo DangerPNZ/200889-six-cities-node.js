@@ -28,7 +28,7 @@ export default class CliApplication {
   public registerCommands(commandList: ICliCommand[]): void {
     commandList.reduce((acc, commandItem) => {
       const cliCommand = commandItem;
-      acc[cliCommand.name] = cliCommand;
+      acc[cliCommand.commandName] = cliCommand;
       return acc;
     }, this.commands);
   }

@@ -7,7 +7,7 @@ import {OfferGenerator} from '../../../common/offer-generator/offer-generator.js
 import TsvFileWriter from '../../../common/file-writer/tsv-file-writer.js';
 
 export default class GenerateCommand implements ICliCommand {
-  public readonly name = Command.Generate;
+  public readonly commandName = Command.Generate;
   private initialData!: IMockServerData;
 
   public async execute(...parameters: string[]): Promise<void> {

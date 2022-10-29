@@ -3,7 +3,7 @@ import {Command} from './contracts.js';
 import chalk from 'chalk';
 
 export default class HelpCommand implements ICliCommand {
-  public readonly name = Command.Help;
+  public readonly commandName = Command.Help;
 
   public async execute(): Promise<void> {
     console.log(chalk.bgBlack.white(`
@@ -13,7 +13,7 @@ export default class HelpCommand implements ICliCommand {
   Команды:
       ${chalk.green(Command.Version)}: # выводит номер версии приложения
       ${chalk.green(Command.Help)}: # выводит эту подсказку
-      ${chalk.green(Command.Import)} ${chalk.yellow('<path>')}: # импортирует данные из TSV
-      ${chalk.green(Command.Generate)} ${chalk.yellow('<n> <path> <url>')}: # генерирует произвольное количество тестовых данных`));
+      ${chalk.green(Command.Import)} ${chalk.yellow('<filepath>')}: # импортирует данные из TSV
+      ${chalk.green(Command.Generate)} ${chalk.yellow('<n> <filepath> <url>')}: # генерирует произвольное количество тестовых данных`));
   }
 }

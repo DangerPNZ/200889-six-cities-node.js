@@ -20,7 +20,7 @@ import CommentService from '../../../modules/comment/comment-service.js';
 const DEFAULT_DB_PORT = 27017;
 
 export default class ImportCommand implements ICliCommand {
-  public readonly name = Command.Import;
+  public readonly commandName = Command.Import;
   private userService!: IUserService;
   private offerService!: IOfferService;
   private dataBaseService!: IDataBase;
