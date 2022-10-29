@@ -10,7 +10,7 @@
     "facilities": ["Breakfast", "Air conditioning", "Laptop friendly workspace", "Baby seat", "Washer", "Towels", "Fridge"],
     "coordinates": [[48.85661, 2.351499], [50.938361, 6.959974], [50.846557, 4.351697], [52.370216, 4.895168], [53.550341, 10.000654], [51.225402, 6.776314]],
     "emails": ["user@mail.ru", "rental@gmail.ru", "best@yandex.ru", "mymail@mail.ru", "etomesto@google.ru"],
-    "names": ["Билл Гейтс", "Морган Фриман", "Стив Джобс", "Киану Ривз", "Стивен Кинг"],
+    "fullNames": ["Билл Гейтс", "Морган Фриман", "Стив Джобс", "Киану Ривз", "Стивен Кинг"],
     "userTypes": ["обычный", "pro"]
 }
 }

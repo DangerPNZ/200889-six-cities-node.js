@@ -5,7 +5,7 @@ export default class UserResponse {
   public id!: string;
 
   @Expose()
-  public name!: string;
+  public fullName!: string;
 
   @Expose()
   public email!: string;

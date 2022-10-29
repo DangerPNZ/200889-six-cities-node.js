@@ -12,6 +12,6 @@ export interface IMockServerData {
   facilities: Facility[][],
   coordinates: Coordinates[],
   emails: string[],
-  names: string[],
+  fullNames: string[],
   userTypes: UserType[],
 }

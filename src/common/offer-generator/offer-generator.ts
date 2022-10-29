@@ -26,9 +26,9 @@ export class OfferGenerator implements IOfferGenerator {
     const coordinates: Coordinates = this.mockServerData.coordinates[randomIndexForCity];
     const email = getRandomItem<string>(this.mockServerData.emails);
     const password = DEFAULT_USER_PASSWORD;
-    const name = getRandomItem<string>(this.mockServerData.names);
+    const fullName = getRandomItem<string>(this.mockServerData.fullNames);
     const userType = getRandomItem<string>(this.mockServerData.userTypes);
 
-    return [title, description, city, previewPhotoUrl, photosUrls, isPremium, offerType, roomsAmount, guestsLimit, price, facilities, coordinates, email, password, name, userType].join('\t');
+    return [title, description, city, previewPhotoUrl, photosUrls, isPremium, offerType, roomsAmount, guestsLimit, price, facilities, coordinates, email, password, fullName, userType].join('\t');
   }
 }

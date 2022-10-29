@@ -16,7 +16,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements IUserEntity
   constructor(data: IAuthor) {
     super();
 
-    this.name = data.name;
+    this.fullName = data.fullName;
     this.email = data.email;
     this.avatar = data.avatar;
     this.password = data.password;
@@ -26,7 +26,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements IUserEntity
   @prop({
     required: true,
   })
-  public name!: string;
+  public fullName!: string;
 
   @prop({
     unique: true,

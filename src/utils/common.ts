@@ -29,7 +29,7 @@ export const createOffer = (row: string): IGenerateOfferData => {
     coordinates,
     email,
     password,
-    name,
+    fullName,
     userType
   ] = units;
 
@@ -51,7 +51,7 @@ export const createOffer = (row: string): IGenerateOfferData => {
     user: {
       email,
       password,
-      name,
+      fullName,
       userType: userType as UserType,
     },
   };

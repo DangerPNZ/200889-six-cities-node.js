@@ -18,16 +18,16 @@ export class LoginUserDto {
 }
 
 export class CreateUserDto extends LoginUserDto {
-  @IsString({message: 'name value must be string'})
+  @IsString({message: 'fullName value must be string'})
   @MinLength(
-    UserValidation.Name.MinLength,
-    {message: `Minimum name length must be ${UserValidation.Name.MinLength}`}
+    UserValidation.FullName.MinLength,
+    {message: `Minimum fullName length must be ${UserValidation.FullName.MinLength}`}
   )
   @MaxLength(
-    UserValidation.Name.MaxLength,
-    {message: `Maximum name length must be ${UserValidation.Name.MaxLength}`}
+    UserValidation.FullName.MaxLength,
+    {message: `Maximum fullName length must be ${UserValidation.FullName.MaxLength}`}
   )
-  public name!: string;
+  public fullName!: string;
 
   @IsEnum(
     UserType,
