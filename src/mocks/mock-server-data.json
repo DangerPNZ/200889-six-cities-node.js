@@ -2,7 +2,7 @@
   "api": {
     "titles": ["Уютная квартира", "Шикарные апартаменты", "Отдельная комната", "Вилла на берегу моря", "Роскошный коттедж в лесу", "Большой дом", "Хостел"],
     "descriptions": ["Эксклюзивное предложение. Завтра цена будет другая", "То, что Вы ищете, пока свободно", "Все подробности по телефону. Звонить с 11ч до 21ч", "Агентствам не беспокоить, сдам сам", "Будем рады принять гостей, объект освободится через 3 дня"],
-    "cities": ["Paris", "Cologne", "Brussels", "Amsterdam", "Hamburg", "'Dusseldorf"],
+    "cities": ["Paris", "Cologne", "Brussels", "Amsterdam", "Hamburg", "Dusseldorf"],
     "previewPhotoUrls": ["https://previewPhoto1.jpg", "previewPhoto2.jpg", "previewPhoto3.jpg", "previewPhoto4.jpg", "previewPhoto5.jpg", "previewPhoto6.jpg", "previewPhoto7.jpg", "previewPhoto8.jpg"],
     "photosUrls": ["https://offerPhoto1.jpg", "https://offerPhoto2.jpg", "https://offerPhoto3.jpg", "https://offerPhoto4.jpg", "https://offerPhoto5.jpg", "https://offerPhoto6.jpg", "https://offerPhoto7.jpg", "https://offerPhoto8.jpg", "https://offerPhoto9.jpg", "https://offerPhoto10.jpg", "https://offerPhoto11.jpg", "https://offerPhoto12.jpg"],
     "isPremiumValues": [true, false],

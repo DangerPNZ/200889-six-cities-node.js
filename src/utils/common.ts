@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import {plainToInstance, ClassConstructor} from 'class-transformer';
-import {City, Facility, OfferType, RATING_NUM_AFTER_DIGIT} from '../modules/offer/offer-contracts.js';
+import {City, Coordinates, Facility, OfferType, RATING_NUM_AFTER_DIGIT} from '../modules/offer/offer-contracts.js';
 import * as jose from 'jose';
 import {ValidationError} from 'class-validator';
 import {IValidationErrorField} from '../types/i-validation-error-field.js';
@@ -39,14 +39,14 @@ export const createOffer = (row: string): IGenerateOfferData => {
       description,
       city: city as City,
       previewPhotoUrl,
-      photosUrls: photosUrls.split(';'),
+      photosUrls: photosUrls.split(','),
       isPremium: Boolean(isPremium),
       offerType: offerType as OfferType,
       roomsAmount: Number(roomsAmount),
       guestsLimit: Number(guestsLimit),
       price: Number(price),
-      facilities: facilities.split(';') as Facility[],
-      coordinates: coordinates.split(';').map((unit: string) => Number(unit)) as [number, number],
+      facilities: facilities.split(',') as Facility[],
+      coordinates: coordinates.split(',').map((unit: string) => Number(unit)) as Coordinates,
     },
     user: {
       email,

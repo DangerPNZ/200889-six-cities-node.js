@@ -1,3 +1,50 @@
+GET http://localhost:4000/offers/635ccc41f85066b44e8a7843
+Content-Type: application/json
+
+<> 2022-10-29T095138.200.json
+
+###
+
+GET http://localhost:4000/users/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InVzZXJAbWFpbC5ydSIsImlkIjoiNjM1Y2NjNDFmODUwNjZiNDRlOGE3ODQxIiwiaWF0IjoxNjY3MDI2MTE3LCJleHAiOjE2NjcxOTg5MTd9.e6ujfrpT40Dzvx4AIrqyj19EN6Ytf7VV1pLViMCYAaQ
+
+<> 2022-10-29T095024.200.json
+
+###
+
+POST http://localhost:4000/users/635ccc41f85066b44e8a7841/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-29T095015.201.json
+
+###
+
+GET http://localhost:4000/users/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InVzZXJAbWFpbC5ydSIsImlkIjoiNjM1Y2NjNDFmODUwNjZiNDRlOGE3ODQxIiwiaWF0IjoxNjY3MDI2MTE3LCJleHAiOjE2NjcxOTg5MTd9.e6ujfrpT40Dzvx4AIrqyj19EN6Ytf7VV1pLViMCYAaQ
+
+<> 2022-10-29T094918.200.json
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "user@mail.ru",
+  "password": "1234567890"
+}
+
+<> 2022-10-29T094837.200.json
+
+###
+
 POST http://localhost:4000/users
 Content-Type: application/json
 
@@ -514,76 +561,6 @@ GET http://localhost:4000/offers/
 Content-Type: application/json
 
 <> 2022-10-28T024730.200.json
-
-###
-
-POST http://localhost:4000/users/login
-Content-Type: application/json
-
-{
-  "email": "jobs@mail.ru",
-  "password": "1234567890"
-}
-
-<> 2022-10-28T024643.200.json
-
-###
-
-GET http://localhost:4000/offers/
-Content-Type: application/json
-
-<> 2022-10-28T024546.200.json
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1OTJjZmMzZTEyZjZlNmE5YTc4MWY3IiwiaWF0IjoxNjY2Nzg4NjYzLCJleHAiOjE2NjY5NjE0NjN9.66GIlzSAnbRa41F-iNHrcQH2JkdwaElIvk4lS5hyc2w
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-28T024537.201.json
-
-###
-
-POST http://localhost:4000/users/635b1765053d6b8e37d849f1/avatar
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
-Content-Type: image/png
-
-< /Users/Anton/Desktop/author_1266178750.jpeg
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
-
-<> 2022-10-28T024514.201.json
-
-###
-
-POST http://localhost:4000/users/63592cfc3e12f6e6a9a781f7/avatar
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
-Content-Type: image/png
-
-< /Users/Anton/Desktop/author_1266178750.jpeg
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
-
-<> 2022-10-28T024447.500.html
 
 ###
 
