@@ -1,6 +1,6 @@
 import typegoose, {getModelForClass, defaultClasses} from '@typegoose/typegoose';
 import {createSHA256} from '../../utils/common.js';
-import {EMAIL_MATCH_REGEX, IAuthor, IUserEntity, UserType} from './user-contracts.js';
+import {EMAIL_MATCH_REGEX, IAuthor, IUserEntity, UserType, UserValidation} from './user-contracts.js';
 
 const {prop, modelOptions} = typegoose;
 
@@ -25,6 +25,16 @@ export class UserEntity extends defaultClasses.TimeStamps implements IUserEntity
 
   @prop({
     required: true,
+    type: String,
+    trim: true,
+    minlength: [
+      UserValidation.FullName.MinLength,
+      `Minimum fullName length must be ${UserValidation.FullName.MinLength}`
+    ],
+    maxlength: [
+      UserValidation.FullName.MaxLength,
+      `Maximum fullName length must be ${UserValidation.FullName.MaxLength}`
+    ],
   })
   public fullName!: string;
 
@@ -42,11 +52,13 @@ export class UserEntity extends defaultClasses.TimeStamps implements IUserEntity
 
   @prop({
     required: true,
+    type: String,
   })
   public userType!: UserType;
 
   @prop({
     required: true,
+    type: String,
   })
   private password!: string;
 

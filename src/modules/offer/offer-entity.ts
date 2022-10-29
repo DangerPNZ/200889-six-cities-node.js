@@ -1,6 +1,6 @@
-import typegoose, {defaultClasses, getModelForClass, Ref, Severity} from '@typegoose/typegoose';
+import typegoose, {defaultClasses, getModelForClass, Ref} from '@typegoose/typegoose';
 import {UserEntity} from '../user/user-entity.js';
-import {City, Coordinates, Facility, IOfferEntity, OfferType} from './offer-contracts.js';
+import {City, Coordinates, Facility, IOfferEntity, OfferType, OfferValidation} from './offer-contracts.js';
 
 const {prop, modelOptions} = typegoose;
 
@@ -32,11 +32,31 @@ export class OfferEntity extends defaultClasses.TimeStamps implements IOfferEnti
 
   @prop({
     required: true,
+    type: String,
+    trim: true,
+    minlength: [
+      OfferValidation.Title.MinLength,
+      `Minimum title length must be ${OfferValidation.Title.MinLength}`
+    ],
+    maxlength: [
+      OfferValidation.Title.MaxLength,
+      `Maximum title length must be ${OfferValidation.Title.MaxLength}`
+    ]
   })
   public title!: string;
 
   @prop({
     required: true,
+    type: String,
+    trim: true,
+    minlength: [
+      OfferValidation.Description.MinLength,
+      `Minimum description length must be ${OfferValidation.Description.MinLength}`
+    ],
+    maxlength: [
+      OfferValidation.Description.MaxLength,
+      `Maximum description length must be ${OfferValidation.Description.MaxLength}`
+    ]
   })
   public description!: string;
 
@@ -47,17 +67,20 @@ export class OfferEntity extends defaultClasses.TimeStamps implements IOfferEnti
 
   @prop({
     required: true,
+    type: String,
+    trim: true,
   })
   public previewPhotoUrl!: string;
 
   @prop({
     required: true,
-    allowMixed: Severity.ALLOW,
+    type: String,
   })
   public photosUrls!: string[];
 
   @prop({
-    required: true
+    required: true,
+    type: Boolean,
   })
   public isPremium!: boolean;
 
@@ -68,22 +91,49 @@ export class OfferEntity extends defaultClasses.TimeStamps implements IOfferEnti
 
   @prop({
     required: true,
+    type: Number,
+    min: [
+      OfferValidation.RoomsAmount.Min,
+      `Minimum roomsAmount value must be ${OfferValidation.RoomsAmount.Min}`
+    ],
+    max: [
+      OfferValidation.RoomsAmount.Max,
+      `Maximum roomsAmount value must be ${OfferValidation.RoomsAmount.Max}`
+    ],
   })
   public roomsAmount!: number;
 
   @prop({
     required: true,
+    type: Number,
+    min: [
+      OfferValidation.GuestLimit.Min,
+      `Minimum guestsLimit value must be ${OfferValidation.GuestLimit.Min}`
+    ],
+    max: [
+      OfferValidation.GuestLimit.Max,
+      `Maximum guestsLimit value must be ${OfferValidation.GuestLimit.Max}`
+    ],
   })
   public guestsLimit!: number;
 
   @prop({
     required: true,
+    type: Number,
+    min: [
+      OfferValidation.Price.Min,
+      `Minimum price value must be ${OfferValidation.Price.Min}`
+    ],
+    max: [
+      OfferValidation.Price.Max,
+      `Maximum price value must be ${OfferValidation.Price.Max}`
+    ],
   })
   public price!: number;
 
   @prop({
     required: true,
-    allowMixed: Severity.ALLOW,
+    type: String,
   })
   public facilities!: Facility[];
 
@@ -96,17 +146,19 @@ export class OfferEntity extends defaultClasses.TimeStamps implements IOfferEnti
 
   @prop({
     required: true,
-    allowMixed: Severity.ALLOW,
+    type: Number,
   })
   public coordinates!: Coordinates;
 
   @prop({
     required: false,
+    type: Number,
   })
   public rating?: number;
 
   @prop({
     required: false,
+    type: Number,
   })
   public commentsCount?: number;
 }

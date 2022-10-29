@@ -1,7 +1,7 @@
 import typegoose, {defaultClasses, getModelForClass, Ref} from '@typegoose/typegoose';
 import {UserEntity} from '../user/user-entity.js';
 import {OfferEntity} from '../offer/offer-entity.js';
-import {ICommentEntity} from './comment-contracts.js';
+import {CommentValidation, ICommentEntity} from './comment-contracts.js';
 
 const {prop, modelOptions} = typegoose;
 
@@ -29,12 +29,30 @@ export class CommentEntity extends defaultClasses.TimeStamps implements IComment
 
   @prop({
     required: true,
+    type: String,
     trim: true,
+    minlength: [
+      CommentValidation.Text.MinLength,
+      `Minimum text length must be ${CommentValidation.Text.MinLength}`
+    ],
+    maxlength: [
+      CommentValidation.Text.MaxLength,
+      `Maximum text length must be ${CommentValidation.Text.MaxLength}`
+    ],
   })
   public text!: string;
 
   @prop({
     required: true,
+    type: Number,
+    min: [
+      CommentValidation.Rating.Min,
+      `Minimum rating value must be ${CommentValidation.Rating.Min}`
+    ],
+    max: [
+      CommentValidation.Rating.Max,
+      `Maximum rating value must be ${CommentValidation.Rating.Max}`
+    ],
   })
   public rating!: number;
 
