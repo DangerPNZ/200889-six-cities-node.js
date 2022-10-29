@@ -10,6 +10,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1Iiwia
   "city": "Paris"
 }
 
+<> 2022-10-30T021719.400.json
+
+###
+
+PATCH http://localhost:4000/offers/635ce49d5497c44a2591f9e1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "title": "Дом в лесу",
+  "description": "Уединенная хижина на опушке",
+  "roomsAmount": 6,
+  "guestsLimit": 8,
+  "city": "Paris"
+}
+
 <> 2022-10-29T151844.400.json
 
 ###
@@ -636,29 +652,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkI
 DELETE http://localhost:4000/offers/635b1bbd0bcd7cf5ccc063ba
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-###
-
-POST http://localhost:4000/offers
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-{
-  "title": "Особняк в городе",
-  "description": "Большой особняк с бассейном",
-  "city": "Paris",
-  "previewPhotoUrl": "preview-photo.jpg",
-  "photosUrls": ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"],
-  "isPremium": true,
-  "offerType": "house",
-  "roomsAmount": 5,
-  "guestsLimit": 5,
-  "price": 10500,
-  "facilities": ["Laptop friendly workspace"],
-  "coordinates": [48.85661, 2.351499]
-}
-
-<> 2022-10-28T030101.201.json
 
 ###
 

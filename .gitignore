@@ -6,7 +6,7 @@
 /docs/
 /src/mocks/mock-server-data.json
 
-.idea/
+.idea/*
 
 .DS_Store
 coverage
