@@ -8,7 +8,7 @@ export default class TsvFileWriter implements IFileWriter {
     this.stream = createWriteStream(this.fileName, {
       flags: 'w',
       encoding: 'utf8',
-      highWaterMark: 2 ** 16, // 64KB
+      highWaterMark: 2 ** 16,
       autoClose: true,
     });
   }

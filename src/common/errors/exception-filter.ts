@@ -17,6 +17,7 @@ export default class ExceptionFilter implements IExceptionFilter {
     this.logger.info('Register ExceptionFilter');
   }
 
+  // eslint-disable-next-line
   private handleHttpError(error: HttpError, _request: Request, response: Response, _next: NextFunction) {
     if (error.detail) {
       this.logger.error(`[${error.detail}]: ${error.httpStatusCode} — ${error.message}`);
@@ -29,6 +30,7 @@ export default class ExceptionFilter implements IExceptionFilter {
       .json(createErrorObject(ServiceError.CommonError, error.message));
   }
 
+  // eslint-disable-next-line
   private handleOtherError(error: Error, _request: Request, response: Response, _next: NextFunction) {
     this.logger.error(error.message);
     response
@@ -36,6 +38,7 @@ export default class ExceptionFilter implements IExceptionFilter {
       .json(createErrorObject(ServiceError.ServiceError, error.message));
   }
 
+  // eslint-disable-next-line
   private handleValidationError(error: ValidationError, _request: Request, response: Response, _next: NextFunction) {
     this.logger.error(`[Validation Error]: ${error.message}`);
     error.details.forEach(
