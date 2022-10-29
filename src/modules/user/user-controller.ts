@@ -20,6 +20,7 @@ import LoggedUserResponse from './response/logged-user-response.js';
 import {UPLOAD_DIRECTORY} from '../../app/constants.js';
 import UploadUserAvatarResponse from './response/upload-user-avatar-respose.js';
 import AuthenticateUserResponse from './response/authenticate-user-response.js';
+import {PrivateRouteMiddleware} from '../../common/middlewares/private-routes-middleware.js';
 
 @injectable()
 export default class UserController extends Controller {
@@ -53,6 +54,7 @@ export default class UserController extends Controller {
       method: HttpMethod.Post,
       handler: this.uploadAvatar,
       middlewares: [
+        new PrivateRouteMiddleware(),
         new ValidateObjectIdMiddleware('userId'),
         new DocumentExistsMiddleware(this.userService, 'User', 'userId'),
         new UploadFileMiddleware(UPLOAD_DIRECTORY, 'avatar'),

@@ -1,3 +1,84 @@
+POST http://localhost:4000/comments/635ce49d5497c44a2591f9dc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "text":  "Понравилось, вернусь",
+  "rating": 5
+}
+
+<> 2022-10-29T121605.201.json
+
+###
+
+POST http://localhost:4000/comments/635ce49d5497c44a2591f9dc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+{
+  "text":  "По",
+  "rating": 5
+}
+
+<> 2022-10-29T121259.500.html
+
+###
+
+GET http://localhost:4000/offers/
+Content-Type: application/json
+
+<> 2022-10-29T120714.200.json
+
+###
+
+POST http://localhost:4000/users/635ce49d5497c44a2591f9df/avatar
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-29T120618.500.html
+
+###
+
+POST http://localhost:4000/users/635ce49d5497c44a2591f9df/avatar
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="author_1266178750.jpeg"
+Content-Type: image/png
+
+< /Users/Anton/Desktop/author_1266178750.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+<> 2022-10-29T120600.201.json
+
+###
+
+GET http://localhost:4000/users/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+<> 2022-10-29T115824.200.json
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "best@yandex.ru",
+  "password": "1234567890"
+}
+
+<> 2022-10-29T115718.200.json
+
+###
+
 GET http://localhost:4000/offers/635ccc41f85066b44e8a7843
 Content-Type: application/json
 
@@ -507,60 +588,6 @@ GET http://localhost:4000/users/login
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
 
 <> 2022-10-28T025255.200.json
-
-###
-
-GET http://localhost:4000/users/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYnNAbWFpbC5ydSIsImlkIjoiNjM1YjE3NjUwNTNkNmI4ZTM3ZDg0OWYxIiwiaWF0IjoxNjY2OTE0NjAxLCJleHAiOjE2NjcwODc0MDF9.3ZY7rHqgr8XdEYhqbqZw1odmdvOLNT4LfVl0cST6L9A
-
-<> 2022-10-28T025120.200.json
-
-###
-
-POST http://localhost:4000/users/login
-Content-Type: application/json
-
-{
-  "email": "jobs@mail.ru",
-  "password": "1234567890"
-}
-
-<> 2022-10-28T025001.200.json
-
-###
-
-GET http://localhost:4000/offers/635b1821053d6b8e37d849fa
-Content-Type: application/json
-
-<> 2022-10-28T024941.200.json
-
-###
-
-GET http://localhost:4000/offers/
-Content-Type: application/json
-
-<> 2022-10-28T024915.200.json
-
-###
-
-GET http://localhost:4000/offers?limit=1
-Content-Type: application/json
-
-<> 2022-10-28T024747.200.json
-
-###
-
-GET http://localhost:4000/offers/
-Content-Type: application/json
-
-<> 2022-10-28T024735.200.json
-
-###
-
-GET http://localhost:4000/offers/
-Content-Type: application/json
-
-<> 2022-10-28T024730.200.json
 
 ###
 
