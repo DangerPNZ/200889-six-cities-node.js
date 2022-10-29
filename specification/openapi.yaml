@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.1
 info:
   title: API сервер для демо-проекта «Куплю. Продам».
   description: |-
@@ -7,7 +7,6 @@ info:
     name: MIT
     url: https://opensource.org/licenses/MIT
   version: 2.0.0
-
 tags:
   - name: offers
     description: Действия с предложениями по аренде.
@@ -17,19 +16,103 @@ tags:
     description: Действия с пользователем.
 
 paths:
+  /users:
+    post:
+      tags:
+        - users
+      summary: Регистрация пользователя
+      description: Регистрирует нового пользователя.
+      requestBody:
+        description: Информация для создания нового пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userRegistrationData'
+        required: true
+
+      responses:
+        "201":
+          description: Успешно создано.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userResponseData'
+        "400":
+          description: Не полный или не валидный набор данных.
+        "409":
+          description: Конфликт.
+
+  /users/login:
+    get:
+      tags:
+        - users
+      summary: Принимает токен авторизации в заголовке.
+      description: Возвращает информацию по авторизованному пользователю.
+
+      responses:
+        "200":
+          description: Объект пользователя.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userResponseData'
+        "401":
+          description: Пользователь не авторизован.
+
+    post:
+      tags:
+        - users
+      summary: Авторизация пользователя
+      description: Авторизует пользователя на основе логина и пароля
+      requestBody:
+        description: Возвращает токен для авторизации пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userAuthData'
+        required: true
+
+      responses:
+        "200":
+          description: Успешно.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userAuthResponse'
+        "400":
+          description: Не полный или не валидный набор данных.
+        "401":
+          description: Не авторизован.
+
+  /users/{userId}/avatar:
+    post:
+      tags:
+        - users
+      summary: Добавление аватарки.
+      description: Изменяет дефолтный аватар на пользовательский (jpg или png). Принимает токен авторизации в заголовке.
+
+      responses:
+        "200":
+          description: Успешно.
+        "400":
+          description: Не полный или не валидный набор данных.
+        "401":
+          description: Не авторизован.
+
+
   /offers:
     post:
       tags:
         - offers
       summary: Добавление предложения по аренде.
-      description: Добавляет новое предложение по аренде.
+      description: Создаёт новое предложение по аренде.
 
       requestBody:
         description: Данные для создания предложения по аренде.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/offer'
+              $ref: '#/components/schemas/offerRequestData'
         required: true
 
       responses:
@@ -38,7 +121,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/offer'
+                $ref: '#/components/schemas/offerResponseData'
         "400":
           description: Передан не верный или не валидный набор данных для создания предложения по аренде.
         "401":
@@ -53,15 +136,17 @@ paths:
           name: limit
           schema:
             type: integer
-          description: Лимит возвращаемых элементов коллекции.
+          description: Лимит возвращаемых элементов коллекции (50 по умолчанию).
 
       responses:
-        "201":
+        "200":
           description: Массив предложений по аренде.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/offersList'
+                type: array
+                items:
+                  - $ref: '#/components/schemas/offerResponseData'
         "204":
           description: Нет предложений.
 
@@ -78,7 +163,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/offer'
+                $ref: '#/components/schemas/offerResponseData'
         "404":
           description: Запрашиваемое предложение не найдено.
 
@@ -93,7 +178,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/offer'
+              $ref: '#/components/schemas/offerRequestData'
         required: true
 
       responses:
@@ -102,7 +187,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/offer'
+                $ref: '#/components/schemas/offerResponseData'
         "400":
           description: Передан не верный или не валидный набор данных для редактирования предложения по аренде.
         "401":
@@ -121,8 +206,6 @@ paths:
       responses:
         "204":
           description: Предложение по аренде удалено.
-        "400":
-          description: Передан не верный id для удаления предложения по аренде.
         "401":
           description: Пользователь не авторизован.
         "403":
@@ -141,13 +224,21 @@ paths:
           name: limit
           schema:
             type: integer
-          description: Лимит возвращаемых элементов коллекции.
+          description: Лимит возвращаемых элементов коллекции (60 по умолчанию).
 
       responses:
         "200":
           description: Список комментариев для предложения по аренде.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/commentResponse'
         "204":
           description: Комментарии отсутствуют.
+        "404":
+          description: Запрашиваемое предложение не найдено.
 
     post:
       tags:
@@ -160,137 +251,145 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/comment'
+              $ref: '#/components/schemas/commentRequest'
         required: true
 
       responses:
-        "200":
+        "204":
           description: Комментарий добавлен.
         "400":
           description: Передан не полный или не валидный набор данных для создания комментария к предложению по аренде.
         "401":
           description: Пользователь не авторизован.
 
-  /users/login:
-    get:
-      tags:
-        - users
-      summary: Проверка состояния пользователя
-      description: Возвращает информацию по авторизованному пользователю
-      requestBody:
-        description: Информация по авторизованному пользователю.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/user'
-        required: true
 
-      responses:
-        "200":
-          description: Объект пользователя.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/user'
-        "401":
-          description: Пользователь не авторизован.
-        "403":
-          description: Пользователь не найден.
-
-    post:
-      tags:
-        - users
-      summary: Авторизация пользователя
-      description: Авторизует пользователя на основе логина и пароля
-      requestBody:
-        description: Возвращает токен для авторизации пользователя.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authData'
-        required: true
-
-      responses:
-        "200":
-          description: Пользователь найден. Токен авторизации.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/userToken'
-        "401":
-          description: Пользователь не найден. Некорректный логин или email.
-
-  /users:
-    post:
-      tags:
-        - users
-      summary: Регистрация пользователя
-      description: Регистрирует нового пользователя.
-
-      requestBody:
-        description: Информация для создания нового пользователя.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/user'
-        required: true
-
-      responses:
-        "201":
-          description: Пользователь зарегистрирован. Объект пользователя.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/user'
-        "400":
-          description: Неполный или не валидный набор данных.
-        "409":
-          description: Пользователь с таким email уже существует.
 
 components:
   schemas:
-    user:
+    userAuthData:
       type: object
       properties:
-        name:
-          type: string
-          example: Pavel Ivanov
         email:
           type: string
           example: simonenko@yandex.ru
-        avatarUrl:
-          type: string
-          example: https://www.photos.com/avatar.jpg
         password:
           type: string
           example: 234435456password
+
+    userAuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          example: eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+    userRegistrationData:
+      type: object
+      properties:
+        email:
+          type: string
+          example: ivanov@yandex.ru
+        password:
+          type: string
+          example: 234435456password
+        fullName:
+          type: string
+          example: Pavel Ivanov
         userType:
           enum:
             - обычный
             - pro
 
-    comment:
-      type: array
-      items:
-        type: object
-        properties:
-          text:
-            type: string
-            example:
-          publicationDate:
-            type: string
-            example:
-          rating:
-            type: string
-            example:
-          author:
-            type: string
-            example:
-              $ref: '#/components/schemas/user'
-
-    offer:
+    userResponseData:
       type: object
       properties:
+        id:
+          type: string
+          example: 635b1d9f79a5815dce4cb220
+        avatarUrl:
+          type: string
+          example: https://www.six-cities.com/upload/avatar.jpg
+        email:
+          type: string
+          example: ivanov@yandex.ru
+        password:
+          type: string
+          example: 234435456password
+        fullName:
+          type: string
+          example: Pavel Ivanov
+        userType:
+          enum:
+            - обычный
+            - pro
+
+
+    offerRequestData:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Домик в лесу
+        description:
+          type: string
+          example: Уютное место для кратковременного или длительного проживания
+        city:
+          enum:
+            - Paris
+            - Cologne
+            - Brussels
+            - Amsterdam
+            - Hamburg
+            - Dusseldorf
+        previewPhotoUrl:
+          type: string
+          example: https://www.photos.com/preview.jpg
+        photosUrls:
+          type: array
+          items:
+            type: string
+            example: https://www.photos.com/photo.jpg
+        isPremium:
+          type: boolean
+          example: true
+        offerType:
+          enum:
+            - apartment
+            - house
+            - room
+            - hotel
+        roomsAmount:
+          type: number
+          example: 6
+        guestsLimit:
+          type: number
+          example: 6
+        price:
+          type: number
+          example: 55000
+        facilities:
+          type: array
+          items:
+            enum:
+              - Breakfast
+              - Air conditioning
+              - Laptop friendly workspace
+              - Baby seat
+              - Washer
+              - Towels
+              - Fridge
+        coordinates:
+          type: array
+          items:
+            type: number
+            example: 45.764576
+
+    offerResponseData:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 635b1d9f79a5815dce4cb220
         title:
           type: string
           example: Домик в лесу
@@ -348,37 +447,42 @@ components:
         author:
           type: object
           example:
-            $ref: '#/components/schemas/user'
+            $ref: '#/components/schemas/userResponseData'
+        rating:
+          type: number
+          example: 4.6
+        commentsCount:
+          type: number
+          example: 24
         coordinates:
           type: array
           items:
             type: number
             example: 45.764576
 
-    offersList:
-      type: array
-      items:
-        type: object
-        example:
-          $ref: '#/components/schemas/offer'
-
-    commentsList:
-      type: array
-      items:
-        type: object
-        example:
-          $ref: '#/components/schemas/comment'
-
-    userToken:
-      type: string
-      example: 2334#@cdf456
-
-    authData:
+    commentRequest:
       type: object
       properties:
-        login:
+        text:
           type: string
-          example: ivanov@mail.ru
-        password:
+          example:
+        rating:
+          type: number
+          example: 5
+
+    commentResponse:
+      type: object
+      properties:
+        text:
           type: string
-          example: 32344235fgrAd
+          example:
+        publicationDate:
+          type: string
+          example: 2022-04-06T08:45:40.283Z
+        rating:
+          type: number
+          example: 3
+        author:
+          type: object
+          example:
+            $ref: '#/components/schemas/userResponseData'
