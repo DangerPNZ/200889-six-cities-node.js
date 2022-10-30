@@ -1,0 +1,513 @@
+openapi: 3.0.1
+info:
+  title: API сервер для демо-проекта «Куплю. Продам».
+  description: |-
+    * Список ресурсов и маршрутов сервера «Six Cities».
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 2.0.0
+tags:
+  - name: offers
+    description: Действия с предложениями по аренде.
+  - name: comments
+    description: Действия с комментариями.
+  - name: users
+    description: Действия с пользователем.
+
+paths:
+  /users:
+    post:
+      tags:
+        - users
+      summary: Регистрация пользователя
+      description: Регистрирует нового пользователя.
+      requestBody:
+        description: Информация для создания нового пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userRegistrationData'
+        required: true
+
+      responses:
+        "201":
+          description: Успешно создан.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userResponseData'
+        "400":
+          description: Не полный или не валидный набор данных.
+        "409":
+          description: Конфликт. Уже существует пользователь с таким email.
+
+  /users/login:
+    get:
+      tags:
+        - users
+      summary: Принимает токен авторизации в заголовке.
+      description: Возвращает информацию по авторизованному пользователю.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+      responses:
+        "200":
+          description: Объект пользователя.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userResponseData'
+        "401":
+          description: Пользователь не авторизован.
+
+    post:
+      tags:
+        - users
+      summary: Авторизация пользователя
+      description: Авторизует пользователя на основе логина и пароля
+      requestBody:
+        description: Возвращает токен для авторизации пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userAuthData'
+        required: true
+
+      responses:
+        "200":
+          description: Успешно.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userAuthResponse'
+        "400":
+          description: Не полный или не валидный набор данных.
+        "401":
+          description: Не авторизован.
+
+  /users/{userId}/avatar:
+    post:
+      tags:
+        - users
+      summary: Добавление аватарки.
+      description: Изменяет дефолтный аватар на пользовательский (jpg или png).
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+      responses:
+        "200":
+          description: Успешно.
+        "400":
+          description: Не полный или не валидный набор данных.
+        "401":
+          description: Не авторизован.
+
+
+  /offers:
+    post:
+      tags:
+        - offers
+      summary: Добавление предложения по аренде.
+      description: Создаёт новое предложение по аренде.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+      requestBody:
+        description: Данные для создания предложения по аренде.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offerRequestData'
+        required: true
+
+      responses:
+        "201":
+          description: Созданное предложение по аренде.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offerResponseData'
+        "400":
+          description: Передан не верный или не валидный набор данных для создания предложения по аренде.
+        "401":
+          description: Пользователь не авторизован.
+
+    get:
+      tags:
+        - offers
+      summary: Получение предложений по аренде.
+      description: Возвращает имеющиеся предложения по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 60)
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: Лимит возвращаемых элементов коллекции (50 по умолчанию).
+          required: false
+
+      responses:
+        "200":
+          description: Массив предложений по аренде.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  - $ref: '#/components/schemas/offerResponseData'
+        "204":
+          description: Нет предложений.
+
+  /offers/{offerId}:
+    get:
+      tags:
+        - offers
+      summary: Получение детальной информации предложения по аренде.
+      description: Возвращает детальную информацию предложения по аренде.
+
+      responses:
+        "200":
+          description: Найденное предложение по аренде.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offerResponseData'
+        "404":
+          description: Запрашиваемое предложение не найдено.
+
+    patch:
+      tags:
+        - offers
+      summary: Редактирование предложения по аренде.
+      description: Позволяет редактировать конкретное предложение по аренде.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+      requestBody:
+        description: Данные для редактирования предложения по аренде.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offerRequestData'
+        required: true
+
+      responses:
+        "200":
+          description: Отредактированное предложение по аренде.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offerResponseData'
+        "400":
+          description: Передан не верный или не валидный набор данных для редактирования предложения по аренде.
+        "401":
+          description: Пользователь не авторизован.
+        "403":
+          description: Пользователь не является автором предложения.
+        "404":
+          description: Запрашиваемое предложение не найдено.
+
+    delete:
+      tags:
+        - offers
+      summary: Удаление предложения по аренде.
+      description: Позволяет удалить конкретное предложение по аренде.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+      responses:
+        "204":
+          description: Предложение по аренде удалено.
+        "401":
+          description: Пользователь не авторизован.
+        "403":
+          description: Пользователь не является автором предложения.
+        "404":
+          description: Запрашиваемое предложение не найдено.
+
+  /comments/{offerId}:
+    get:
+      tags:
+        - comments
+      summary: Получение комментариев предложения по аренде.
+      description: Возвращает комментарии предложения по аренде.
+                     - in: query
+                     name: limit
+                     schema:
+                       type: integer
+                     description: Лимит возвращаемых элементов коллекции (60 по умолчанию).
+                     required: false
+
+      responses:
+        "200":
+          description: Список комментариев для предложения по аренде.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/commentResponse'
+        "204":
+          description: Комментарии отсутствуют.
+        "404":
+          description: Запрашиваемое предложение не найдено.
+
+    post:
+      tags:
+        - comments
+      summary: Добавление комментария в предложение по аренде.
+      description: Добавляет комментарий в предложение по аренде.
+      parameters:
+        - in: header
+          name: Authorization
+          example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+      requestBody:
+        description: Данные для создания комментария к предложению по аренде. Сортированы по убыванию даты создания. Можно указать размер выдачи (по умолчанию 50)
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/commentRequest'
+        required: true
+
+      responses:
+        "204":
+          description: Комментарий добавлен.
+        "400":
+          description: Передан не полный или не валидный набор данных для создания комментария к предложению по аренде.
+        "401":
+          description: Пользователь не авторизован.
+
+
+
+components:
+  schemas:
+    userAuthData:
+      type: object
+      properties:
+        email:
+          type: string
+          example: simonenko@yandex.ru
+        password:
+          type: string
+          example: 234435456password
+
+    userAuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          example: eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJlc3RAeWFuZGV4LnJ1IiwiaWQiOiI2MzVjZTQ5ZDU0OTdjNDRhMjU5MWY5ZGYiLCJpYXQiOjE2NjcwMzM4MzgsImV4cCI6MTY2NzIwNjYzOH0.wulqhalTU_yWBTDmOBCKDOo9XoE6UGzjQqCvy0IVDDA
+
+    userRegistrationData:
+      type: object
+      properties:
+        email:
+          type: string
+          example: ivanov@yandex.ru
+        password:
+          type: string
+          example: 234435456password
+        fullName:
+          type: string
+          example: Pavel Ivanov
+        userType:
+          enum:
+            - обычный
+            - pro
+
+    userResponseData:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 635b1d9f79a5815dce4cb220
+        avatarUrl:
+          type: string
+          example: https://www.six-cities.com/upload/avatar.jpg
+        email:
+          type: string
+          example: ivanov@yandex.ru
+        password:
+          type: string
+          example: 234435456password
+        fullName:
+          type: string
+          example: Pavel Ivanov
+        userType:
+          enum:
+            - обычный
+            - pro
+
+    offerRequestData:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Домик в лесу
+        description:
+          type: string
+          example: Уютное место для кратковременного или длительного проживания
+        city:
+          enum:
+            - Paris
+            - Cologne
+            - Brussels
+            - Amsterdam
+            - Hamburg
+            - Dusseldorf
+        previewPhotoUrl:
+          type: string
+          example: https://www.photos.com/preview.jpg
+        photosUrls:
+          type: array
+          items:
+            type: string
+            example: https://www.photos.com/photo.jpg
+        isPremium:
+          type: boolean
+          example: true
+        offerType:
+          enum:
+            - apartment
+            - house
+            - room
+            - hotel
+        roomsAmount:
+          type: number
+          example: 6
+        guestsLimit:
+          type: number
+          example: 6
+        price:
+          type: number
+          example: 55000
+        facilities:
+          type: array
+          items:
+            enum:
+              - Breakfast
+              - Air conditioning
+              - Laptop friendly workspace
+              - Baby seat
+              - Washer
+              - Towels
+              - Fridge
+        coordinates:
+          type: array
+          items:
+            type: number
+            example: 45.764576
+
+    offerResponseData:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 635b1d9f79a5815dce4cb220
+        title:
+          type: string
+          example: Домик в лесу
+        description:
+          type: string
+          example: Уютное место для кратковременного или длительного проживания
+        publicationDate:
+          type: string
+          example: 2022-04-06T08:45:40.283Z
+        city:
+          enum:
+            - Paris
+            - Cologne
+            - Brussels
+            - Amsterdam
+            - Hamburg
+            - Dusseldorf
+        previewPhotoUrl:
+          type: string
+          example: https://www.photos.com/preview.jpg
+        photosUrls:
+          type: array
+          items:
+            type: string
+            example: https://www.photos.com/photo.jpg
+        isPremium:
+          type: boolean
+          example: true
+        offerType:
+          enum:
+            - apartment
+            - house
+            - room
+            - hotel
+        roomsAmount:
+          type: number
+          example: 6
+        guestsLimit:
+          type: number
+          example: 6
+        price:
+          type: number
+          example: 55000
+        facilities:
+          type: array
+          items:
+            enum:
+              - Breakfast
+              - Air conditioning
+              - Laptop friendly workspace
+              - Baby seat
+              - Washer
+              - Towels
+              - Fridge
+        author:
+          type: object
+          example:
+            $ref: '#/components/schemas/userResponseData'
+        rating:
+          type: number
+          example: 4.6
+        commentsCount:
+          type: number
+          example: 24
+        coordinates:
+          type: array
+          items:
+            type: number
+            example: 45.764576
+
+    commentRequest:
+      type: object
+      properties:
+        text:
+          type: string
+          example:
+        rating:
+          type: number
+          example: 5
+
+    commentResponse:
+      type: object
+      properties:
+        text:
+          type: string
+          example:
+        publicationDate:
+          type: string
+          example: 2022-04-06T08:45:40.283Z
+        rating:
+          type: number
+          example: 3
+        author:
+          type: object
+          example:
+            $ref: '#/components/schemas/userResponseData'
