@@ -21,6 +21,7 @@ import {UPLOAD_DIRECTORY} from '../../app/constants.js';
 import UploadUserAvatarResponse from './response/upload-user-avatar-respose.js';
 import AuthenticateUserResponse from './response/authenticate-user-response.js';
 import {PrivateRouteMiddleware} from '../../common/middlewares/private-routes-middleware.js';
+import {AnonymousUserMiddleware} from '../../common/middlewares/anonymous-user-middleware.js';
 
 @injectable()
 export default class UserController extends Controller {
@@ -47,7 +48,10 @@ export default class UserController extends Controller {
       path: '/',
       method: HttpMethod.Post,
       handler: this.create,
-      middlewares: [new ValidateDtoMiddleware(CreateUserDto)],
+      middlewares: [
+        new AnonymousUserMiddleware(),
+        new ValidateDtoMiddleware(CreateUserDto)
+      ],
     });
     this.addRoute({
       path: '/:userId/avatar',
