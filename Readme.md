@@ -79,10 +79,6 @@ git clone SSH-адрес_вашего_форка
 * DB_URL=mongodb://admin:test@mongodb:27017/ - url базы данных
 * DB_USER=admin - логин пользователя базы данных
 * DB_PASSWORD=test - пароль пользователя базы данных
-* DB_INIT_USER=admin - логин дефолтного пользователя базы данных
-* DB_INIT_PASSWORD=test - пароль дефолтного пользователя базы данных
-* DB_ADMIN_USER_NAME=admin - логин админа базы данных
-* DB_ADMIN_PASSWORD=test - пароль админа базы данны
 
 ---
 
